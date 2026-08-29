@@ -1,0 +1,67 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import test from "node:test";
+
+const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+
+test("homepage keeps the locked section order and one H1", () => {
+  const page = read("app/page.tsx");
+  const hero = read("app/components/hero.tsx");
+  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"services\"", "measurement-section", "audience-section warm-section", "small-business-section", "id=\"offers\"", "why-section", "audit-section", "id=\"faq\"", "final-cta", "site-footer"];
+  let cursor = -1;
+  for (const marker of order) { const next = page.indexOf(marker, cursor + 1); assert.ok(next > cursor, `${marker} is in order`); cursor = next; }
+  assert.equal((`${page}\n${hero}`.match(/<h1/g) ?? []).length, 1);
+  assert.match(hero, /Build an Instagram presence people remember — and act on\./);
+});
+
+test("hero uses the untouched approved remote source and poster behavior", () => {
+  const hero = read("app/components/hero.tsx");
+  assert.match(hero, /https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/user_38xzZboKViGWJOttwIXH07lWA1P\/hf_20260813_092641_de52eb87-daf2-41db-92cb-7a56eae012a5\.mp4/);
+  for (const attribute of ["autoPlay", "muted", "loop", "playsInline", "poster=\"/media/hero-poster.webp\""]) assert.match(hero, new RegExp(attribute));
+});
+
+test("proof is attributed and contains no invented Reel data", () => {
+  const page = read("app/page.tsx");
+  const rail = read("app/components/reel-rail.tsx");
+  for (const text of ["Sl6Dl7", "102K followers", "Poetrynyx", "200K followers", "not Project Monet client campaigns"]) assert.match(page, new RegExp(text, "i"));
+  assert.match(rail, /reelProof: ReelProof\[\] = \[\]/);
+  assert.doesNotMatch(rail, /views|likes|client result/i);
+});
+
+test("automatic Reel rail cannot trap vertical scrolling", () => {
+  const rail = read("app/components/reel-rail.tsx");
+  const css = read("app/globals.css");
+  assert.doesNotMatch(rail, /preventDefault|onWheel|setPointerCapture|onTouch/);
+  assert.match(css, /\.reel-viewport \{[^}]*pointer-events: none;[^}]*touch-action: pan-y;/s);
+  assert.match(css, /\.reel-track \{[^}]*animation: rail-move/s);
+  assert.match(css, /prefers-reduced-motion/);
+});
+
+test("both one-question wizards include required success states and do not redirect", () => {
+  const modal = read("app/components/lead-form-modal.tsx");
+  assert.match(modal, /Step \{index \+ 1\} of \{steps\.length\}/);
+  for (const text of ["Your audit request is in.", "Your Viral Mandate application is in.", "aria-modal=\"true\"", "event.key === \"Escape\"", "document.body.style.overflow = \"hidden\""]) assert.ok(modal.includes(text));
+  assert.match(modal, /focusableSelector/);
+  assert.match(modal, /returnFocusRef\.current\.focus\(\)/);
+  assert.doesNotMatch(modal, /window\.location|redirect/);
+});
+
+test("metadata and crawl files expose only the live homepage", () => {
+  const layout = read("app/layout.tsx");
+  const sitemap = read("app/sitemap.ts");
+  assert.match(layout, /Instagram Marketing Agency in India \| Project Monet/);
+  assert.match(layout, /Project Monet is a creator-led Instagram marketing agency in India for founders and businesses\./);
+  assert.equal((sitemap.match(/url:/g) ?? []).length, 1);
+  for (const route of ["instagram-management-services", "resources", "blog"]) assert.doesNotMatch(sitemap, new RegExp(route));
+});
+
+test("mobile CSS keeps the page, rails, and near-full-screen form usable", () => {
+  const css = read("app/globals.css");
+  assert.match(css, /@media \(max-width: 767px\)/);
+  assert.match(css, /body \{[^}]*overflow-x: hidden/s);
+  assert.match(css, /\.service-viewport \{[^}]*touch-action: pan-x pan-y/s);
+  assert.match(css, /\.modal-panel \{[^}]*width: 100%;[^}]*height: calc\(100dvh/s);
+  assert.match(css, /\.modal-close \{[^}]*position: sticky/s);
+  assert.match(css, /env\(safe-area-inset-bottom\)/);
+  assert.match(css, /\.wizard-step \{[^}]*overflow-y: auto/s);
+});
