@@ -16,8 +16,16 @@ export const metadata: Metadata = {
   applicationName: "Project Monet",
   manifest: "/site.webmanifest",
   robots: { index: true, follow: true },
-  openGraph: { type: "website", url: "/", siteName: "Project Monet", title, description, locale: "en_IN" },
-  twitter: { card: "summary", title, description },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Project Monet",
+    title,
+    description,
+    locale: "en_IN",
+    images: [{ url: "/media/hero-poster.webp", width: 1280, height: 720, alt: "Project Monet cinematic hero" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/media/hero-poster.webp"] },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
