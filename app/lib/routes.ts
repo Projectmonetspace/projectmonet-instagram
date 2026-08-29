@@ -24,4 +24,34 @@ export const indexableRoutes = [
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
+  {
+    path: "/instagram-marketing-for-founders",
+    lastModified: "2026-08-29",
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  },
+  {
+    path: "/instagram-marketing-for-small-business",
+    lastModified: "2026-08-29",
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  },
+  {
+    path: "/instagram-audit",
+    lastModified: "2026-08-29",
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  },
+  {
+    path: "/viral-mandate",
+    lastModified: "2026-08-29",
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  },
+  {
+    path: "/about",
+    lastModified: "2026-08-29",
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  },
 ] as const;
