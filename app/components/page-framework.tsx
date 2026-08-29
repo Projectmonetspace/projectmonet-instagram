@@ -24,7 +24,7 @@ export function BreadcrumbSchema({ items }: { items: Crumb[] }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-export function PageHero({ eyebrow, title, intro, path, currentLabel, children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; children?: React.ReactNode }) {
+export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKind = "audit", primaryLabel = "Get a Free Instagram Audit", children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; primaryKind?: "audit" | "viral"; primaryLabel?: string; children?: React.ReactNode }) {
   return (
     <header className="page-hero dark-section">
       <SiteHeader />
@@ -34,7 +34,7 @@ export function PageHero({ eyebrow, title, intro, path, currentLabel, children }
         <h1>{title}</h1>
         <p className="page-hero-intro">{intro}</p>
         <div className="hero-actions">
-          <LeadFormTrigger kind="audit" location={`page_hero_${path.slice(1)}`} className="button button-orange">Get a Free Instagram Audit</LeadFormTrigger>
+          <LeadFormTrigger kind={primaryKind} location={`page_hero_${path.slice(1)}`} className="button button-orange">{primaryLabel}</LeadFormTrigger>
           {children}
         </div>
       </div>
