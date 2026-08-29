@@ -1,0 +1,221 @@
+export type ResourceSection = {
+  heading: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  callout?: string;
+};
+
+export type ResourceArticle = {
+  slug: string;
+  seoTitle: string;
+  title: string;
+  description: string;
+  eyebrow: string;
+  intro: string;
+  readTime: string;
+  sections: ResourceSection[];
+  related: Array<{ href: string; label: string; copy: string }>;
+};
+
+export const resourceArticles: ResourceArticle[] = [
+  {
+    slug: "instagram-marketing-cost-india",
+    seoTitle: "Instagram Marketing Cost in India | Project Monet",
+    title: "What does Instagram marketing cost in India?",
+    description: "Understand Instagram marketing and management costs in India, what changes the price, and how Project Monet’s $1,000 and $2,500 starting offers differ.",
+    eyebrow: "Instagram Marketing Cost in India",
+    intro: "The honest answer is that price depends on the work. A plan, six simple posts, and a full strategy-production-management system are not the same service.",
+    readTime: "8 min read",
+    sections: [
+      { heading: "Start with the scope, not the post count", paragraphs: ["A monthly price means little until you know who is responsible for strategy, ideas, production, approvals, publishing, and improvement. Two proposals can promise the same number of posts while containing very different levels of thinking and work.", "Ask what problem the engagement is meant to solve. An account that needs a positioning reset, founder filming, regular Reels, editing, profile work, publishing, and reporting needs more support than an account with an in-house team and a clear plan."], callout: "The number of assets matters. The system around those assets matters more." },
+      { heading: "What usually changes the price", bullets: ["Strategy depth and account research", "Number and type of Reels, carousels, stories, or static assets", "Scriptwriting, hooks, captions, and creative direction", "Filming, remote production support, travel, locations, or talent", "Editing complexity, graphics, sound, and versioning", "Profile optimization, publishing, community work, and reporting", "Approval speed, stakeholder count, and account complexity", "Testing cadence and the amount of ongoing improvement required"], paragraphs: ["A responsible proposal should show which of these are included. It should also show client responsibilities. Delayed footage or approvals can reduce what any team can publish and learn."] },
+      { heading: "Strategy changes the value of production", paragraphs: ["Production can make weak content look polished. It cannot make the wrong topic useful. Strategy decides who the content is for, why that person should care, what the account should become known for, and what should happen after a view.", "This is why Project Monet uses a Funnel-First approach. We improve the account path before treating output as the goal."], callout: "Good production helps a good idea travel. It does not replace the idea." },
+      { heading: "Approvals and management have a real cost", paragraphs: ["Content rarely moves from idea to published post in one step. Someone must collect information, check facts, manage feedback, prepare files, publish at the right time, and record what happened.", "Structured approvals reduce waste. Endless subjective revisions do the opposite. A clear engagement says when the client approves, what is being approved, and who makes the final call." ] },
+      { heading: "How Project Monet prices the two offers", paragraphs: ["Standard Management starts at $1,000 per month. Depending on scope, it can include strategy, content, profile work, publishing, reporting, and ongoing optimization. The client keeps structured approval rights. There is no virality guarantee.", "Viral Mandate starts at $2,500 per month and uses a six-month contract. Qualification is required. For eligible accounts, the agreed viral reach is written for that account. If it is not delivered by the end of the contract, the client may be eligible for a 50% refund under the signed terms."], callout: "More performance risk means more creative control." },
+      { heading: "How to compare proposals", bullets: ["Is the audience and account goal clearly defined?", "Who creates the ideas, scripts, footage, edits, captions, and reports?", "Which deliverables and revisions are included?", "Who owns approvals and how fast must they happen?", "What will be measured besides views?", "Are results, guarantees, and exclusions written clearly?", "Does the team explain what it will not do?"], paragraphs: ["The lowest quote is not automatically the cheapest choice. Rework, unused assets, wrong-audience growth, and unclear responsibility can cost more than a well-defined engagement."] },
+      { heading: "Choose the next useful step", paragraphs: ["If you are unsure what level of support the account needs, start with the account itself. A Free Instagram Audit can show whether the clearest problem is positioning, profile, content, production, management, or the path to an enquiry."] },
+    ],
+    related: [
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "See what the $1,000+ standard offer may include." },
+      { href: "/viral-mandate", label: "Viral Mandate", copy: "Understand the qualified $2,500+ six-month offer." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find the account’s clearest needs before buying." },
+    ],
+  },
+  {
+    slug: "instagram-reels-strategy-for-business",
+    seoTitle: "Instagram Reels Strategy for Business | Project Monet",
+    title: "A practical Instagram Reels strategy for business",
+    description: "Build a business Reels strategy around the audience, hook, retention, profile visit, follow, next action, testing, and what not to post.",
+    eyebrow: "Instagram Reels Strategy",
+    intro: "A Reel should do more than collect views. It should reach a useful person, hold attention long enough to make one point, and create a reason to visit or act.",
+    readTime: "9 min read",
+    sections: [
+      { heading: "Decide who the Reel is for", paragraphs: ["Do not begin with the trend, camera, or edit. Begin with the person. What do they already know? What problem, desire, doubt, or curiosity would make them stop?", "A broad topic may produce broad reach. That can be useful for some accounts. For most businesses, relevance matters more than reaching everyone."], callout: "The right viewer is more valuable than a random viewer." },
+      { heading: "Make the hook earn attention", paragraphs: ["The opening should help the intended viewer decide quickly. A hook can name a problem, make a useful promise, challenge a belief, show an outcome, or begin a story. It should match what the Reel actually delivers.", "A misleading opening may increase early retention and damage trust. Packaging matters, but the content must pay off the package."] },
+      { heading: "Retention comes from useful progression", bullets: ["Remove slow context that the viewer does not need", "Give each sentence or shot a reason to remain", "Use specific examples instead of repeating the claim", "Create visual change when it supports understanding", "Move from problem to explanation to useful conclusion", "End when the point is complete"], paragraphs: ["Fast editing is not the same as good retention. The viewer stays when the next moment feels worth seeing."] },
+      { heading: "Choose a topic the account should own", paragraphs: ["A business needs enough topic consistency for people and Instagram to understand the page. Random trends can create isolated spikes while making the account harder to remember.", "Build repeatable topic areas around customer questions, problems, buying decisions, expertise, proof, and useful points of view. Repeat the territory without repeating the same Reel." ] },
+      { heading: "Plan the profile visit", paragraphs: ["A Reel can work and the account can still fail. When someone visits, the profile image, name, bio, pinned posts, highlights, proof, and link should continue the same story.", "If the Reel promises help with a problem but the profile looks unrelated, the visit is wasted. If the page is clear but gives no reason to follow, attention leaves."], callout: "The Reel earns the visit. The profile earns the next step." },
+      { heading: "Use a next action that fits", bullets: ["Follow for a clear repeated benefit", "Save a useful process or checklist", "Share with a specific person", "Comment when a real conversation helps", "DM a useful word or question", "Visit a relevant page or booking path"], paragraphs: ["Do not force a sales action into every Reel. Match the request to the viewer’s level of trust and the content they just watched."] },
+      { heading: "Test ideas, not only edits", paragraphs: ["Testing can change the topic, audience angle, first line, structure, length, visual format, presenter, caption, cover, or call to action. Record what changed so the result teaches you something.", "One post does not prove a format. Look for patterns across several useful tests and compare reach, retention, profile visits, follows, DMs, and business actions." ] },
+      { heading: "Know what not to post", paragraphs: ["Do not publish a trend simply because it is popular. Do not keep a topic because one wrong audience made it spike. Do not turn every idea into a Reel when a carousel, story, pinned post, or direct answer would work better.", "A strategy creates choices. It also creates exclusions." ] },
+    ],
+    related: [
+      { href: "/instagram-reels-agency", label: "Instagram Reels Agency", copy: "See the idea-to-testing production system." },
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "Connect Reels to the full account path." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find where your Reel-to-profile path breaks." },
+    ],
+  },
+  {
+    slug: "instagram-content-strategy-for-business",
+    seoTitle: "Instagram Content Strategy for Business | Project Monet",
+    title: "How to build an Instagram content strategy for business",
+    description: "A plain-language Funnel-First Instagram content strategy covering audience, positioning, pillars, formats, profile, calls to action, measurement, and iteration.",
+    eyebrow: "Instagram Content Strategy",
+    intro: "A content strategy is a set of useful choices. It explains who the account is for, what it should become known for, what to publish, and what the content should make easier.",
+    readTime: "10 min read",
+    sections: [
+      { heading: "Start with the audience you can help", paragraphs: ["Describe the people the business can realistically serve. Use their situation, problem, level of knowledge, location where relevant, and buying context. Avoid a vague audience such as ‘everyone who wants to grow.’", "The useful audience shapes the examples, language, proof, format, and call to action." ] },
+      { heading: "Make the page position clear", paragraphs: ["Positioning answers three questions quickly: Who is this for? What does the account help with? Why should someone believe or remember it?", "The name, bio, pinned posts, highlights, visual direction, and repeated topics should support the same answer. Content cannot compensate forever for a page that sends mixed signals."], callout: "A visitor should not need ten posts to understand the account." },
+      { heading: "Build content pillars from real jobs", bullets: ["Help the audience understand a problem", "Teach a useful decision or process", "Show proof, experience, or how the work happens", "Answer doubts and buying objections", "Express a relevant point of view", "Make the offer and next step easier to understand"], paragraphs: ["Pillars are not labels for decoration. Each one should serve a repeatable audience or business need."] },
+      { heading: "Choose the right format for the idea", paragraphs: ["Use Reels when motion, voice, demonstration, story, or broad discovery helps. Use carousels when the reader benefits from steps, comparisons, examples, or saving. Use Stories for timely context, conversation, reminders, and lighter proof.", "The strongest format is the one that helps the idea land. A strategy should not force every message into the current popular format." ] },
+      { heading: "Connect content to the profile", paragraphs: ["Every useful piece of content creates an expectation. The profile should confirm it. Pinned posts can orient a new visitor. Highlights can answer common questions. The link and contact path should match the action the business wants.", "If the content attracts one audience and the profile speaks to another, growth becomes noisy." ] },
+      { heading: "Give the viewer a reasonable next action", bullets: ["Follow for a specific ongoing benefit", "Save or share a useful resource", "Read the pinned explanation", "Send a DM with a real question", "Book, buy, visit, or enquire when trust is sufficient"], paragraphs: ["A call to action is not always a command at the end of a caption. The entire page can make the next step obvious." ] },
+      { heading: "Measure the path, not one number", paragraphs: ["Track reach, profile visits, follows, engagement, DMs, leads, and business actions. Compare the result with the job of the content. A trust-building answer may not need mass reach. A discovery Reel should do more than please existing followers.", "Use comments and DMs as qualitative evidence too. They can reveal which point was clear, confusing, useful, or attractive to the wrong people." ] },
+      { heading: "Iterate without losing the strategy", paragraphs: ["Change hooks, examples, structures, formats, presenters, topics, and calls to action when evidence gives you a reason. Keep the audience and account position stable long enough to learn.", "Do not rebuild the plan after every weak post. Do not repeat a failing format just because it is on the calendar. Improvement needs both consistency and judgment."], callout: "Growth is knowing what to post — and what not to post." },
+    ],
+    related: [
+      { href: "/instagram-content-creation-services", label: "Content Creation", copy: "Turn the strategy into scripts, Reels, carousels, and captions." },
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "See how publishing and iteration fit the system." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find the clearest strategy gap in the current account." },
+    ],
+  },
+  {
+    slug: "instagram-profile-optimization",
+    seoTitle: "Instagram Profile Optimization Guide | Project Monet",
+    title: "Instagram profile optimization: turn visits into useful action",
+    description: "Improve your Instagram profile image, name, username, bio, offer, proof, pinned posts, highlights, link, CTA, search relevance, and conversion path.",
+    eyebrow: "Instagram Profile Optimization",
+    intro: "Content earns attention. The profile helps a visitor decide whether to follow, trust, click, message, buy, book, or leave.",
+    readTime: "9 min read",
+    sections: [
+      { heading: "Use a profile image people can recognise", paragraphs: ["A person-led account usually needs a clear face. A business account usually needs a legible approved mark. The image appears small, so tiny text and complicated scenes often fail.", "Keep the profile image consistent enough to be recognised across Reels, comments, DMs, and search results." ] },
+      { heading: "Make the name and username usable", paragraphs: ["The username should be easy to type, say, and remember where possible. The name field can help people understand the person, business, category, or location without stuffing keywords.", "Do not change a recognised username casually. Balance clarity with the cost of breaking recognition or links." ] },
+      { heading: "Write a bio that answers the visitor", bullets: ["Who is the account for?", "What does it help with or offer?", "What makes the promise credible or distinct?", "What should the visitor do next?"], paragraphs: ["A clever line is useful only when it remains clear. Avoid internal language the customer does not use. Keep claims accurate and current."], callout: "Clarity beats a bio that sounds impressive but says little." },
+      { heading: "Show the offer and proof", paragraphs: ["The visitor should be able to find the product, service, expertise, result, process, or reason to trust. Proof can be creator experience, business credentials, demonstrations, authorised customer evidence, process transparency, or useful depth.", "Label proof honestly. Founder results are not client results. A business claim should connect to evidence the account can support." ] },
+      { heading: "Use pinned posts as an orientation layer", bullets: ["Start here or what the account is about", "The core offer or how the business helps", "Strong proof, process, story, or answer to a major doubt"], paragraphs: ["Pinned posts should help a new visitor. They do not have to be the three most viral pieces of content." ] },
+      { heading: "Make Highlights earn their space", paragraphs: ["Highlights can explain services, products, proof, FAQs, process, location, results, team, or how to buy. Remove outdated information and empty categories.", "Use names people understand. A beautiful cover does not help if the visitor cannot predict what is inside." ] },
+      { heading: "Choose one clear link path", paragraphs: ["The link should continue the promise of the page. If several destinations matter, keep the choices limited and labelled. Do not make a warm visitor search through an unrelated company homepage.", "Check that the landing page works on mobile, loads quickly, matches the offer, and makes the next action clear." ] },
+      { heading: "Support search and discovery naturally", paragraphs: ["The name, bio, topic consistency, captions, and visible profile structure can help Instagram and people understand the account. Use relevant words naturally. Do not repeat keywords until the page becomes hard to read.", "Instagram SEO can improve discoverability. The profile still needs to convert that discovery into understanding and action." ] },
+      { heading: "Review the profile as one path", paragraphs: ["Open the account as if you know nothing about the business. Can you understand it in seconds? Do the most recent and pinned posts support the bio? Is the proof clear? Is the next action possible?", "Profile optimization is not a one-time decoration project. Update the page when the offer, audience, proof, or content direction changes." ] },
+    ],
+    related: [
+      { href: "/instagram-seo-services", label: "Instagram SEO Services", copy: "Improve how people find and understand the page." },
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "Connect profile work to content and publishing." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Get a human review of the current profile path." },
+    ],
+  },
+  {
+    slug: "instagram-seo-guide",
+    seoTitle: "Instagram SEO Guide for Business | Project Monet",
+    title: "Instagram SEO: what it is, what it is not, and how to use it",
+    description: "A plain-language Instagram SEO guide covering profile relevance, content topics, captions, natural keywords, discoverability, consistency, and conversion.",
+    eyebrow: "Instagram SEO Guide",
+    intro: "Instagram SEO helps the platform and people understand what an account and its content are about. It can support discovery. It cannot repair an unclear offer or guarantee reach.",
+    readTime: "9 min read",
+    sections: [
+      { heading: "Instagram SEO is not Google SEO", paragraphs: ["Instagram and Google are different products with different ranking and discovery systems. Some ideas overlap: clear topics, useful language, relevance, and content people value. The tactics and results are not identical.", "Do not treat a caption like a web page that needs a repeated keyword. Write for the person first and give Instagram enough clear context to classify the content."], callout: "Instagram SEO is context and discoverability — not a magic ranking switch." },
+      { heading: "Make the profile topic clear", paragraphs: ["The username, name field, bio, category, recent content, and pinned posts all send signals. They should make sense together.", "If the bio says one thing and the last twenty posts cover unrelated trends, the account is harder for people to understand and remember." ] },
+      { heading: "Choose topics with consistent relevance", paragraphs: ["Topic consistency does not mean repeating one phrase. It means returning to a useful area from different angles: questions, examples, mistakes, stories, comparisons, demonstrations, and opinions.", "A clear topic history helps the audience know why to follow. It also gives the platform more context about where the content may be relevant." ] },
+      { heading: "Use captions to add real context", bullets: ["Name the subject clearly", "Explain the point the Reel or carousel cannot show alone", "Use the words the intended audience naturally uses", "Add useful examples, distinctions, or next steps", "Avoid copied keyword blocks and unrelated hashtags"], paragraphs: ["A short caption can be enough when the visual content is clear. A longer caption can help when it adds meaning. Length is not the strategy." ] },
+      { heading: "Use keywords naturally", paragraphs: ["Relevant words can appear in the name field, bio, on-screen text, spoken content, caption, and accessibility text where they genuinely fit. Use variations because people describe the same need in different ways.", "Do not sacrifice clarity to fit every possible phrase. Repetition that feels unnatural can make the content worse for the person it is supposed to help." ] },
+      { heading: "Think beyond search results", paragraphs: ["People discover content through search, recommendations, Explore, shares, Reels, profiles, and other surfaces. Instagram SEO supports understanding across discovery, not only a typed query.", "That is why watch behaviour, relevance, response, and account consistency still matter. A keyword alone does not create useful distribution." ] },
+      { heading: "Convert discovery after it happens", paragraphs: ["A discovered Reel can lead to a profile visit. The profile then needs a clear promise, reason to follow, proof, and next action. Search visibility without profile clarity produces shallow traffic.", "Track more than impressions. Look at profile visits, follows, saves, shares, DMs, link actions, and the quality of the people responding." ] },
+      { heading: "A simple Instagram SEO workflow", bullets: ["Define the useful audience and main topic territory", "Review the profile name, bio, and pinned orientation", "Build repeatable content themes around real questions", "Use clear spoken, visual, and caption context", "Publish consistently enough to create a topic history", "Measure discovery and what happens after the visit", "Improve weak profile and content signals"], paragraphs: ["This work belongs inside a wider content and account strategy. It should make the page easier to find and easier to understand." ] },
+    ],
+    related: [
+      { href: "/instagram-seo-services", label: "Instagram SEO Services", copy: "See how Project Monet improves discoverability and profile clarity." },
+      { href: "/resources/instagram-profile-optimization", label: "Profile Optimization", copy: "Turn discovery into a clearer profile decision." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find the account’s clearest discoverability gaps." },
+    ],
+  },
+  {
+    slug: "how-to-get-leads-from-instagram",
+    seoTitle: "How to Get Leads from Instagram | Project Monet",
+    title: "How to get leads from Instagram without judging success by views",
+    description: "Build the path from Instagram reach to profile visits, trust, calls to action, DMs, leads, and business outcomes—and see why views alone can fail.",
+    eyebrow: "Instagram Leads",
+    intro: "Instagram does not turn a view into a lead automatically. The viewer must be relevant, understand the account, trust the business, see a useful next step, and be able to take it.",
+    readTime: "9 min read",
+    sections: [
+      { heading: "Reach the kind of person who may act", paragraphs: ["A large audience of people outside the market can create impressive numbers and few enquiries. Define the customer situation, location where relevant, problem, desire, and level of awareness before choosing topics.", "Content can reach beyond likely buyers and still be useful. The problem begins when the wrong audience becomes the main source of growth and shapes the account around irrelevant attention." ] },
+      { heading: "Earn the profile visit", paragraphs: ["A Reel or carousel should create enough relevance, curiosity, or trust for the intended person to visit. That can come from a useful answer, credible opinion, demonstration, story, or clear connection to a problem.", "Do not hide the topic behind vague hooks. The right viewer needs to recognise why the content matters." ] },
+      { heading: "Build trust on the page", bullets: ["A clear offer and intended audience", "Useful depth across recent posts", "Accurate proof and credentials", "Pinned explanations", "Visible people or process where appropriate", "Consistent facts, tone, and next steps"], paragraphs: ["Trust is not only a testimonial. It can come from clarity, specificity, demonstration, honest limits, and the quality of the thinking." ] },
+      { heading: "Choose a call to action that matches trust", paragraphs: ["A cold viewer may be ready to follow or save, not book a call. A person who has watched several useful posts and understands the offer may be ready to DM, enquire, or buy.", "Use low-friction next steps when the decision is early. Use direct business actions when the content and profile have answered enough questions."], callout: "The best CTA is the next reasonable step, not the biggest possible ask." },
+      { heading: "Make DMs easy to start and handle", paragraphs: ["A DM prompt should give the person a clear reason and enough context. ‘DM us’ is weaker than explaining what they can ask, receive, check, or discuss.", "The business also needs a response process. Decide who replies, how quickly, which questions qualify the lead, and where the conversation moves next. Do not collect DMs the team cannot handle." ] },
+      { heading: "Remove landing-page friction", paragraphs: ["If the CTA uses a link, the destination should load well on mobile, match the message, explain the offer, and keep the action visible. Too many choices can stop a warm visitor.", "Track the handoff. A strong Instagram result can be lost by a broken form, slow page, unclear booking flow, or follow-up delay." ] },
+      { heading: "Measure the complete path", bullets: ["Reach from relevant content", "Profile visits", "Follows and returning attention", "Saves, shares, and useful engagement", "DM starts and qualified conversations", "Form leads, calls, bookings, or purchases", "Lead quality and business outcome"], paragraphs: ["Not every account can connect every sale perfectly. Use the strongest available evidence and keep definitions consistent. Ask leads how they found the business when tracking is limited." ] },
+      { heading: "Why high views can produce no leads", paragraphs: ["The content may attract entertainment seekers instead of buyers. The profile may be unclear. The offer may not appear. The proof may be weak. The CTA may ask too much, too early. The link or response process may fail.", "Do not solve every lead problem by making more Reels. Find the broken step in the path first." ] },
+    ],
+    related: [
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "Build and improve the complete account path." },
+      { href: "/resources/instagram-reels-strategy-for-business", label: "Reels Strategy", copy: "Connect hooks and retention to profile action." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find the clearest break between content and leads." },
+    ],
+  },
+  {
+    slug: "why-instagram-is-not-growing",
+    seoTitle: "Why Your Instagram Is Not Growing | Project Monet",
+    title: "Why your Instagram is not growing—and what to check first",
+    description: "Diagnose wrong-audience reach, unclear positioning, weak hooks, random topics, poor profiles, no reason to follow, weak testing, and bad measurement.",
+    eyebrow: "Instagram Growth Problems",
+    intro: "Posting more may increase output without fixing growth. The real problem may sit in the audience, page, topic, hook, profile, follow reason, testing, or measurement.",
+    readTime: "10 min read",
+    sections: [
+      { heading: "The content reaches the wrong audience", paragraphs: ["A post can perform well with people who are unlikely to care about the business. If that audience follows, future content may be shown to more of the wrong people.", "Check which topics and formats create the spike. Read comments, profile actions, locations where relevant, and the kinds of accounts engaging. High reach is not automatically healthy growth." ] },
+      { heading: "The page is hard to understand", paragraphs: ["A visitor may like one post and still leave because the profile does not explain who it is for, what it offers, or why following will be useful.", "Review the name, bio, recent topics, pinned posts, highlights, proof, and link. They should tell one connected story."], callout: "If people cannot understand the page, they cannot make a confident follow decision." },
+      { heading: "The topics change too often", paragraphs: ["Random trends, personal updates, broad motivation, product posts, and unrelated tips can make the account feel active but forgettable. The audience cannot predict the benefit of following.", "Choose a useful topic territory and explore it through different questions, examples, stories, formats, and points of view." ] },
+      { heading: "The hooks do not help the right person stop", paragraphs: ["A weak opening may be vague, slow, familiar, or focused on the creator instead of the viewer. A strong hook makes the subject and value clear quickly.", "Do not use misleading drama to force attention. Test specificity, problem framing, outcome, contrast, story tension, and visual demonstration." ] },
+      { heading: "There is no reason to follow", bullets: ["The account does not promise a repeated benefit", "Recent posts do not support the same useful territory", "The best orientation content is not pinned", "Content answers one question but gives no reason to return", "The page looks like a catalogue or posting archive"], paragraphs: ["A follow is a future-value decision. Make the future value easy to see." ] },
+      { heading: "The profile loses the visit", paragraphs: ["Content may be earning profile visits while the profile fails to convert them. Compare reach with profile visits, then compare profile visits with follows, link actions, or DMs.", "If visits are low, examine the content’s relevance and curiosity. If visits are healthy but follows are weak, examine positioning, proof, topic consistency, and reason to follow." ] },
+      { heading: "The account chases random trends", paragraphs: ["A trend can be a useful format or distribution opportunity when it fits the audience and topic. It becomes harmful when the account bends its identity around whatever is popular.", "Ask whether the trend helps the intended person understand, trust, remember, or act. If not, skip it." ] },
+      { heading: "There is no real testing system", paragraphs: ["Changing everything at once creates activity without learning. Test one meaningful variable: topic, hook, presenter, structure, length, cover, caption, or CTA.", "Record what was different and what happened across reach, retention, profile visits, follows, engagement, and actions. One result is a clue, not a law." ] },
+      { heading: "The team measures the wrong thing", paragraphs: ["Follower count and views matter in context. They do not explain whether the account reached useful people or helped the business.", "Choose metrics that match the content job. A discovery Reel, proof post, objection answer, and direct offer should not be judged by one identical number." ] },
+      { heading: "What to check first", bullets: ["Who is actually seeing and following the account?", "Can a new visitor understand the page quickly?", "Are the recent topics connected?", "Do the hooks make the value clear?", "Is there a repeated reason to follow?", "Does the profile make the next action easy?", "Are tests producing learning?", "Do the metrics reflect the business path?"], paragraphs: ["If several parts are unclear, start with an audit. Fixing the earliest broken step often makes later content more valuable." ] },
+    ],
+    related: [
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Get a human diagnosis of the account’s clearest problems." },
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "Build a connected strategy, profile, and content system." },
+      { href: "/resources/instagram-profile-optimization", label: "Profile Optimization", copy: "Check whether profile visits become follows and action." },
+    ],
+  },
+  {
+    slug: "instagram-reels-for-small-business-india",
+    seoTitle: "Instagram Reels for Small Business in India | Project Monet",
+    title: "Instagram Reels for small businesses in India",
+    description: "Practical Reel ideas for Indian small businesses: local discovery, founder-led content, proof, FAQs, objections, behind-the-scenes, education, trust, and calls to action.",
+    eyebrow: "Instagram Reels for Small Business India",
+    intro: "A small business does not need national fame from every Reel. It needs useful people to discover the offer, understand it, trust it, and know how to buy, book, visit, or ask.",
+    readTime: "9 min read",
+    sections: [
+      { heading: "Use local relevance when the business is local", paragraphs: ["If the business serves a city, neighbourhood, or delivery area, make that context easy to understand. Show the place, service area, local use case, language where useful, and practical details a customer needs.", "Do not add a city name to unrelated content and call it local strategy. The Reel itself should be relevant to someone in that market." ] },
+      { heading: "Let a founder or expert explain the business", paragraphs: ["People often trust people before company pages. A founder, specialist, maker, chef, consultant, doctor, trainer, or team member can explain choices, answer doubts, and show the thinking behind the service.", "This does not require becoming an influencer. Use a person when their knowledge, presence, or story makes the business easier to trust."], callout: "Be recognisable to the right people, not famous to everyone." },
+      { heading: "Show product or service proof", bullets: ["A product in use", "A service process from start to finish", "Materials, ingredients, tools, or quality checks", "Before-and-after evidence you can support", "Customer proof you have permission to publish", "The outcome and the limits around it"], paragraphs: ["Proof should be accurate and specific. Avoid exaggerated claims that the business cannot support." ] },
+      { heading: "Turn FAQs into Reels", paragraphs: ["Write down the questions people ask before buying, booking, visiting, or sending a DM. Each strong question can become a clear Reel.", "Answer price context, timing, process, fit, location, delivery, preparation, maintenance, comparison, and what happens next. A useful answer can reduce sales friction before the conversation begins." ] },
+      { heading: "Answer objections without becoming defensive", paragraphs: ["Common objections reveal where trust or understanding is weak. Explain why the service costs what it does, who it is not for, what the process requires, and how to choose responsibly.", "Do not attack alternatives or shame the customer. Give them a better decision." ] },
+      { heading: "Use behind-the-scenes content with a point", paragraphs: ["A random day-in-the-life clip may be pleasant but unclear. Show the part of the process that proves care, skill, speed, hygiene, quality, customisation, or reliability.", "Add enough context for a new viewer to understand why the moment matters." ] },
+      { heading: "Teach what helps the buyer", bullets: ["How to choose the right option", "Mistakes to avoid before buying", "What affects price or timing", "How to prepare for the service", "How to use or care for the product", "What a good result realistically looks like"], paragraphs: ["Educational content works best when it connects expertise to a real customer decision. Avoid tips that attract people who will never need the business." ] },
+      { heading: "Build trust across the account", paragraphs: ["One Reel cannot carry the whole business. The bio, pinned posts, highlights, recent content, proof, location, contact method, and link should support it.", "If a Reel reaches the right local person, make the profile ready for that visit." ] },
+      { heading: "Give a clear, practical CTA", paragraphs: ["Tell people whether to DM, call, WhatsApp, book, visit, check availability, use a link, or follow for a specific reason. Include location, service area, timing, or qualification context when it prevents confusion.", "Choose one next action. Too many choices can turn interest into delay." ] },
+      { heading: "Measure business usefulness", paragraphs: ["Track reach and watch behaviour, then look at profile visits, follows, saves, shares, DMs, WhatsApp starts, calls, bookings, store visits, or purchases where the business can measure them.", "A Reel with modest views can be valuable if it reaches local buyers and creates action. A broad viral Reel can be less valuable if it produces only distant, irrelevant attention." ] },
+    ],
+    related: [
+      { href: "/instagram-marketing-for-small-business", label: "Instagram for Small Business", copy: "See the full find-understand-trust-act account path." },
+      { href: "/instagram-reels-agency", label: "Instagram Reels Agency", copy: "Build and test Reels with a clear business job." },
+      { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find what is holding the current account back." },
+    ],
+  },
+];
+
+export function getResourceArticle(slug: string) {
+  return resourceArticles.find((article) => article.slug === slug);
+}

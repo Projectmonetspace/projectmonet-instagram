@@ -1,3 +1,5 @@
+import { resourceArticles } from "./resources";
+
 export const indexableRoutes = [
   { path: "/", lastModified: "2026-08-29", changeFrequency: "weekly" as const, priority: 1 },
   {
@@ -54,4 +56,16 @@ export const indexableRoutes = [
     changeFrequency: "monthly" as const,
     priority: 0.7,
   },
+  {
+    path: "/resources",
+    lastModified: "2026-08-29",
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  },
+  ...resourceArticles.map((article) => ({
+    path: `/resources/${article.slug}`,
+    lastModified: "2026-08-29",
+    changeFrequency: "monthly" as const,
+    priority: 0.72,
+  })),
 ] as const;

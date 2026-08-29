@@ -58,7 +58,7 @@ test("metadata and crawl files expose the homepage and live service routes", () 
     assert.match(routes, new RegExp(route));
     assert.match(llms, new RegExp(route));
   }
-  for (const route of ["resources", "blog"]) assert.doesNotMatch(routes, new RegExp(`/${route}`));
+  assert.doesNotMatch(routes, /\/blog/);
 });
 
 test("mobile CSS keeps the page, rails, and near-full-screen form usable", () => {
