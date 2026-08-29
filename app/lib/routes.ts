@@ -68,4 +68,10 @@ export const indexableRoutes = [
     changeFrequency: "monthly" as const,
     priority: 0.72,
   })),
+  ...["/privacy", "/cookies", "/terms", "/audit-terms"].map((path) => ({
+    path,
+    lastModified: "2026-08-29",
+    changeFrequency: "yearly" as const,
+    priority: 0.25,
+  })),
 ] as const;

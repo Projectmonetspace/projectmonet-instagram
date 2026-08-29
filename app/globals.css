@@ -219,6 +219,9 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
 .site-footer .page-shell > div { display: flex; flex-direction: column; gap: 12px; }
 .site-footer strong { font-size: 24px; font-weight: 520; }
 .site-footer a { color: rgba(255,255,255,.65); font-size: 13px; }
+.footer-links { align-items: flex-end; }
+.footer-links nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px; }
+.footer-links nav a { font-size: 11px; }
 
 .page-hero { position: relative; min-height: 760px; overflow: hidden; background: radial-gradient(circle at 82% 12%, rgba(240,74,29,.23), transparent 34%), linear-gradient(145deg, #17100e, #080808 67%); }
 .page-hero::after { content: ""; position: absolute; width: 520px; height: 520px; right: -170px; bottom: -230px; border: 1px solid rgba(240,74,29,.2); border-radius: 50%; box-shadow: 0 0 0 90px rgba(240,74,29,.025), 0 0 0 180px rgba(240,74,29,.018); }
@@ -359,6 +362,18 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
 .article-section-body li { padding: 15px 0; display: flex; align-items: flex-start; gap: 13px; border-bottom: 1px solid var(--line); line-height: 1.55; }
 .article-section-body li svg { width: 17px; min-width: 17px; margin-top: 3px; color: var(--deep-orange); }
 .article-section-body blockquote { margin: 40px 0 0; padding: 28px; border-left: 3px solid var(--orange); background: #e9ded5; color: var(--deep-orange); font-size: 25px; line-height: 1.25; font-weight: 530; letter-spacing: -.035em; }
+.legal-page { padding: 70px 0 130px; }
+.legal-shell { width: min(100%, 1040px); margin-inline: auto; padding-inline: 32px; }
+.legal-updated { margin: 0 0 45px; color: #6b635e; font-size: 13px; }
+.legal-shell > section { padding: 58px 0; display: grid; grid-template-columns: .65fr 1fr; gap: 70px; border-top: 1px solid var(--line); }
+.legal-shell > section > div:first-child { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; }
+.legal-shell > section span { padding-top: 7px; color: var(--deep-orange); font-size: 10px; font-weight: 700; }
+.legal-shell h2 { margin: 0; font-size: 32px; line-height: 1.05; font-weight: 480; letter-spacing: -.045em; }
+.legal-shell section p { margin: 0 0 22px; color: #514b47; font-size: 17px; line-height: 1.75; }
+.legal-shell section ul { margin: 0 0 22px; padding-left: 20px; color: #514b47; line-height: 1.75; }
+.legal-shell section li { margin-bottom: 9px; }
+.legal-links { padding-top: 50px; display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--line); }
+.legal-links a { padding: 11px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; }
 .not-found { min-height: 100svh; padding: 120px 0; display: grid; align-items: center; }
 .not-found h1 { max-width: 900px; margin: 0 0 30px; font-size: clamp(60px, 8vw, 120px); line-height: .9; font-weight: 430; letter-spacing: -.06em; }
 .not-found p:not(.eyebrow) { margin-bottom: 34px; color: rgba(255,255,255,.57); }
@@ -486,6 +501,8 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
   .final-cta { padding: 100px 0; }
   .final-kicker { font-size: 55px !important; }
   .site-footer .page-shell { flex-direction: column; }
+  .footer-links { align-items: flex-start; }
+  .footer-links nav { justify-content: flex-start; }
   .modal-layer { place-items: end center; padding: max(8px, env(safe-area-inset-top)) 0 0; }
   .modal-panel { width: 100%; height: calc(100dvh - max(8px, env(safe-area-inset-top))); border-radius: 24px 24px 0 0; border-bottom: 0; }
   .modal-close { position: sticky; float: right; top: 14px; right: 14px; margin: 14px 14px -60px 0; width: 44px; height: 44px; }
@@ -555,6 +572,11 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
   .article-section h2 { font-size: 31px; }
   .article-section-body > p { font-size: 16px; }
   .article-section-body blockquote { padding: 22px; font-size: 22px; }
+  .legal-page { padding: 45px 0 90px; }
+  .legal-shell { padding-inline: 20px; }
+  .legal-shell > section { padding: 48px 0; grid-template-columns: 1fr; gap: 28px; }
+  .legal-shell h2 { font-size: 29px; }
+  .legal-shell section p { font-size: 16px; }
 }
 
 @media (max-height: 760px) and (min-width: 1024px) {

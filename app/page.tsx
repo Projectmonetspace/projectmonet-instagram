@@ -4,6 +4,7 @@ import Hero from "./components/hero";
 import { LeadFormTrigger } from "./components/lead-form-modal";
 import { SiteFooter } from "./components/page-framework";
 import ReelRail from "./components/reel-rail";
+import { absoluteUrl } from "./lib/site";
 
 const services = [
   { number: "01", title: "Instagram Management", copy: "Strategy, publishing, review, and ongoing improvement.", href: "/instagram-management-services" },
@@ -26,6 +27,19 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Instagram Marketing and Management",
+  url: absoluteUrl("/"),
+  provider: { "@type": "Organization", name: "Project Monet", url: absoluteUrl("/") },
+  areaServed: { "@type": "Country", name: "India" },
+  serviceType: ["Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO"],
+  offers: [
+    { "@type": "Offer", name: "Standard Management", price: "1000", priceCurrency: "USD", description: "Monthly starting price. No virality guarantee. Final scope and price depend on the engagement." },
+    { "@type": "Offer", name: "Viral Mandate", price: "2500", priceCurrency: "USD", description: "Monthly starting price. Qualification and a six-month contract are required." },
+  ],
 };
 
 export default function Home() {
@@ -110,6 +124,7 @@ export default function Home() {
       </main>
 
       <SiteFooter />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   );
