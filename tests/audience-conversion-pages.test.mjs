@@ -64,5 +64,5 @@ test("navigation exposes live audience and Viral routes without overloading desk
   const header = read("app/components/site-header.tsx");
   for (const route of ["/instagram-marketing-for-founders", "/instagram-marketing-for-small-business", "/viral-mandate"]) assert.match(header, new RegExp(route));
   assert.match(header, /Who We Help/);
-  assert.doesNotMatch(header, /href="\/resources"/);
+  assert.match(header, /href="\/resources"/);
 });
