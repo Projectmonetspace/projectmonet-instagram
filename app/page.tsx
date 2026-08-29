@@ -1,7 +1,8 @@
 import { ArrowDownRight, ArrowRight } from "lucide-react";
-import AnalyticsLink from "./components/analytics-link";
+import Link from "next/link";
 import Hero from "./components/hero";
 import { LeadFormTrigger } from "./components/lead-form-modal";
+import { SiteFooter } from "./components/page-framework";
 import ReelRail from "./components/reel-rail";
 
 const services = [
@@ -69,7 +70,7 @@ export default function Home() {
 
         <section id="services" className="services-section warm-section" aria-labelledby="services-title">
           <div className="page-shell section-heading split"><div><p className="eyebrow">Services</p><h2 id="services-title">Built around Instagram. Nothing else.</h2></div><p>Four parts of one clear account system.</p></div>
-          <div className="service-viewport page-shell"><div className="service-track">{services.map((service) => <article key={service.title} className="service-card" data-future-href={service.href}><span>{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><ArrowRight aria-hidden="true" /></article>)}</div></div>
+          <div className="service-viewport page-shell"><div className="service-track">{services.map((service) => <Link key={service.title} href={service.href} className="service-card"><span>{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><ArrowRight aria-hidden="true" /></Link>)}</div></div>
         </section>
 
         <section className="measurement-section dark-section" aria-labelledby="measurement-title">
@@ -108,7 +109,7 @@ export default function Home() {
         <section className="final-cta orange-section"><div className="page-shell"><p className="eyebrow">One clear next step</p><h2>Your Instagram should have a job.</h2><p className="final-kicker">Not just a feed.</p><p>We can show you what is working, what is weak, and what we would fix first.</p><div className="hero-actions"><LeadFormTrigger kind="audit" location="final_cta" className="button button-ink">Get a Free Instagram Audit</LeadFormTrigger><LeadFormTrigger kind="viral" location="final_cta" className="button button-orange-outline">See if You Qualify for Viral Mandate</LeadFormTrigger></div></div></section>
       </main>
 
-      <footer className="site-footer"><div className="page-shell"><div><strong>Project Monet</strong><AnalyticsLink href="mailto:contact@projectmonet.com" event="click_to_email" location="footer">contact@projectmonet.com</AnalyticsLink></div><AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink></div></footer>
+      <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   );

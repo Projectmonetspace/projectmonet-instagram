@@ -1,17 +1,24 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import BrandMark from "./brand-mark";
 import { useLeadForm } from "./lead-form-modal";
 import { trackEvent } from "@/app/lib/analytics";
 
+const serviceLinks = [
+  { label: "Instagram Management", href: "/instagram-management-services" },
+  { label: "Content Creation", href: "/instagram-content-creation-services" },
+  { label: "Instagram Reels", href: "/instagram-reels-agency" },
+  { label: "Instagram SEO", href: "/instagram-seo-services" },
+];
+
 const links = [
-  { label: "Results", href: "#results" },
-  { label: "Method", href: "#method" },
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#offers" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Results", href: "/#results" },
+  { label: "Method", href: "/#method" },
+  { label: "Pricing", href: "/#offers" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function SiteHeader() {
@@ -30,9 +37,13 @@ export default function SiteHeader() {
   return (
     <>
       <nav className="site-nav" aria-label="Primary navigation">
-        <a href="#top" aria-label="Project Monet home" onClick={() => setOpen(false)}><BrandMark /></a>
+        <Link href="/" aria-label="Project Monet home" onClick={() => setOpen(false)}><BrandMark /></Link>
         <div className="desktop-nav glass-surface">
-          {links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+          <details className="nav-dropdown">
+            <summary>Services</summary>
+            <div>{serviceLinks.map((link) => <Link key={link.href} href={link.href}>{link.label}<span aria-hidden="true">↘</span></Link>)}</div>
+          </details>
+          {links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
         </div>
         <div className="desktop-actions glass-surface">
           <a href="https://www.projectmonet.space" target="_blank" rel="noreferrer" onClick={() => trackEvent("websites_link_click", { location: "header" })}>Websites ↗</a>
@@ -45,7 +56,10 @@ export default function SiteHeader() {
       <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
         <button className="mobile-menu-backdrop" type="button" aria-label="Close menu" onClick={() => setOpen(false)} />
         <div className="mobile-menu-panel glass-surface">
-          {links.map((link) => <a key={link.href} href={link.href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>{link.label}<span>↘</span></a>)}
+          <p>Services</p>
+          {serviceLinks.map((link) => <Link key={link.href} href={link.href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>{link.label}<span>↘</span></Link>)}
+          <p>Explore</p>
+          {links.map((link) => <Link key={link.href} href={link.href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>{link.label}<span>↘</span></Link>)}
           <button className="button button-light" type="button" tabIndex={open ? 0 : -1} onClick={(event) => { setOpen(false); openForm("audit", event.currentTarget, "mobile_menu"); }}>Get a Free Instagram Audit</button>
           <a className="button button-outline" href="https://www.projectmonet.space" target="_blank" rel="noreferrer" tabIndex={open ? 0 : -1}>Websites ↗</a>
         </div>

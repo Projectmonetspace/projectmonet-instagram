@@ -7,7 +7,7 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 test("homepage keeps the locked section order and one H1", () => {
   const page = read("app/page.tsx");
   const hero = read("app/components/hero.tsx");
-  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"services\"", "measurement-section", "audience-section warm-section", "small-business-section", "id=\"offers\"", "why-section", "audit-section", "id=\"faq\"", "final-cta", "site-footer"];
+  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"services\"", "measurement-section", "audience-section warm-section", "small-business-section", "id=\"offers\"", "why-section", "audit-section", "id=\"faq\"", "final-cta", "<SiteFooter"];
   let cursor = -1;
   for (const marker of order) { const next = page.indexOf(marker, cursor + 1); assert.ok(next > cursor, `${marker} is in order`); cursor = next; }
   assert.equal((`${page}\n${hero}`.match(/<h1/g) ?? []).length, 1);
@@ -46,13 +46,19 @@ test("both one-question wizards include required success states and do not redir
   assert.doesNotMatch(modal, /window\.location|redirect/);
 });
 
-test("metadata and crawl files expose only the live homepage", () => {
+test("metadata and crawl files expose the homepage and live service routes", () => {
   const layout = read("app/layout.tsx");
   const sitemap = read("app/sitemap.ts");
+  const routes = read("app/lib/routes.ts");
+  const llms = read("public/llms.txt");
   assert.match(layout, /Instagram Marketing Agency in India \| Project Monet/);
   assert.match(layout, /Project Monet is a creator-led Instagram marketing agency in India for founders and businesses\./);
-  assert.equal((sitemap.match(/url:/g) ?? []).length, 1);
-  for (const route of ["instagram-management-services", "resources", "blog"]) assert.doesNotMatch(sitemap, new RegExp(route));
+  assert.match(sitemap, /indexableRoutes\.map/);
+  for (const route of ["instagram-management-services", "instagram-content-creation-services", "instagram-reels-agency", "instagram-seo-services"]) {
+    assert.match(routes, new RegExp(route));
+    assert.match(llms, new RegExp(route));
+  }
+  for (const route of ["resources", "blog"]) assert.doesNotMatch(routes, new RegExp(`/${route}`));
 });
 
 test("mobile CSS keeps the page, rails, and near-full-screen form usable", () => {
