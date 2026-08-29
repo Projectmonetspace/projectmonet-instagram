@@ -24,7 +24,7 @@ export function BreadcrumbSchema({ items }: { items: Crumb[] }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
-export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKind = "audit", primaryLabel = "Get a Free Instagram Audit", children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; primaryKind?: "audit" | "viral"; primaryLabel?: string; children?: React.ReactNode }) {
+export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKind = "audit", primaryLabel = "Get a Free Instagram Audit", showPrimary = true, children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; primaryKind?: "audit" | "viral"; primaryLabel?: string; showPrimary?: boolean; children?: React.ReactNode }) {
   return (
     <header className="page-hero dark-section">
       <SiteHeader />
@@ -33,10 +33,10 @@ export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKin
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p className="page-hero-intro">{intro}</p>
-        <div className="hero-actions">
-          <LeadFormTrigger kind={primaryKind} location={`page_hero_${path.slice(1)}`} className="button button-orange">{primaryLabel}</LeadFormTrigger>
+        {(showPrimary || children) && <div className="hero-actions">
+          {showPrimary && <LeadFormTrigger kind={primaryKind} location={`page_hero_${path.slice(1)}`} className="button button-orange">{primaryLabel}</LeadFormTrigger>}
           {children}
-        </div>
+        </div>}
       </div>
     </header>
   );
@@ -72,7 +72,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="page-shell">
         <div><strong>Project Monet</strong><AnalyticsLink href="mailto:contact@projectmonet.com" event="click_to_email" location="footer">contact@projectmonet.com</AnalyticsLink></div>
-        <AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink>
+        <div className="footer-links"><AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink><nav aria-label="Legal"><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/audit-terms">Audit Terms</Link></nav></div>
       </div>
     </footer>
   );
