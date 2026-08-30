@@ -5,10 +5,10 @@ import test from "node:test";
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
 const pages = [
-  ["instagram-management-services", "Instagram Management Services in India | Project Monet", "Instagram management built around growth, trust, and business action."],
+  ["instagram-management-services", "Instagram Management Services | Project Monet", "Instagram management built around growth, trust, and business action."],
   ["instagram-content-creation-services", "Instagram Content Creation Services | Project Monet", "Instagram content with a reason to exist."],
-  ["instagram-reels-agency", "Instagram Reels Agency in India | Project Monet", "Reels built to earn the next action, not only the view."],
-  ["instagram-seo-services", "Instagram SEO Services in India | Project Monet", "Help the right people find and understand your Instagram."],
+  ["instagram-reels-agency", "Instagram Reels Agency | Project Monet", "Reels built to earn the next action, not only the view."],
+  ["instagram-seo-services", "Instagram SEO Services | Project Monet", "Help the right people find and understand your Instagram."],
 ];
 
 test("each service route has unique metadata and one declared page H1", () => {

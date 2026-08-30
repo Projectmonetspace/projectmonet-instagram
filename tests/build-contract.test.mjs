@@ -12,6 +12,8 @@ test("homepage keeps the locked section order and one H1", () => {
   for (const marker of order) { const next = page.indexOf(marker, cursor + 1); assert.ok(next > cursor, `${marker} is in order`); cursor = next; }
   assert.equal((`${page}\n${hero}`.match(/<h1/g) ?? []).length, 1);
   assert.match(hero, /Build an Instagram presence people remember — and act on\./);
+  assert.match(hero, /Creator-Led Instagram Marketing Agency/);
+  assert.match(hero, /Remote\. Working with founders and businesses worldwide\./);
 });
 
 test("hero uses the untouched approved remote source and poster behavior", () => {
@@ -52,8 +54,11 @@ test("metadata and crawl files expose the homepage and live service routes", () 
   const sitemap = read("app/sitemap.ts");
   const routes = read("app/lib/routes.ts");
   const llms = read("public/llms.txt");
-  assert.match(layout, /Instagram Marketing Agency in India \| Project Monet/);
-  assert.match(layout, /Project Monet is a creator-led Instagram marketing agency in India for founders and businesses\./);
+  assert.match(layout, /Instagram Marketing Agency for Founders & Businesses \| Project Monet/);
+  assert.match(layout, /Project Monet is a creator-led Instagram marketing agency for founders and businesses worldwide\./);
+  assert.match(layout, /areaServed: "Worldwide"/);
+  assert.match(read("app/page.tsx"), /areaServed: "Worldwide"/);
+  assert.match(read("app/components/service-page.tsx"), /areaServed: "Worldwide"/);
   assert.match(sitemap, /indexableRoutes\.map/);
   for (const route of ["instagram-management-services", "instagram-content-creation-services", "instagram-reels-agency", "instagram-seo-services"]) {
     assert.match(routes, new RegExp(route));

@@ -19,11 +19,11 @@ export type ResourceArticle = {
 
 export const resourceArticles: ResourceArticle[] = [
   {
-    slug: "instagram-marketing-cost-india",
-    seoTitle: "Instagram Marketing Cost in India | Project Monet",
-    title: "What does Instagram marketing cost in India?",
-    description: "Understand Instagram marketing and management costs in India, what changes the price, and how Project Monet’s $1,000 and $2,500 starting offers differ.",
-    eyebrow: "Instagram Marketing Cost in India",
+    slug: "instagram-marketing-cost",
+    seoTitle: "Instagram Marketing Cost: Pricing & Budget Guide | Project Monet",
+    title: "What does Instagram marketing cost?",
+    description: "Understand what changes Instagram marketing and management costs, and how Project Monet’s $1,000 and $2,500 monthly starting offers differ.",
+    eyebrow: "Instagram Marketing Cost",
     intro: "The honest answer is that price depends on the work. A plan, six simple posts, and a full strategy-production-management system are not the same service.",
     readTime: "8 min read",
     sections: [
@@ -189,11 +189,11 @@ export const resourceArticles: ResourceArticle[] = [
     ],
   },
   {
-    slug: "instagram-reels-for-small-business-india",
-    seoTitle: "Instagram Reels for Small Business in India | Project Monet",
-    title: "Instagram Reels for small businesses in India",
-    description: "Practical Reel ideas for Indian small businesses: local discovery, founder-led content, proof, FAQs, objections, behind-the-scenes, education, trust, and calls to action.",
-    eyebrow: "Instagram Reels for Small Business India",
+    slug: "instagram-reels-for-small-business",
+    seoTitle: "Instagram Reels for Small Business | Project Monet",
+    title: "Instagram Reels for small businesses",
+    description: "Practical Reel ideas for small businesses: local discovery, founder-led content, proof, FAQs, objections, behind-the-scenes, education, trust, and calls to action.",
+    eyebrow: "Instagram Reels for Small Business",
     intro: "A small business does not need national fame from every Reel. It needs useful people to discover the offer, understand it, trust it, and know how to buy, book, visit, or ask.",
     readTime: "9 min read",
     sections: [

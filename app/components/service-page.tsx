@@ -29,7 +29,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
     url: absoluteUrl(data.path),
     description: data.intro,
     serviceType: data.eyebrow,
-    areaServed: { "@type": "Country", name: "India" },
+    areaServed: "Worldwide",
     provider: { "@type": "Organization", name: "Project Monet", url: absoluteUrl("/") },
     offers: { "@type": "Offer", price: "1000", priceCurrency: "USD", description: "Standard Management monthly starting price. Final scope and price depend on the engagement." },
   };

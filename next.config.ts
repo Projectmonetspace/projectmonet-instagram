@@ -3,6 +3,20 @@ import { securityHeaders } from "./security-headers.mjs";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/resources/instagram-marketing-cost-india",
+        destination: "/resources/instagram-marketing-cost",
+        permanent: true,
+      },
+      {
+        source: "/resources/instagram-reels-for-small-business-india",
+        destination: "/resources/instagram-reels-for-small-business",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     const headers = process.env.NODE_ENV === "development"
       ? securityHeaders.map((header) => header.key === "Content-Security-Policy"

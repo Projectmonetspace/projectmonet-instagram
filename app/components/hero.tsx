@@ -15,10 +15,10 @@ export default function Hero() {
         <SiteHeader />
         <div className="hero-row page-shell">
           <div className="hero-copy">
-            <p className="hero-eyebrow animate-up">Instagram Marketing Agency in India</p>
+            <p className="hero-eyebrow animate-up">Creator-Led Instagram Marketing Agency</p>
             <h1 id="hero-title" className="animate-up delay-1">Build an Instagram presence people remember — and act on.</h1>
             <p className="hero-subhead animate-up delay-2">Project Monet plans, creates, and manages Instagram for founders and businesses.</p>
-            <p className="hero-detail animate-up delay-2">We build the profile, content, and system that turns attention into growth, trust, DMs, leads, and demand.</p>
+            <p className="hero-detail animate-up delay-2">We build the profile, content, and system that turns attention into growth, trust, DMs, leads, and demand. Remote. Working with founders and businesses worldwide.</p>
             <div className="hero-actions animate-up delay-3">
               <LeadFormTrigger kind="audit" location="hero" className="button button-light">Get a Free Instagram Audit</LeadFormTrigger>
               <a className="button button-outline" href="#results">See Results</a>

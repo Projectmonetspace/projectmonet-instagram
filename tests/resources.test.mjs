@@ -4,14 +4,14 @@ import test from "node:test";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 const slugs = [
-  "instagram-marketing-cost-india",
+  "instagram-marketing-cost",
   "instagram-reels-strategy-for-business",
   "instagram-content-strategy-for-business",
   "instagram-profile-optimization",
   "instagram-seo-guide",
   "how-to-get-leads-from-instagram",
   "why-instagram-is-not-growing",
-  "instagram-reels-for-small-business-india",
+  "instagram-reels-for-small-business",
 ];
 
 test("resource registry contains exactly the planned eight live articles", () => {
@@ -62,6 +62,13 @@ test("sitemap and llms consume the live resource registry", () => {
   assert.match(routes, /path: "\/resources"/);
   for (const slug of slugs) assert.match(llms, new RegExp(`/resources/${slug}`));
   assert.doesNotMatch(llms, /private|CRM|hidden scoring/i);
+  assert.doesNotMatch(llms, /instagram-marketing-cost-india|instagram-reels-for-small-business-india/);
+});
+
+test("legacy India resource routes permanently redirect to global canonicals", () => {
+  const config = read("next.config.ts");
+  assert.match(config, /source: "\/resources\/instagram-marketing-cost-india"[\s\S]*destination: "\/resources\/instagram-marketing-cost"[\s\S]*permanent: true/);
+  assert.match(config, /source: "\/resources\/instagram-reels-for-small-business-india"[\s\S]*destination: "\/resources\/instagram-reels-for-small-business"[\s\S]*permanent: true/);
 });
 
 test("resource copy preserves plain-language strategic distinctions", () => {
