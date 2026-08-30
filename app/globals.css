@@ -114,17 +114,19 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
 .creator-card svg { position: absolute; top: 24px; right: 24px; width: 20px; }
 .aggregate-card { background: var(--orange); color: var(--ink); border-color: var(--orange); }
 .aggregate-card > span, .aggregate-card p { color: rgba(11,11,11,.68); }
-.reel-viewport { width: 100%; margin-top: 56px; overflow: hidden; pointer-events: none; touch-action: pan-y; }
-.reel-track { width: max-content; display: flex; gap: 18px; padding-inline: 18px; animation: rail-move 54s linear infinite; will-change: transform; }
-.reel-card { position: relative; width: clamp(210px, 18vw, 304px); aspect-ratio: 9 / 16; flex: 0 0 auto; overflow: hidden; padding: 22px; border: 1px solid rgba(255,255,255,.1); border-radius: 26px; background: radial-gradient(circle at 70% 12%, rgba(240,74,29,.32), transparent 37%), linear-gradient(150deg, #1a1716, #0b0b0b 65%); }
-.reel-card:nth-child(3n+2) { background: radial-gradient(circle at 20% 74%, rgba(255,106,61,.26), transparent 38%), #12100f; }
-.reel-card:nth-child(3n+3) { background: linear-gradient(165deg, rgba(240,74,29,.52), #17110f 42%, #090909); }
-.reel-number { color: rgba(255,255,255,.38); font-size: 10px; letter-spacing: .15em; }
-.reel-lines { position: absolute; inset: auto 22px 74px; display: grid; gap: 8px; }
-.reel-lines i { height: 1px; background: rgba(255,255,255,.2); }
-.reel-lines i:nth-child(2) { width: 72%; }
-.reel-lines i:nth-child(3) { width: 43%; }
-.reel-label { position: absolute; left: 22px; bottom: 24px; color: rgba(255,255,255,.32); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.reel-viewport { width: 100%; margin-top: 56px; overflow: hidden; touch-action: pan-y; }
+.reel-track { width: max-content; display: flex; gap: 18px; padding-inline: 18px; animation: rail-move 96s linear infinite; will-change: transform; }
+.reel-card { position: relative; width: clamp(210px, 18vw, 304px); aspect-ratio: 9 / 16; flex: 0 0 auto; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 26px; background: #111; color: #fff; isolation: isolate; touch-action: pan-y; }
+.reel-card::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(11,11,11,.18) 0%, transparent 34%, rgba(11,11,11,.16) 55%, rgba(11,11,11,.94) 100%); pointer-events: none; }
+.reel-card img { z-index: 0; object-fit: cover; transition: transform .7s var(--ease), filter .7s var(--ease); }
+.reel-card:hover img { transform: scale(1.025); filter: saturate(1.04); }
+.reel-card:focus-visible { outline: 2px solid var(--sunset); outline-offset: 4px; }
+.reel-card:focus-visible img { transform: scale(1.025); }
+.reel-proof-type { position: absolute; z-index: 2; top: 18px; left: 18px; max-width: calc(100% - 36px); padding: 8px 10px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; background: rgba(11,11,11,.66); backdrop-filter: blur(12px); color: rgba(255,255,255,.76); font-size: 8px; font-weight: 700; letter-spacing: .1em; line-height: 1; text-transform: uppercase; }
+.reel-card-copy { position: absolute; z-index: 2; right: 20px; bottom: 21px; left: 20px; display: grid; gap: 6px; }
+.reel-card-copy strong { font-size: 19px; font-weight: 550; letter-spacing: -.025em; }
+.reel-card-copy > span { color: rgba(255,255,255,.7); font-size: 11px; line-height: 1.35; }
+.reel-track:has(.reel-card:focus-visible) { animation-play-state: paused; }
 .proof-disclosure { margin-top: 28px; color: rgba(255,255,255,.42); font-size: 11px; }
 
 .problem-section, .method-section, .services-section, .measurement-section, .audience-section, .offers-section, .why-section, .audit-section, .faq-section { padding: 130px 0; }
