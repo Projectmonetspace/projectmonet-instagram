@@ -5,8 +5,8 @@ import { SITE_ORIGIN } from "./lib/site";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
-const title = "Instagram Marketing Agency in India | Project Monet";
-const description = "Project Monet is a creator-led Instagram marketing agency in India for founders and businesses. Strategy, content, Reels, management, Instagram SEO, and a free Instagram audit.";
+const title = "Instagram Marketing Agency for Founders & Businesses | Project Monet";
+const description = "Project Monet is a creator-led Instagram marketing agency for founders and businesses worldwide. Strategy, content, Reels, management, Instagram SEO, and a free Instagram audit.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     siteName: "Project Monet",
     title,
     description,
-    locale: "en_IN",
     images: [{ url: "/media/hero-poster.webp", width: 1280, height: 720, alt: "Project Monet cinematic hero" }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/media/hero-poster.webp"] },
@@ -46,6 +45,7 @@ const organizationSchema = {
   logo: `${SITE_ORIGIN}/android-chrome-512x512.png`,
   email: "contact@projectmonet.com",
   description,
+  areaServed: "Worldwide",
   sameAs: ["https://www.instagram.com/projectmonet/"],
 };
 
@@ -53,7 +53,7 @@ const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", na
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN">
+    <html lang="en">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />

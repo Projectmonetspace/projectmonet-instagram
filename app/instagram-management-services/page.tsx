@@ -3,8 +3,8 @@ import { pageMetadata } from "@/app/lib/site";
 
 const path = "/instagram-management-services";
 export const metadata = pageMetadata({
-  title: "Instagram Management Services in India | Project Monet",
-  description: "Instagram management services for founders and businesses in India. Strategy, content, publishing, profile improvement, reporting, and ongoing optimization from $1,000/month.",
+  title: "Instagram Management Services | Project Monet",
+  description: "Instagram management services for founders and businesses worldwide. Strategy, content, publishing, profile improvement, reporting, and ongoing optimization from $1,000/month.",
   path,
 });
 

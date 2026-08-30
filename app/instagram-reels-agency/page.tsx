@@ -3,7 +3,7 @@ import { pageMetadata } from "@/app/lib/site";
 
 const path = "/instagram-reels-agency";
 export const metadata = pageMetadata({
-  title: "Instagram Reels Agency in India | Project Monet",
+  title: "Instagram Reels Agency | Project Monet",
   description: "Instagram Reels strategy and production for businesses and founders. Ideas, hooks, scripts, editing, packaging, testing, and iteration connected to profile and business goals.",
   path,
 });

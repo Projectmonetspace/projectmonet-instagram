@@ -3,8 +3,8 @@ import { pageMetadata } from "@/app/lib/site";
 
 const path = "/instagram-seo-services";
 export const metadata = pageMetadata({
-  title: "Instagram SEO Services in India | Project Monet",
-  description: "Instagram SEO services for businesses in India. Improve profile clarity, topic relevance, searchable content, discoverability, and conversion after people find your account.",
+  title: "Instagram SEO Services | Project Monet",
+  description: "Instagram SEO services for businesses worldwide. Improve profile clarity, topic relevance, searchable content, discoverability, and conversion after people find your account.",
   path,
 });
 

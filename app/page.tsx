@@ -34,7 +34,7 @@ const serviceSchema = {
   name: "Instagram Marketing and Management",
   url: absoluteUrl("/"),
   provider: { "@type": "Organization", name: "Project Monet", url: absoluteUrl("/") },
-  areaServed: { "@type": "Country", name: "India" },
+  areaServed: "Worldwide",
   serviceType: ["Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO"],
   offers: [
     { "@type": "Offer", name: "Standard Management", price: "1000", priceCurrency: "USD", description: "Monthly starting price. No virality guarantee. Final scope and price depend on the engagement." },
