@@ -20,19 +20,20 @@ test("hero uses the untouched approved remote source and poster behavior", () =>
   for (const attribute of ["autoPlay", "muted", "loop", "playsInline", "poster=\"/media/hero-poster.webp\""]) assert.match(hero, new RegExp(attribute));
 });
 
-test("proof is attributed and contains no invented Reel data", () => {
+test("proof is attributed and identifies creator experience rather than client results", () => {
   const page = read("app/page.tsx");
   const rail = read("app/components/reel-rail.tsx");
-  for (const text of ["Sl6Dl7", "102K followers", "Poetrynyx", "200K followers", "not Project Monet client campaigns"]) assert.match(page, new RegExp(text, "i"));
-  assert.match(rail, /reelProof: ReelProof\[\] = \[\]/);
-  assert.doesNotMatch(rail, /views|likes|client result/i);
+  for (const text of ["Sl6Dl7", "102K followers", "Poetrynyx", "200K followers", "not Project Monet client results"]) assert.match(page, new RegExp(text, "i"));
+  assert.match(page, /Results That Speak/);
+  assert.match(rail, /Verified founder and team Instagram Reel results/);
 });
 
 test("automatic Reel rail cannot trap vertical scrolling", () => {
   const rail = read("app/components/reel-rail.tsx");
   const css = read("app/globals.css");
   assert.doesNotMatch(rail, /preventDefault|onWheel|setPointerCapture|onTouch/);
-  assert.match(css, /\.reel-viewport \{[^}]*pointer-events: none;[^}]*touch-action: pan-y;/s);
+  assert.match(css, /\.reel-viewport \{[^}]*touch-action: pan-y;/s);
+  assert.match(css, /\.reel-card \{[^}]*touch-action: pan-y;/s);
   assert.match(css, /\.reel-track \{[^}]*animation: rail-move/s);
   assert.match(css, /prefers-reduced-motion/);
 });

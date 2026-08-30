@@ -1,0 +1,131 @@
+export type ReelProof = {
+  shortcode: string;
+  account: "Poetrynyx" | "Sl6dl7";
+  handle: "@poetrynyx" | "@sl6dl7";
+  label: "Team / Creator Result" | "Founder / Creator Result";
+  views: string;
+  likes?: string;
+  thumbnail: string;
+  href: string;
+};
+
+export const reelProof: readonly ReelProof[] = [
+  {
+    shortcode: "C-p8e1myj2p",
+    account: "Poetrynyx",
+    handle: "@poetrynyx",
+    label: "Team / Creator Result",
+    views: "27.6M",
+    likes: "2.4M",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_C-p8e1myj2p.jpg",
+    href: "https://www.instagram.com/reel/C-p8e1myj2p/",
+  },
+  {
+    shortcode: "C093-LuKwqW",
+    account: "Sl6dl7",
+    handle: "@sl6dl7",
+    label: "Founder / Creator Result",
+    views: "9.5M",
+    likes: "685K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_C093-LuKwqW.jpg",
+    href: "https://www.instagram.com/reel/C093-LuKwqW/",
+  },
+  {
+    shortcode: "C2EimIbrsoS",
+    account: "Poetrynyx",
+    handle: "@poetrynyx",
+    label: "Team / Creator Result",
+    views: "11.7M",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_C2EimIbrsoS.jpg",
+    href: "https://www.instagram.com/reel/C2EimIbrsoS/",
+  },
+  {
+    shortcode: "CzuANP0K5ML",
+    account: "Sl6dl7",
+    handle: "@sl6dl7",
+    label: "Founder / Creator Result",
+    views: "4.2M",
+    likes: "236K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_CzuANP0K5ML.jpg",
+    href: "https://www.instagram.com/reel/CzuANP0K5ML/",
+  },
+  {
+    shortcode: "DAImKFKN01J",
+    account: "Poetrynyx",
+    handle: "@poetrynyx",
+    label: "Team / Creator Result",
+    views: "8.4M",
+    likes: "455K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_DAImKFKN01J.jpg",
+    href: "https://www.instagram.com/reel/DAImKFKN01J/",
+  },
+  {
+    shortcode: "C3xkNnAoWa_",
+    account: "Sl6dl7",
+    handle: "@sl6dl7",
+    label: "Founder / Creator Result",
+    views: "3.6M",
+    likes: "290K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_C3xkNnAoWa_.jpg",
+    href: "https://www.instagram.com/reel/C3xkNnAoWa_/",
+  },
+  {
+    shortcode: "C6oczyKRM_L",
+    account: "Poetrynyx",
+    handle: "@poetrynyx",
+    label: "Team / Creator Result",
+    views: "5.6M",
+    likes: "347K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_C6oczyKRM_L.jpg",
+    href: "https://www.instagram.com/reel/C6oczyKRM_L/",
+  },
+  {
+    shortcode: "CrodTefqiKm",
+    account: "Sl6dl7",
+    handle: "@sl6dl7",
+    label: "Founder / Creator Result",
+    views: "3.6M",
+    likes: "340K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_CrodTefqiKm.jpg",
+    href: "https://www.instagram.com/reel/CrodTefqiKm/",
+  },
+  {
+    shortcode: "DEZ1ybtyyck",
+    account: "Poetrynyx",
+    handle: "@poetrynyx",
+    label: "Team / Creator Result",
+    views: "5.3M",
+    likes: "594K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_DEZ1ybtyyck.jpg",
+    href: "https://www.instagram.com/reel/DEZ1ybtyyck/",
+  },
+  {
+    shortcode: "CzpAg5nKgWc",
+    account: "Sl6dl7",
+    handle: "@sl6dl7",
+    label: "Founder / Creator Result",
+    views: "3.2M",
+    likes: "247K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_CzpAg5nKgWc.jpg",
+    href: "https://www.instagram.com/reel/CzpAg5nKgWc/",
+  },
+  {
+    shortcode: "DHJGgbCtvGF",
+    account: "Poetrynyx",
+    handle: "@poetrynyx",
+    label: "Team / Creator Result",
+    views: "5.4M",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_DHJGgbCtvGF.jpg",
+    href: "https://www.instagram.com/reel/DHJGgbCtvGF/",
+  },
+  {
+    shortcode: "CytnwFRq0c2",
+    account: "Sl6dl7",
+    handle: "@sl6dl7",
+    label: "Founder / Creator Result",
+    views: "2.5M",
+    likes: "217K",
+    thumbnail: "/media/reel-proof/snaplytics.io_instagram_thumbnail_CytnwFRq0c2.jpg",
+    href: "https://www.instagram.com/reel/CytnwFRq0c2/",
+  },
+];

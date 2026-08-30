@@ -50,7 +50,7 @@ export default function Home() {
 
         <section id="results" className="proof-section dark-section" aria-labelledby="proof-title">
           <div className="page-shell proof-heading">
-            <div><p className="eyebrow">Founder / Team Proof</p><h2 id="proof-title">We learned Instagram by doing it.</h2></div>
+            <div><p className="eyebrow">Results That Speak</p><h2 id="proof-title">We learned Instagram by doing it.</h2></div>
             <p>The people behind Project Monet built audiences before they started managing brands.</p>
           </div>
           <div className="page-shell creator-grid">
@@ -59,7 +59,7 @@ export default function Home() {
             <article className="creator-card aggregate-card"><span>Creator / team experience</span><strong>35M+</strong><p>Organic views · 5+ original trend formats</p></article>
           </div>
           <ReelRail />
-          <p className="proof-disclosure page-shell">Founder and team results are creator experience. They are not Project Monet client campaigns.</p>
+          <p className="proof-disclosure page-shell">Founder and team results are shown as creator experience. They are not Project Monet client results.</p>
         </section>
 
         <section className="problem-section warm-section">
