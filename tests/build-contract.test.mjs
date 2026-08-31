@@ -16,10 +16,21 @@ test("homepage keeps the locked section order and one H1", () => {
   assert.match(hero, /Remote\. Working with founders and businesses worldwide\./);
 });
 
-test("hero uses the untouched approved remote source and poster behavior", () => {
+test("hero paints its poster before starting the untouched approved video", () => {
   const hero = read("app/components/hero.tsx");
-  assert.match(hero, /https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/user_38xzZboKViGWJOttwIXH07lWA1P\/hf_20260813_092641_de52eb87-daf2-41db-92cb-7a56eae012a5\.mp4/);
-  for (const attribute of ["autoPlay", "muted", "loop", "playsInline", "poster=\"/media/hero-poster.webp\""]) assert.match(hero, new RegExp(attribute));
+  const media = read("app/components/hero-media.tsx");
+  assert.match(hero, /<HeroMedia \/>/);
+  assert.match(media, /https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/user_38xzZboKViGWJOttwIXH07lWA1P\/hf_20260813_092641_de52eb87-daf2-41db-92cb-7a56eae012a5\.mp4/);
+  for (const attribute of ["autoPlay", "muted", "loop", "playsInline", "preload=\"none\""]) assert.match(media, new RegExp(attribute));
+  assert.match(media, /src=\"\/media\/hero-poster.webp\"/);
+  assert.match(media, /preload\s*\n/);
+  assert.match(media, /prefers-reduced-motion: reduce/);
+});
+
+test("Reel images use responsive Next Image delivery", () => {
+  const rail = read("app/components/reel-rail.tsx");
+  assert.match(rail, /sizes=\"\(max-width: 767px\) 220px, \(max-width: 1688px\) 18vw, 304px\"/);
+  assert.doesNotMatch(rail, /unoptimized/);
 });
 
 test("proof is attributed and identifies creator experience rather than client results", () => {
@@ -64,6 +75,7 @@ test("metadata and crawl files expose the homepage and live service routes", () 
     assert.match(routes, new RegExp(route));
     assert.match(llms, new RegExp(route));
   }
+  assert.match(llms, /\[Homepage\]\(https:\/\/www\.projectmonet\.com\/\)/);
   assert.doesNotMatch(routes, /\/blog/);
 });
 

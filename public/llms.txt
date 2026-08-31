@@ -2,30 +2,40 @@
 
 > Project Monet is a creator-led Instagram marketing agency for founders and businesses worldwide.
 
-Live public content:
-- Homepage: https://www.projectmonet.com/
-- Instagram Management Services: https://www.projectmonet.com/instagram-management-services
-- Instagram Content Creation Services: https://www.projectmonet.com/instagram-content-creation-services
-- Instagram Reels Agency: https://www.projectmonet.com/instagram-reels-agency
-- Instagram SEO Services: https://www.projectmonet.com/instagram-seo-services
-- Instagram Marketing for Founders: https://www.projectmonet.com/instagram-marketing-for-founders
-- Instagram Marketing for Small Business: https://www.projectmonet.com/instagram-marketing-for-small-business
-- Free Instagram Audit: https://www.projectmonet.com/instagram-audit
-- Viral Mandate: https://www.projectmonet.com/viral-mandate
-- About Project Monet: https://www.projectmonet.com/about
-- Resources: https://www.projectmonet.com/resources
-- Instagram marketing cost: https://www.projectmonet.com/resources/instagram-marketing-cost
-- Instagram Reels strategy for business: https://www.projectmonet.com/resources/instagram-reels-strategy-for-business
-- Instagram content strategy for business: https://www.projectmonet.com/resources/instagram-content-strategy-for-business
-- Instagram profile optimization: https://www.projectmonet.com/resources/instagram-profile-optimization
-- Instagram SEO guide: https://www.projectmonet.com/resources/instagram-seo-guide
-- How to get leads from Instagram: https://www.projectmonet.com/resources/how-to-get-leads-from-instagram
-- Why Instagram is not growing: https://www.projectmonet.com/resources/why-instagram-is-not-growing
-- Instagram Reels for small business: https://www.projectmonet.com/resources/instagram-reels-for-small-business
-- Privacy Policy: https://www.projectmonet.com/privacy
-- Cookies Policy: https://www.projectmonet.com/cookies
-- Website Terms: https://www.projectmonet.com/terms
-- Free Instagram Audit Terms: https://www.projectmonet.com/audit-terms
+## Main pages
+
+- [Homepage](https://www.projectmonet.com/)
+- [Instagram Management Services](https://www.projectmonet.com/instagram-management-services)
+- [Instagram Content Creation Services](https://www.projectmonet.com/instagram-content-creation-services)
+- [Instagram Reels Agency](https://www.projectmonet.com/instagram-reels-agency)
+- [Instagram SEO Services](https://www.projectmonet.com/instagram-seo-services)
+- [Instagram Marketing for Founders](https://www.projectmonet.com/instagram-marketing-for-founders)
+- [Instagram Marketing for Small Business](https://www.projectmonet.com/instagram-marketing-for-small-business)
+- [Free Instagram Audit](https://www.projectmonet.com/instagram-audit)
+- [Viral Mandate](https://www.projectmonet.com/viral-mandate)
+- [About Project Monet](https://www.projectmonet.com/about)
+
+## Resources
+
+- [Resource hub](https://www.projectmonet.com/resources)
+- [Instagram marketing cost](https://www.projectmonet.com/resources/instagram-marketing-cost)
+- [Instagram Reels strategy for business](https://www.projectmonet.com/resources/instagram-reels-strategy-for-business)
+- [Instagram content strategy for business](https://www.projectmonet.com/resources/instagram-content-strategy-for-business)
+- [Instagram profile optimization](https://www.projectmonet.com/resources/instagram-profile-optimization)
+- [Instagram SEO guide](https://www.projectmonet.com/resources/instagram-seo-guide)
+- [How to get leads from Instagram](https://www.projectmonet.com/resources/how-to-get-leads-from-instagram)
+- [Why Instagram is not growing](https://www.projectmonet.com/resources/why-instagram-is-not-growing)
+- [Instagram Reels for small business](https://www.projectmonet.com/resources/instagram-reels-for-small-business)
+
+## Policies
+
+- [Privacy Policy](https://www.projectmonet.com/privacy)
+- [Cookies Policy](https://www.projectmonet.com/cookies)
+- [Website Terms](https://www.projectmonet.com/terms)
+- [Free Instagram Audit Terms](https://www.projectmonet.com/audit-terms)
+
+## Offers and method
+
 - Method: Funnel-First Growth System.
 - Standard Management starts at $1,000/month and has no virality guarantee.
 - Viral Mandate starts at $2,500/month, uses a six-month contract, and requires qualification.
@@ -35,4 +45,5 @@ Live public content:
 Founder and team creator results are not Project Monet client campaign results.
 
 Contact: contact@projectmonet.com
-Websites service: https://www.projectmonet.space
+
+[Project Monet Websites](https://www.projectmonet.space)
