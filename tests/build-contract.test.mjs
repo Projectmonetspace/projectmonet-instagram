@@ -7,13 +7,15 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 test("homepage keeps the locked section order and one H1", () => {
   const page = read("app/page.tsx");
   const hero = read("app/components/hero.tsx");
-  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"services\"", "measurement-section", "audience-section warm-section", "small-business-section", "id=\"offers\"", "why-section", "audit-section", "id=\"faq\"", "final-cta", "<SiteFooter"];
+  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"services\"", "measurement-section", "id=\"offers\"", "why-section", "audit-section", "id=\"faq\"", "final-cta", "<SiteFooter"];
   let cursor = -1;
   for (const marker of order) { const next = page.indexOf(marker, cursor + 1); assert.ok(next > cursor, `${marker} is in order`); cursor = next; }
   assert.equal((`${page}\n${hero}`.match(/<h1/g) ?? []).length, 1);
   assert.match(hero, /Build an Instagram presence people remember — and act on\./);
   assert.match(hero, /Creator-Led Instagram Marketing Agency/);
   assert.match(hero, /Remote\. Working with founders and businesses worldwide\./);
+  assert.doesNotMatch(page, /Founder-led brands|Your founder can become part of the growth engine|small-business-section|You do not need millions of followers/);
+  assert.match(page, /className="refund-highlight">50% refund<\/strong>/);
 });
 
 test("hero paints its poster before starting the untouched approved video", () => {
