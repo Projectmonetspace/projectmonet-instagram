@@ -26,8 +26,7 @@ test("hero paints its poster before starting the untouched approved video", () =
   assert.match(media, /preload\s*\n/);
   assert.match(media, /prefers-reduced-motion: reduce/);
   const css = read("app/globals.css");
-  assert.match(css, /@keyframes hero-title-up \{ from \{ transform: translateY\(26px\); \} to \{ transform: none; \} \}/);
-  assert.match(css, /\.hero-copy h1\.animate-up \{ opacity: 1; animation-name: hero-title-up; animation-fill-mode: both; \}/);
+  assert.match(css, /\.hero-copy h1\.animate-up \{ opacity: 1; animation: none; \}/);
 });
 
 test("Reel images use responsive Next Image delivery", () => {
