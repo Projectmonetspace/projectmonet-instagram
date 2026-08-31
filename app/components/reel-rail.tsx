@@ -19,9 +19,8 @@ function ReelCard({ reel, duplicate = false }: { reel: ReelProof; duplicate?: bo
         src={reel.thumbnail}
         alt={duplicate ? "" : `Instagram Reel cover from ${reel.handle} with ${reel.views} views`}
         fill
-        sizes="(max-width: 767px) 220px, 18vw"
+        sizes="(max-width: 767px) 220px, (max-width: 1688px) 18vw, 304px"
         loading="lazy"
-        unoptimized
         draggable={false}
       />
       <span className="reel-proof-type">{reel.label}</span>
