@@ -4,7 +4,7 @@ import { pageMetadata } from "@/app/lib/site";
 const path = "/instagram-content-creation-services";
 export const metadata = pageMetadata({
   title: "Instagram Content Creation Services | Project Monet",
-  description: "Instagram content creation services for businesses and founders. Reels, hooks, scripts, carousels, captions, creative direction, and content systems tied to real goals.",
+  description: "Instagram content creation for businesses and founders: Reels, hooks, scripts, carousels, captions, creative direction, and goal-led content systems.",
   path,
 });
 

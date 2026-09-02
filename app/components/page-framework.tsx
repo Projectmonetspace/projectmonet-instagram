@@ -72,7 +72,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="page-shell">
         <div><strong>Project Monet</strong><AnalyticsLink href="mailto:contact@projectmonet.com" event="click_to_email" location="footer">contact@projectmonet.com</AnalyticsLink></div>
-        <div className="footer-links"><AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink><nav aria-label="Legal"><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/audit-terms">Audit Terms</Link></nav></div>
+        <div className="footer-links"><AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink><nav aria-label="Company and legal"><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/audit-terms">Audit Terms</Link></nav></div>
       </div>
     </footer>
   );

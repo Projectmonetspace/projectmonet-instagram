@@ -4,7 +4,7 @@ import { pageMetadata } from "@/app/lib/site";
 const path = "/instagram-seo-services";
 export const metadata = pageMetadata({
   title: "Instagram SEO Services | Project Monet",
-  description: "Instagram SEO services for businesses worldwide. Improve profile clarity, topic relevance, searchable content, discoverability, and conversion after people find your account.",
+  description: "Instagram SEO services for businesses worldwide: clearer profiles, relevant topics, searchable content, discoverability, and stronger post-discovery conversion.",
   path,
 });
 
@@ -51,6 +51,7 @@ const data: ServicePageData = {
     { href: "/instagram-management-services", label: "Instagram Management", copy: "Turn discoverability work into an ongoing account system." },
     { href: "/instagram-content-creation-services", label: "Instagram Content Creation", copy: "Build content around topics people and the platform can understand." },
     { href: "/instagram-reels-agency", label: "Instagram Reels Agency", copy: "Use clear topic signals without weakening the creative idea." },
+    { href: "/resources/instagram-seo-guide", label: "Instagram SEO Guide", copy: "Read the practical workflow behind profile and content discoverability." },
   ],
 };
 

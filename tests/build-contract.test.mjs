@@ -70,7 +70,7 @@ test("metadata and crawl files expose the homepage and live service routes", () 
   const routes = read("app/lib/routes.ts");
   const llms = read("public/llms.txt");
   assert.match(layout, /Instagram Marketing Agency for Founders & Businesses \| Project Monet/);
-  assert.match(layout, /Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide\./);
+  assert.match(layout, /Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide/);
   assert.match(layout, /areaServed: "Worldwide"/);
   assert.match(read("app/page.tsx"), /areaServed: "Worldwide"/);
   assert.match(read("app/components/service-page.tsx"), /areaServed: "Worldwide"/);
@@ -81,6 +81,19 @@ test("metadata and crawl files expose the homepage and live service routes", () 
   }
   assert.match(llms, /\[Homepage\]\(https:\/\/www\.projectmonet\.com\/\)/);
   assert.doesNotMatch(routes, /\/blog/);
+});
+
+test("robots declares canonical crawl access and sitemap", () => {
+  const robots = read("app/robots.ts");
+  assert.match(robots, /userAgent: "\*"/);
+  assert.match(robots, /allow: "\/"/);
+  assert.match(robots, /sitemap: "https:\/\/www\.projectmonet\.com\/sitemap\.xml"/);
+  assert.match(robots, /host: "https:\/\/www\.projectmonet\.com"/);
+});
+
+test("about is discoverable from the shared footer", () => {
+  const framework = read("app/components/page-framework.tsx");
+  assert.match(framework, /<Link href="\/about">About<\/Link>/);
 });
 
 test("mobile CSS keeps the page, rails, and near-full-screen form usable", () => {
