@@ -29,6 +29,7 @@ export default function AudiencePage({ data }: { data: AudiencePageData }) {
     name: data.eyebrow,
     url: absoluteUrl(data.path),
     description: data.intro,
+    areaServed: "Worldwide",
     audience: { "@type": "Audience", audienceType: data.eyebrow.replace("Instagram Marketing for ", "") },
     provider: { "@type": "Organization", name: "Project Monet", url: absoluteUrl("/") },
   };

@@ -70,7 +70,7 @@ test("metadata and crawl files expose the homepage and live service routes", () 
   const routes = read("app/lib/routes.ts");
   const llms = read("public/llms.txt");
   assert.match(layout, /Instagram Marketing Agency for Founders & Businesses \| Project Monet/);
-  assert.match(layout, /Project Monet is a creator-led Instagram marketing agency for founders and businesses worldwide\./);
+  assert.match(layout, /Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide\./);
   assert.match(layout, /areaServed: "Worldwide"/);
   assert.match(read("app/page.tsx"), /areaServed: "Worldwide"/);
   assert.match(read("app/components/service-page.tsx"), /areaServed: "Worldwide"/);

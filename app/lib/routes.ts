@@ -1,10 +1,10 @@
 import { resourceArticles } from "./resources";
 
 export const indexableRoutes = [
-  { path: "/", lastModified: "2026-08-29", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/", lastModified: "2026-09-02", changeFrequency: "weekly" as const, priority: 1 },
   {
     path: "/instagram-management-services",
-    lastModified: "2026-08-29",
+    lastModified: "2026-09-02",
     changeFrequency: "monthly" as const,
     priority: 0.9,
   },
@@ -46,25 +46,25 @@ export const indexableRoutes = [
   },
   {
     path: "/viral-mandate",
-    lastModified: "2026-08-29",
+    lastModified: "2026-09-02",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
   {
     path: "/about",
-    lastModified: "2026-08-29",
+    lastModified: "2026-09-02",
     changeFrequency: "monthly" as const,
     priority: 0.7,
   },
   {
     path: "/resources",
-    lastModified: "2026-08-29",
+    lastModified: "2026-09-02",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   },
   ...resourceArticles.map((article) => ({
     path: `/resources/${article.slug}`,
-    lastModified: "2026-08-29",
+    lastModified: article.modifiedAt ?? article.publishedAt ?? "2026-08-29",
     changeFrequency: "monthly" as const,
     priority: 0.72,
   })),

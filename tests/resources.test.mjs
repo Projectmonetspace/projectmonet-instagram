@@ -12,21 +12,23 @@ const slugs = [
   "how-to-get-leads-from-instagram",
   "why-instagram-is-not-growing",
   "instagram-reels-for-small-business",
+  "when-instagram-virality-helps-a-business",
+  "turn-instagram-reach-into-leads",
 ];
 
-test("resource registry contains exactly the planned eight live articles", () => {
+test("resource registry contains exactly the ten live articles", () => {
   const data = read("app/lib/resources.ts");
-  assert.equal((data.match(/slug: "/g) ?? []).length, 8);
+  assert.equal((data.match(/slug: "/g) ?? []).length, 10);
   for (const slug of slugs) assert.match(data, new RegExp(`slug: "${slug}"`));
   assert.doesNotMatch(data, /industry average|average agency charges|guaranteed results|AggregateRating/i);
 });
 
 test("resource articles have unique metadata, substantive sections, and human CTAs", () => {
   const data = read("app/lib/resources.ts");
-  assert.equal((data.match(/seoTitle: "/g) ?? []).length, 8);
-  assert.equal((data.match(/description: "/g) ?? []).length >= 8, true);
-  assert.equal((data.match(/heading: "/g) ?? []).length >= 60, true);
-  assert.equal((data.match(/related: \[/g) ?? []).length, 8);
+  assert.equal((data.match(/seoTitle: "/g) ?? []).length, 10);
+  assert.equal((data.match(/description: "/g) ?? []).length >= 10, true);
+  assert.equal((data.match(/heading: "/g) ?? []).length >= 78, true);
+  assert.equal((data.match(/related: \[/g) ?? []).length, 10);
   assert.match(read("app/resources/[slug]/page.tsx"), /<PageCta/);
 });
 
@@ -37,7 +39,8 @@ test("resource route is statically generated with Article and BreadcrumbList sch
   assert.match(page, /generateStaticParams/);
   assert.match(page, /generateMetadata/);
   assert.match(page, /"@type": "Article"/);
-  assert.match(page, /datePublished: "2026-08-29"/);
+  assert.match(page, /datePublished: article\.publishedAt \?\? "2026-08-29"/);
+  assert.match(page, /dateModified: article\.modifiedAt/);
   assert.match(framework, /"@type": "BreadcrumbList"/);
   assert.doesNotMatch(page, /FAQPage|AggregateRating|Review/);
 });
@@ -79,6 +82,8 @@ test("resource copy preserves plain-language strategic distinctions", () => {
     "A content strategy is a set of useful choices",
     "Do not solve every lead problem by making more Reels",
     "Be recognisable to the right people, not famous to everyone",
+    "Useful virality expands a relevant message. Random virality expands a number.",
+    "Reach → Profile visit → Profile understanding → Trust or follow → Relevant CTA → DM, lead, or business action",
   ]) assert.match(data, new RegExp(phrase));
   assert.doesNotMatch(data, /TOFU|MOFU|BOFU|unlock your potential|omnichannel ecosystem/i);
 });

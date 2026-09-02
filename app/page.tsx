@@ -16,7 +16,7 @@ const services = [
 const faq = [
   ["How much does Instagram management cost?", "Project Monet Standard Management starts at $1,000 per month. The final price depends on the strategy, content, production, and management required."],
   ["How much does Viral Mandate cost?", "Viral Mandate starts at $2,500 per month and uses a six-month contract. It is available only to qualified accounts."],
-  ["What happens if Viral Mandate does not deliver the agreed viral reach?", "For eligible accounts, the viral-reach commitment is defined in the signed engagement. If Project Monet does not deliver that agreed viral reach by the end of the six-month contract, the client is eligible for a 50% refund under the signed terms."],
+  ["What happens if Viral Mandate does not deliver the agreed result?", "The qualifying Instagram performance result is defined for the eligible account in the signed engagement. If it is not delivered and eligibility remains intact through the completed six-month engagement, the client is eligible for a 50% refund of collected Viral Mandate management fees under the signed terms."],
   ["Does Standard Management guarantee virality?", "No. Standard Management is professional Instagram management without a virality guarantee."],
   ["Do I lose all control with Viral Mandate?", "No. You approve brand, factual, legal, safety, and off-limit boundaries first. Inside those agreed boundaries, Project Monet makes the final creative decisions."],
   ["Do you manage TikTok, Facebook, LinkedIn, or YouTube?", "Not currently. Project Monet specialises in Instagram."],
@@ -33,12 +33,13 @@ const serviceSchema = {
   "@type": "Service",
   name: "Instagram Marketing and Management",
   url: absoluteUrl("/"),
+  description: "Creator-led, Instagram-only marketing and management for founders and businesses worldwide, built around the Funnel-First Growth System.",
   provider: { "@type": "Organization", name: "Project Monet", url: absoluteUrl("/") },
   areaServed: "Worldwide",
   serviceType: ["Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO"],
   offers: [
-    { "@type": "Offer", name: "Standard Management", price: "1000", priceCurrency: "USD", description: "Monthly starting price. No virality guarantee. Final scope and price depend on the engagement." },
-    { "@type": "Offer", name: "Viral Mandate", price: "2500", priceCurrency: "USD", description: "Monthly starting price. Qualification and a six-month contract are required." },
+    { "@type": "Offer", name: "Standard Management", price: "1000", priceCurrency: "USD", description: "Monthly starting price. Controlled Instagram management with no performance guarantee. Final scope and price depend on the engagement." },
+    { "@type": "Offer", name: "Viral Mandate", price: "2500", priceCurrency: "USD", description: "Monthly starting price. Qualification, a six-month engagement, creative control inside approved guardrails, and account-specific signed performance terms are required." },
   ],
 };
 
@@ -92,10 +93,10 @@ export default function Home() {
         </section>
 
         <section id="offers" className="offers-section warm-section" aria-labelledby="offers-title">
-          <div className="page-shell"><div className="section-heading split"><div><p className="eyebrow">Two ways to work with us</p><h2 id="offers-title">Choose collaboration or performance-led control.</h2></div><p>We start by reviewing the account. The right offer depends on the goals, resources, and fit.</p></div>
+          <div className="page-shell"><div className="section-heading split"><div><p className="eyebrow">Two ways to work with us</p><h2 id="offers-title">Choose collaboration or performance-led control.</h2></div><p>Project Monet is for founders and businesses with a real offer that want Instagram attention to build recognition, trust, demand, DMs, leads, or another useful business action. We review the account before recommending a path.</p></div>
             <div className="offer-grid">
               <article className="offer-card standard-offer"><p className="offer-label">Standard Management</p><h3>From <strong>$1,000</strong><span>/month</span></h3><p>For businesses that want Project Monet to manage and improve their Instagram.</p><ul><li>Strategy and profile work</li><li>Content and publishing</li><li>Reporting and ongoing optimization</li><li>Structured client approval rights</li></ul><p className="offer-clarification">No virality guarantee.</p><LeadFormTrigger kind="audit" location="standard_offer" className="button button-ink">Get a Free Instagram Audit</LeadFormTrigger></article>
-              <article className="offer-card viral-offer"><div className="offer-topline"><p className="offer-label">Viral Mandate</p><span>Qualification required</span></div><h3>From <strong>$2,500</strong><span>/month</span></h3><p className="contract-line">Six-month contract.</p><blockquote>More performance risk = more creative control.</blockquote><p>For eligible accounts, Project Monet works to deliver the agreed viral reach within the six-month contract.</p><p>If it is not delivered by the end of the contract, the client is eligible for a <strong className="refund-highlight">50% refund</strong> under the signed Viral Mandate terms.</p><p className="offer-fineprint">You approve brand, factual, legal, safety, and off-limit boundaries first. Inside them, Project Monet makes the final creative decisions. The target is agreed in writing for the specific account.</p><LeadFormTrigger kind="viral" location="viral_offer" className="button button-light">See if You Qualify</LeadFormTrigger></article>
+              <article className="offer-card viral-offer"><div className="offer-topline"><p className="offer-label">Viral Mandate</p><span>Qualification required</span></div><h3>From <strong>$2,500</strong><span>/month</span></h3><p className="contract-line">Six-month contract.</p><blockquote>More performance risk = more creative control.</blockquote><p>For eligible accounts, Project Monet works to deliver the agreed qualifying Instagram performance result within the six-month engagement.</p><p>If it is not delivered and eligibility remains intact through the completed engagement, the client is eligible for a <strong className="refund-highlight">50% refund</strong> of collected Viral Mandate management fees under the signed terms.</p><p className="offer-fineprint">You approve brand, factual, legal, safety, and off-limit boundaries first. Inside them, Project Monet makes the final creative decisions. The target is agreed in writing for the specific account.</p><LeadFormTrigger kind="viral" location="viral_offer" className="button button-light">See if You Qualify</LeadFormTrigger></article>
             </div>
           </div>
         </section>
