@@ -6,7 +6,7 @@ import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const title = "Instagram Marketing Agency for Founders & Businesses | Project Monet";
-const description = "Project Monet is a creator-led Instagram marketing agency for founders and businesses worldwide. Strategy, content, Reels, management, Instagram SEO, and a free Instagram audit.";
+const description = "Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide. Strategy, content, Reels, Instagram SEO, and a free Instagram audit.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
@@ -46,10 +46,11 @@ const organizationSchema = {
   email: "contact@projectmonet.com",
   description,
   areaServed: "Worldwide",
+  knowsAbout: ["Instagram marketing", "Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO"],
   sameAs: ["https://www.instagram.com/projectmonet/"],
 };
 
-const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", name: "Project Monet", url: SITE_ORIGIN };
+const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", name: "Project Monet", url: SITE_ORIGIN, publisher: { "@type": "Organization", name: "Project Monet", url: SITE_ORIGIN } };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

@@ -16,7 +16,6 @@ export function pageMetadata({ title, description, path }: { title: string; desc
       siteName: SITE_NAME,
       title,
       description,
-      locale: "en_IN",
       images: [{ url: SOCIAL_IMAGE, width: 1280, height: 720, alt: "Project Monet cinematic brand visual" }],
     },
     twitter: { card: "summary_large_image", title, description, images: [SOCIAL_IMAGE] },

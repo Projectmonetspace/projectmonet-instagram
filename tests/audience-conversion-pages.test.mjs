@@ -45,9 +45,9 @@ test("Audit page reuses the shared wizard and sets honest boundaries", () => {
   assert.doesNotMatch(audit, /WEB3FORMS|access_key|<form/i);
 });
 
-test("Viral Mandate copy preserves qualification, control, term, and refund rules", () => {
+test("Viral Mandate copy explains fit, control, measurement, term, and refund rules", () => {
   const viral = read("app/viral-mandate/page.tsx");
-  for (const phrase of ["$2,500 per month", "six-month contract", "agreed viral reach", "50% refund", "Qualification", "brand, factual, legal, safety"]) assert.match(viral, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  for (const phrase of ["$2,500 per month", "six-month", "50% refund of collected Viral Mandate management fees", "Qualification", "brand, factual, legal, safety", "organic Instagram Reels", "Instagram Insights", "Budget alone", "one to three months of Standard Management", "does not promise", "sales or revenue"]) assert.match(viral, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   assert.match(viral, /LeadFormTrigger kind="viral"/);
   assert.match(viral, /Applying does not promise acceptance/i);
   assert.doesNotMatch(viral, /1M|1 million|10×|guaranteed followers|AggregateRating/i);
