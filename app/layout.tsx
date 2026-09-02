@@ -6,7 +6,7 @@ import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const title = "Instagram Marketing Agency for Founders & Businesses | Project Monet";
-const description = "Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide. Strategy, content, Reels, Instagram SEO, and a free Instagram audit.";
+const description = "Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide, built on Funnel-First strategy.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),

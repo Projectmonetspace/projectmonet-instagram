@@ -7,7 +7,7 @@ import { resourceArticles } from "@/app/lib/resources";
 const path = "/resources";
 export const metadata = pageMetadata({
   title: "Instagram Marketing Resources | Project Monet",
-  description: "Plain-language Instagram marketing resources for businesses: useful virality, reach-to-lead paths, costs, Reels, content strategy, profile optimization, and Instagram SEO.",
+  description: "Practical Instagram marketing resources on useful reach, lead paths, pricing, Reels, content strategy, profile optimization, and Instagram SEO.",
   path,
 });
 

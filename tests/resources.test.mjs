@@ -58,6 +58,32 @@ test("required contextual internal-link paths are present", () => {
   ]) assert.match(data, new RegExp(path));
 });
 
+test("weak resource pages have contextual discovery links", () => {
+  const data = read("app/lib/resources.ts");
+  const pairs = [
+    ["instagram-content-strategy-for-business", "/resources/turn-instagram-reach-into-leads"],
+    ["how-to-get-leads-from-instagram", "/resources/instagram-content-strategy-for-business"],
+    ["instagram-marketing-cost", "/instagram-management-services"],
+    ["instagram-reels-for-small-business", "/instagram-reels-agency"],
+    ["why-instagram-is-not-growing", "/resources/instagram-seo-guide"],
+    ["instagram-seo-guide", "/resources/why-instagram-is-not-growing"],
+  ];
+  for (const [slug, href] of pairs) {
+    const start = data.indexOf(`slug: "${slug}"`);
+    const end = data.indexOf("\n  {\n    slug:", start + 10);
+    assert.ok(start >= 0, `${slug} exists`);
+    assert.ok(data.slice(start, end < 0 ? data.length : end).includes(`href: "${href}"`), `${slug} links contextually to ${href}`);
+  }
+});
+
+test("public meta descriptions stay concise after the crawlability pass", () => {
+  const sources = ["app/layout.tsx", "app/instagram-management-services/page.tsx", "app/instagram-seo-services/page.tsx", "app/instagram-content-creation-services/page.tsx", "app/resources/page.tsx", "app/instagram-reels-agency/page.tsx", "app/instagram-audit/page.tsx", "app/lib/resources.ts"];
+  for (const source of sources) {
+    const data = read(source);
+    for (const match of data.matchAll(/description: "([^"]+)"/g)) assert.ok(match[1].length <= 160, `${source} description is <= 160 characters`);
+  }
+});
+
 test("sitemap and llms consume the live resource registry", () => {
   const routes = read("app/lib/routes.ts");
   const llms = read("public/llms.txt");

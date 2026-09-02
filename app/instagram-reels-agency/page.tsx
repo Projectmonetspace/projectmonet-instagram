@@ -4,7 +4,7 @@ import { pageMetadata } from "@/app/lib/site";
 const path = "/instagram-reels-agency";
 export const metadata = pageMetadata({
   title: "Instagram Reels Agency | Project Monet",
-  description: "Instagram Reels strategy and production for businesses and founders. Ideas, hooks, scripts, editing, packaging, testing, and iteration connected to profile and business goals.",
+  description: "Instagram Reels strategy and production for businesses and founders: ideas, hooks, scripts, editing, testing, and iteration tied to business goals.",
   path,
 });
 
@@ -51,6 +51,7 @@ const data: ServicePageData = {
     { href: "/instagram-content-creation-services", label: "Instagram Content Creation", copy: "See how Reels work alongside scripts, carousels, captions, and creative direction." },
     { href: "/instagram-management-services", label: "Instagram Management", copy: "Connect Reels to profile work, publishing, reporting, and ongoing improvement." },
     { href: "/instagram-seo-services", label: "Instagram SEO Services", copy: "Make the topic easier for people and Instagram to understand." },
+    { href: "/resources/instagram-reels-for-small-business", label: "Reels for Small Business", copy: "See practical Reel ideas tied to trust, local relevance, and action." },
   ],
 };
 

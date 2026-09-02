@@ -4,7 +4,7 @@ import { pageMetadata } from "@/app/lib/site";
 const path = "/instagram-management-services";
 export const metadata = pageMetadata({
   title: "Instagram Management Services | Project Monet",
-  description: "Instagram management services for founders and businesses worldwide. Strategy, content, publishing, profile improvement, reporting, and ongoing optimization from $1,000/month.",
+  description: "Instagram management for founders and businesses worldwide: strategy, content, publishing, profile improvement, reporting, and optimization from $1,000/month.",
   path,
 });
 
@@ -53,6 +53,7 @@ const data: ServicePageData = {
   related: [
     { href: "/instagram-content-creation-services", label: "Instagram Content Creation", copy: "See how Reels, scripts, carousels, and captions fit the account system." },
     { href: "/resources/turn-instagram-reach-into-leads", label: "Turn Reach Into Leads", copy: "See how content, profile clarity, trust, and calls to action connect." },
+    { href: "/resources/instagram-marketing-cost", label: "Instagram Marketing Cost", copy: "Compare scope, responsibility, and the work behind a monthly price." },
     { href: "/viral-mandate", label: "Viral Mandate", copy: "Compare Standard with the qualified performance-led path." },
   ],
 };

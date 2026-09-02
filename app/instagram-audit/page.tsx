@@ -7,7 +7,7 @@ import { absoluteUrl, pageMetadata } from "@/app/lib/site";
 const path = "/instagram-audit";
 export const metadata = pageMetadata({
   title: "Free Instagram Audit | Project Monet",
-  description: "Request a free Instagram audit from Project Monet. We review positioning, profile, recent content, growth problems, conversion gaps, and the clearest next opportunities.",
+  description: "Request a free Instagram audit covering positioning, profile, recent content, growth problems, conversion gaps, and the clearest next opportunities.",
   path,
 });
 
