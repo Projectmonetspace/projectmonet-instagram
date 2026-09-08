@@ -27,14 +27,24 @@ test("hero paints its poster before starting the untouched approved video", () =
   assert.match(media, /src=\"\/media\/hero-poster.webp\"/);
   assert.match(media, /preload\s*\n/);
   assert.match(media, /prefers-reduced-motion: reduce/);
+  assert.match(media, /VIDEO_START_DELAY_MS = 12000/);
+  assert.match(media, /INTERACTION_EVENTS = \["pointerdown", "touchstart", "keydown", "scroll"\]/);
   const css = read("app/globals.css");
   assert.match(css, /\.hero-copy h1\.animate-up \{ opacity: 1; animation: none; \}/);
+  assert.match(css, /\.hero \.animate-up, \.hero \.animate-scale, \.hero \.proof-bars i, \.site-nav \{ opacity: 1; animation: none; \}/);
 });
 
 test("Reel images use responsive Next Image delivery", () => {
   const rail = read("app/components/reel-rail.tsx");
   assert.match(rail, /sizes=\"\(max-width: 767px\) 220px, \(max-width: 1688px\) 18vw, 304px\"/);
+  assert.match(rail, /quality=\{55\}/);
   assert.doesNotMatch(rail, /unoptimized/);
+});
+
+test("font loading does not delay first-visit text rendering", () => {
+  const layout = read("app/layout.tsx");
+  assert.match(layout, /display: "optional"/);
+  assert.match(layout, /preload: false/);
 });
 
 test("proof is attributed and identifies creator experience rather than client results", () => {
