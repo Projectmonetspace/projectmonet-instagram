@@ -14,6 +14,12 @@ test("loads the approved GA4 stream only after explicit consent", () => {
   assert.match(component, /Decline/);
 });
 
+test("exposes the non-modal consent banner without an incompatible dialog role", () => {
+  const component = read("app/components/google-analytics.tsx");
+  assert.match(component, /<aside className="analytics-consent" aria-label="Analytics choice"/);
+  assert.doesNotMatch(component, /<aside[^>]+role="dialog"/);
+});
+
 test("maps successful forms to the recommended lead event without form answers", () => {
   const component = read("app/components/google-analytics.tsx");
   assert.match(component, /audit_submit_success/);

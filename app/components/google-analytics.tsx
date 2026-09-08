@@ -80,7 +80,7 @@ export default function GoogleAnalytics() {
         />
       )}
       {ready && consent === null && (
-        <aside className="analytics-consent" role="dialog" aria-label="Analytics choice" aria-live="polite">
+        <aside className="analytics-consent" aria-label="Analytics choice" aria-live="polite">
           <div>
             <strong>Help us improve Project Monet.</strong>
             <p>Optional Google Analytics measures page use and successful enquiries. It never receives your form answers or contact details. Read our <Link href="/cookies">Cookies Policy</Link>.</p>
