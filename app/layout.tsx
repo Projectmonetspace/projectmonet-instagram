@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import AttributionCapture from "./components/attribution-capture";
 import GoogleAnalytics from "./components/google-analytics";
 import LeadFormProvider from "./components/lead-form-modal";
 import { SITE_ORIGIN } from "./lib/site";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
       <body className={inter.variable}>
+        <AttributionCapture />
         <LeadFormProvider>{children}</LeadFormProvider>
         <GoogleAnalytics />
       </body>

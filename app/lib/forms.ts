@@ -87,10 +87,14 @@ export function getLeadRoute(values: LeadValues) {
 
 export type SubmissionContext = {
   sourcePage: string;
+  initialLandingPage?: string;
+  initialReferrer?: string;
+  submissionPage?: string;
   submittedAt: string;
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+  utmContent?: string;
 };
 
 export function buildWeb3FormsPayload(kind: FormKind, values: LeadValues, context: SubmissionContext) {
@@ -100,11 +104,15 @@ export function buildWeb3FormsPayload(kind: FormKind, values: LeadValues, contex
     name: clean(values.name, limits.name),
     email: clean(values.email, limits.email).toLowerCase(),
     form_type: kind === "audit" ? "free_instagram_audit" : "viral_mandate_qualification",
-    source_page: clean(context.sourcePage, 240),
+    source_page: clean(context.submissionPage ?? context.sourcePage, 240),
+    initial_landing_page: clean(context.initialLandingPage, 240) || "Not provided",
+    initial_referrer: clean(context.initialReferrer, 240) || "Not provided",
+    submission_page: clean(context.submissionPage ?? context.sourcePage, 240),
     submitted_at: context.submittedAt,
     utm_source: clean(context.utmSource, 120) || "Not provided",
     utm_medium: clean(context.utmMedium, 120) || "Not provided",
     utm_campaign: clean(context.utmCampaign, 160) || "Not provided",
+    utm_content: clean(context.utmContent, 160) || "Not provided",
     botcheck: "",
   };
 
@@ -146,16 +154,5 @@ export function buildWeb3FormsPayload(kind: FormKind, values: LeadValues, contex
     "Additional context": clean(values.message, limits.message) || "Not provided",
     "Internal lead route": getLeadRoute(values),
     "Privacy consent": "Yes",
-  };
-}
-
-export function getSubmissionContext() : SubmissionContext {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    sourcePage: `${window.location.origin}${window.location.pathname}`,
-    submittedAt: new Date().toISOString(),
-    utmSource: params.get("utm_source") ?? undefined,
-    utmMedium: params.get("utm_medium") ?? undefined,
-    utmCampaign: params.get("utm_campaign") ?? undefined,
   };
 }
