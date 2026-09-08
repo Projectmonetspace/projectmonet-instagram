@@ -7,7 +7,13 @@ import { SITE_ORIGIN } from "./lib/site";
 import "./globals.css";
 import "./analytics.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "optional",
+  preload: false,
+});
 const title = "Instagram Marketing Agency for Founders & Businesses | Project Monet";
 const description = "Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide, built on Funnel-First strategy.";
 
