@@ -1,0 +1,13 @@
+.analytics-consent { position: fixed; z-index: 150; right: 20px; bottom: 20px; left: 20px; width: min(720px, calc(100% - 40px)); margin-left: auto; padding: 22px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; border: 1px solid rgba(255,255,255,.15); border-radius: 20px; background: rgba(11,11,11,.96); box-shadow: 0 24px 80px rgba(0,0,0,.36); color: var(--paper); }
+.analytics-consent strong { display: block; margin-bottom: 7px; font-size: 17px; }
+.analytics-consent p { margin: 0; color: rgba(255,255,255,.68); font-size: 13px; line-height: 1.55; }
+.analytics-consent p a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+.analytics-consent-actions { display: flex; gap: 8px; }
+.analytics-consent-actions .button { min-height: 46px; padding-inline: 17px; white-space: nowrap; }
+.analytics-decline { border-color: rgba(255,255,255,.22); background: transparent; color: var(--paper); }
+
+@media (max-width: 640px) {
+  .analytics-consent { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); left: 12px; width: calc(100% - 24px); padding: 19px; grid-template-columns: 1fr; gap: 17px; }
+  .analytics-consent-actions { display: grid; grid-template-columns: 1fr 1.35fr; }
+  .analytics-consent-actions .button { width: 100%; padding-inline: 12px; }
+}

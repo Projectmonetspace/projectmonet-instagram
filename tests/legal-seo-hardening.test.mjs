@@ -31,9 +31,10 @@ test("privacy and cookies copy match current provider and analytics configuratio
   const cookies = read("app/cookies/page.tsx");
   assert.match(privacy, /Web3Forms/);
   assert.match(privacy, /retains submission records for up to 3 years/);
-  assert.match(privacy, /form answers or other personal information will not be sent as analytics event data/);
-  assert.match(cookies, /does not currently have an approved analytics Measurement ID active/);
-  assert.match(cookies, /consent will be denied by default/);
+  assert.match(privacy, /form answers or other personal information will not be sent as analytics event data/i);
+  assert.match(cookies, /Google Analytics tag loads only after you select Accept analytics/);
+  assert.match(cookies, /generate_lead event/);
+  assert.match(cookies, /local storage/);
   assert.doesNotMatch(`${privacy}\n${cookies}`, /recipient email|68c5446a-5663-4fb3-b70a-968ad99e0360/i);
 });
 

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import GoogleAnalytics from "./components/google-analytics";
 import LeadFormProvider from "./components/lead-form-modal";
 import { SITE_ORIGIN } from "./lib/site";
 import "./globals.css";
+import "./analytics.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const title = "Instagram Marketing Agency for Founders & Businesses | Project Monet";
@@ -59,7 +61,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
-      <body className={inter.variable}><LeadFormProvider>{children}</LeadFormProvider></body>
+      <body className={inter.variable}>
+        <LeadFormProvider>{children}</LeadFormProvider>
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }
