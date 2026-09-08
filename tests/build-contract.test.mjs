@@ -29,9 +29,7 @@ test("hero paints its poster before starting the untouched approved video", () =
   assert.match(media, /prefers-reduced-motion: reduce/);
   assert.match(media, /VIDEO_START_DELAY_MS = 12000/);
   assert.match(media, /INTERACTION_EVENTS = \["pointerdown", "touchstart", "keydown", "scroll"\]/);
-  const css = read("app/globals.css");
-  assert.match(css, /\.hero-copy h1\.animate-up \{ opacity: 1; animation: none; \}/);
-  assert.match(css, /\.hero \.animate-up, \.hero \.animate-scale, \.hero \.proof-bars i, \.site-nav \{ opacity: 1; animation: none; \}/);
+  assert.doesNotMatch(hero, /animate-up|animate-scale|animationDelay/);
 });
 
 test("Reel images use responsive Next Image delivery", () => {
@@ -41,10 +39,13 @@ test("Reel images use responsive Next Image delivery", () => {
   assert.doesNotMatch(rail, /unoptimized/);
 });
 
-test("font loading does not delay first-visit text rendering", () => {
+test("critical CSS and system fonts avoid first-visit render waterfalls", () => {
   const layout = read("app/layout.tsx");
-  assert.match(layout, /display: "optional"/);
-  assert.match(layout, /preload: false/);
+  const config = read("next.config.ts");
+  const css = read("app/globals.css");
+  assert.doesNotMatch(layout, /next\/font|font-inter/);
+  assert.match(css, /font-family: Arial, Helvetica, sans-serif/);
+  assert.match(config, /inlineCss: true/);
 });
 
 test("proof is attributed and identifies creator experience rather than client results", () => {
