@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import AttributionCapture from "./components/attribution-capture";
 import GoogleAnalytics from "./components/google-analytics";
 import LeadFormProvider from "./components/lead-form-modal";
@@ -7,13 +6,6 @@ import { SITE_ORIGIN } from "./lib/site";
 import "./globals.css";
 import "./analytics.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "optional",
-  preload: false,
-});
 const title = "Instagram Marketing Agency for Founders & Businesses | Project Monet";
 const description = "Project Monet is a creator-led, Instagram-only marketing and management agency for founders and businesses worldwide, built on Funnel-First strategy.";
 
@@ -68,7 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
-      <body className={inter.variable}>
+      <body>
         <AttributionCapture />
         <LeadFormProvider>{children}</LeadFormProvider>
         <GoogleAnalytics />
