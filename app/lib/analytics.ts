@@ -6,7 +6,8 @@ export type AnalyticsEvent =
   | "websites_link_click"
   | "click_to_email";
 
-export const ANALYTICS_CONSENT_DEFAULT = "denied" as const;
+export const GA_MEASUREMENT_ID = "G-GFLR7G4SSS";
+export const ANALYTICS_CONSENT_STORAGE_KEY = "project-monet-analytics-consent:v1";
 
 export function trackEvent(name: AnalyticsEvent, detail: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
