@@ -32,11 +32,12 @@ test("hero paints its poster before starting the untouched approved video", () =
   assert.doesNotMatch(hero, /animate-up|animate-scale|animationDelay/);
 });
 
-test("Reel images use responsive Next Image delivery", () => {
+test("Reel images keep the original high-quality Next Image defaults", () => {
   const rail = read("app/components/reel-rail.tsx");
+  const config = read("next.config.ts");
   assert.match(rail, /sizes=\"\(max-width: 767px\) 220px, \(max-width: 1688px\) 18vw, 304px\"/);
-  assert.match(rail, /quality=\{55\}/);
-  assert.doesNotMatch(rail, /unoptimized/);
+  assert.doesNotMatch(rail, /quality=|unoptimized/);
+  assert.doesNotMatch(config, /qualities:|deviceSizes:/);
 });
 
 test("critical CSS and system fonts avoid first-visit render waterfalls", () => {
