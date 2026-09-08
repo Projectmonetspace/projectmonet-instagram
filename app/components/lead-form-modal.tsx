@@ -5,13 +5,13 @@ import { createContext, ReactNode, RefObject, useContext, useEffect, useMemo, us
 import {
   buildWeb3FormsPayload,
   FormKind,
-  getSubmissionContext,
   LeadValues,
   limits,
   validateField,
   validateSubmission,
   WEB3FORMS_ENDPOINT,
 } from "@/app/lib/forms";
+import { getSubmissionContext } from "@/app/lib/attribution";
 import { trackEvent } from "@/app/lib/analytics";
 
 type Step = {
