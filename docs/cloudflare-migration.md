@@ -1,6 +1,6 @@
 # Cloudflare migration — preparation
 
-Status: branch preparation only; custom production remains on Vercel.
+Status: static build passed GitHub CI; Pages Git integration is connected and preview verification is pending. Custom production remains on Vercel.
 
 ## Deployment authority
 
@@ -32,7 +32,19 @@ Google verification and autodiscover/autoconfig. Nameserver and DNSSEC changes r
 
 ## Remaining gates
 
-Cloudflare GitHub authorization and Pages preview; rendered preview/navigation/forms/headers/404 tests;
+Pages preview; rendered preview/navigation/forms/headers/404 tests;
 zone onboarding; fresh DNS comparison; DNSSEC/DS inspection; manual nameserver checkpoint;
 custom-domain TLS and 308 apex redirect with path/query preservation; production smoke; GSC/GA4.
 No gate above is claimed completed by this preparation commit.
+
+## Pages setup checkpoint — 10 September 2026
+
+Pages project: `projectmonet-instagram` (`899409d2-b91f-4da3-b0d8-1048f62471f2`).
+Pages hostname: `projectmonet-instagram.pages.dev`.
+Native Git source: Projectmonetspace/projectmonet-instagram; production branch main; previews enabled for branches.
+Build command and output directory have been verified through Cloudflare MCP.
+GitHub CI passed install, production audit, lint, typecheck, tests, normal build and static build for `9404a7e77d961f99b4a727e0d9dfcb48bedd6914`.
+Next.js and eslint-config-next are patched to 16.3.4; Sharp is patched to 0.35.4. The audit gate is unchanged.
+The initial dashboard deployment used blank build settings and does not count as website verification.
+Ad-hoc API deployment requests selected main despite a branch parameter; use the native Git branch trigger for the migration preview and verify its exact SHA.
+No custom domain or zone has been attached; DNS remains unchanged. The next gate is the migration branch Pages preview.
