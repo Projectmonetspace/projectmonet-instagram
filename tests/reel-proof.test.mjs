@@ -52,7 +52,7 @@ test("the rail renders safe links, meaningful alt text, and hidden duplicate cop
   assert.match(rail, /target="_blank"/);
   assert.match(rail, /rel="noopener noreferrer"/);
   assert.match(rail, /Instagram Reel cover from/);
-  assert.match(rail, /aria-hidden=\{duplicate \|\| undefined\}/);
-  assert.match(rail, /tabIndex=\{duplicate \? -1 : undefined\}/);
+  assert.match(rail, /if \(duplicate\) return <span className="reel-card" aria-hidden="true">\{content\}<\/span>/);
+  assert.doesNotMatch(rail, /aria-hidden=\{duplicate|tabIndex=\{duplicate/);
   assert.doesNotMatch(rail, /0 likes|N\/A likes|estimated likes/i);
 });
