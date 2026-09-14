@@ -68,6 +68,7 @@ export default function HeroMedia() {
         fill
         sizes="100vw"
         preload
+        unoptimized
         aria-hidden="true"
       />
       <video
