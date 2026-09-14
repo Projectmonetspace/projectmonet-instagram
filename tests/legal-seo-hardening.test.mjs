@@ -35,6 +35,9 @@ test("privacy and cookies copy match current provider and analytics configuratio
   assert.match(cookies, /Google Analytics tag loads only after you select Accept analytics/);
   assert.match(cookies, /generate_lead event/);
   assert.match(cookies, /local storage/);
+  assert.match(privacy, /Cloudflare Pages hosts the website/);
+  assert.match(cookies, /Cloudflare Pages hosts the website/);
+  assert.doesNotMatch(`${privacy}\n${cookies}`, /Vercel/);
   assert.doesNotMatch(`${privacy}\n${cookies}`, /recipient email|68c5446a-5663-4fb3-b70a-968ad99e0360/i);
 });
 
@@ -74,5 +77,8 @@ test("canonical, robots, sitemap, and footer use the configured production host 
   assert.match(robots, /https:\/\/www\.projectmonet\.com\/sitemap\.xml/);
   assert.match(sitemap, /indexableRoutes\.map/);
   for (const path of ["/privacy", "/cookies", "/terms", "/audit-terms"]) assert.match(footer, new RegExp(path));
+  assert.match(footer, /<Link href="\/about">About<\/Link>/);
+  assert.match(footer, /<SafeEmailLink location="footer">Email Project Monet<\/SafeEmailLink>/);
+  assert.doesNotMatch(`${footer}\n${read("app/layout.tsx")}\n${read("public/llms.txt")}`, /contact@projectmonet\.com|mailto:/);
   assert.doesNotMatch(read("app/lib/routes.ts"), /_not-found|\/api\/|test-page/);
 });

@@ -44,7 +44,6 @@ const organizationSchema = {
   name: "Project Monet",
   url: SITE_ORIGIN,
   logo: `${SITE_ORIGIN}/android-chrome-512x512.png`,
-  email: "contact@projectmonet.com",
   description,
   areaServed: "Worldwide",
   knowsAbout: ["Instagram marketing", "Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO"],

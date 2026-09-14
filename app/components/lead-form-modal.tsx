@@ -206,7 +206,7 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
       trackEvent(kind === "audit" ? "audit_submit_success" : "viral_application_submit_success", { form_type: kind });
     } catch {
       setStatus("editing");
-      setSubmitError("We could not send this right now. Please try again or email contact@projectmonet.com.");
+      setSubmitError("We could not send this right now. Please try again or use the Email Project Monet link in the footer.");
     }
   }
 
