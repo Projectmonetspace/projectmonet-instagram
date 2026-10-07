@@ -3,7 +3,7 @@ import { pageMetadata } from "@/app/lib/site";
 
 const path = "/instagram-marketing-for-founders";
 export const metadata = pageMetadata({
-  title: "Instagram Marketing for Founders | Project Monet",
+  title: "Founder Instagram Marketing & Personal Branding | Project Monet",
   description: "Instagram marketing for founders who want to turn expertise, opinions, and stories into authority, trust, profile visits, DMs, and business demand.",
   path,
 });
@@ -16,7 +16,7 @@ const data: AudiencePageData = {
   truthTitle: "People often trust people before they trust company pages.",
   truthCopy: [
     "A founder can explain the thinking, decisions, lessons, and beliefs behind a business in a way a logo cannot. That does not mean sharing every part of your life or performing for attention.",
-    "It means giving the right audience a clear person to remember. The content should still have a business job: build authority, create trust, answer doubts, and make the next action easy.",
+    "Founder personal branding on Instagram means giving the right audience a clear person and point of view to remember. We focus on your Instagram content and account system. The content should build authority, answer doubts and make the business connection clear.",
   ],
   pathTitle: "From useful point of view to business demand.",
   pathSteps: [
@@ -31,7 +31,8 @@ const data: AudiencePageData = {
   systemTitle: "The founder is part of the system, not the whole system.",
   systemCopy: [
     "We decide who should find you, why they should follow, what you can credibly talk about, and how the profile connects back to the business.",
-    "Then we build formats that fit your time and strengths. A good plan should not require you to pretend to be someone else every week.",
+    "Then we build formats that fit your time and strengths. Interviews, written notes, demos and approved footage can supply the raw material. You check facts and approve direction through the agreed gates; we turn those inputs into the scoped content. Founder filming is optional. Authorized avatars and synthetic voices require permission and applicable disclosure.",
+    "A founder account can own opinions, decisions and experience; a company account can explain the offer, product and process. We can manage either or both when scoped, with different content roles rather than duplicate feeds. The SaaS page explains this choice for B2B and AI products.",
   ],
   faqs: [
     ["Do founders have to appear on camera?", "Not always. A person-led strategy can use voice, writing, interviews, demonstrations, or other formats. If face-to-camera content is useful, we will explain why."],
@@ -40,6 +41,7 @@ const data: AudiencePageData = {
     ["How much does ongoing Instagram management cost?", "Project Monet Standard Management starts at $1,000 per month. Final pricing depends on the work required."],
   ],
   related: [
+    { href: "/resources/how-to-choose-an-instagram-agency", label: "Choosing founder-content support", copy: "Check voice, production inputs and evidence before hiring." },
     { href: "/instagram-management-services", label: "Instagram Management", copy: "See how strategy, profile, publishing, and review work together." },
     { href: "/instagram-content-creation-services", label: "Content Creation", copy: "Turn expertise into repeatable Reels, scripts, carousels, and captions." },
     { href: "/instagram-marketing-for-b2b-saas", label: "B2B SaaS & AI SaaS", copy: "Choose a company account, founder account, or both for a SaaS product." },

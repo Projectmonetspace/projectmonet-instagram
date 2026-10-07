@@ -3,6 +3,7 @@ export type ResourceSection = {
   paragraphs?: string[];
   bullets?: string[];
   callout?: string;
+  table?: { caption: string; columns: string[]; rows: string[][] };
 };
 
 export type ResourceArticle = {
@@ -21,15 +22,92 @@ export type ResourceArticle = {
 
 export const resourceArticles: ResourceArticle[] = [
   {
+    slug: "instagram-manager-vs-agency",
+    seoTitle: "Instagram Manager vs Agency vs In-House | Project Monet",
+    title: "Who should manage your Instagram: freelancer, agency or in-house?",
+    description: "Compare an Instagram manager, agency and in-house team by responsibility, production inputs, approvals and reporting before choosing who to hire.",
+    eyebrow: "Choosing Instagram Support",
+    intro: "Hire for the responsibilities your business cannot currently cover. A freelancer, agency or employee can each be the right choice; the title alone does not tell you what they will own.",
+    readTime: "5 min read",
+    publishedAt: "2026-10-07",
+    sections: [
+      { heading: "Start with the missing responsibility", paragraphs: ["Write down where work stops today. Are there no useful ideas? Are scripts waiting for footage? Are finished posts waiting for approval? Or does the account publish consistently without anyone checking what happened next? These are different jobs.", "If you already have a strategy, an approver and good footage, hiring an editor may solve the problem. If nobody owns the audience, profile, content direction or review process, another pair of editing hands leaves those decisions with you. More production capacity helps only if someone can direct it."], callout: "Before choosing a provider, name the work that currently has no owner." },
+      { heading: "Compare operating models, not job titles", paragraphs: ["These are practical starting points, not rules about every provider. Some freelancers offer strategy and management; some agencies only produce assets. Read the actual scope and ask who does each task."], table: { caption: "Which working arrangement fits your team?", columns: ["Option", "Can fit when", "What to check"], rows: [
+        ["Freelance Instagram manager", "You need a defined set of account tasks and can supply the other inputs.", "Strategy, production range, availability, cover during absence and reporting ownership."],
+        ["Instagram agency", "You need several responsibilities coordinated across strategy, content and management.", "The named delivery team, approval process, production scope and who learns from results."],
+        ["In-house team", "You need ongoing access to the business and have capacity to recruit, direct and support the role.", "Creative leadership, equipment, editing support and whether one role is being given too many jobs."],
+        ["Creator or Reels editor", "You have a brief, source material and someone who owns the account.", "Whether ideation, scripts, captions, publishing and analysis are included or remain with you."],
+      ] } },
+      { heading: "An editor, creator and manager solve different problems", paragraphs: ["A Reels editor turns footage and a brief into a finished video. A content creator may also develop ideas and record or design assets. An account manager may coordinate planning, publishing, community work and reporting. These responsibilities can overlap, but they should never be assumed.", "A Reels agency may own the wider video system: audience, ideas, scripts, production direction, editing, packaging and iteration. Ask which of those you are actually buying. Paying an agency fee for editing alone can still make sense for complex production, but it should be an informed choice."] },
+      { heading: "Use a responsibility sheet before accepting a quote", paragraphs: ["Give each activity one accountable owner. Write the person's name or role, the input they need and when a decision is due. An entry that says ‘both’ still needs one person responsible for resolving it."], table: { caption: "Questions to settle in the scope", columns: ["Activity", "Decision to record"], rows: [
+        ["Audience and offer", "Who decides who the account should attract and what it should be known for?"],
+        ["Ideas and scripts", "Who supplies expertise, checks facts and approves the angle?"],
+        ["Footage and production", "Who records, provides product access, secures permission and delivers usable files?"],
+        ["Approval and publishing", "Who has final approval, how long do they have, and who schedules?"],
+        ["Community and enquiries", "Who handles routine engagement and who answers sales or support questions?"],
+        ["Reporting and iteration", "Who collects available results and decides the next change?"],
+      ] } },
+      { heading: "Compare the full cost of the arrangement", paragraphs: ["Compare the fee alongside the work your own team must still do. A smaller production quote might require you to research topics, write scripts, record footage, approve edits and publish. A broader quote may cover more of that work, but check the exclusions.", "For an employee, include recruitment, tools, management and any additional production support. For a freelancer or agency, check meetings, revisions, special shoots, talent and third-party software. These costs depend on your location and scope; a single worldwide average would hide the differences.", "Project Monet Standard Management starts at $1,000 per month with agreed scope and no virality guarantee. The cost guide explains the separate qualified Viral Mandate offer. These are Project Monet prices, not market benchmarks."] },
+      { heading: "Three situations to test the choice", paragraphs: ["If a founder has a clear point of view, usable weekly recordings and an internal publishing owner, a specialist editor may be enough. If the same founder has expertise but no account direction, first resolve strategy and the profile path.", "If a business already has content and a coherent plan but repeatedly misses publishing, management support may be the priority. If content is published on time but attracts irrelevant viewers, investigate audience and topic choices before adding volume.", "These are illustrative decisions, not client case studies. The useful question is which responsibility changes hands and which bottleneck remains."] },
+      { heading: "Where Project Monet fits", paragraphs: ["Project Monet fits founders and businesses looking for an Instagram specialist to connect strategy, profile, content, publishing and review. Standard Management uses structured approvals, weekly status visibility, a monthly report and one monthly review call by default. Cadence and production are agreed for the account.", "A narrow edit or scheduling requirement may be better served by narrower support. Managing several platforms, selling followers or guaranteeing sales is outside our current offer. If the account's main problem is unclear, start with the human audit before deciding who to hire."] },
+    ],
+    related: [
+      { href: "/resources/instagram-marketing-cost", label: "Compare Instagram management costs", copy: "Understand scope, exclusions and actual Project Monet starting prices." },
+      { href: "/resources/how-to-choose-an-instagram-agency", label: "Questions to ask before hiring", copy: "Check evidence, responsibilities and the written scope." },
+      { href: "/instagram-management-services", label: "Instagram Management", copy: "See the responsibilities Project Monet can take on." },
+      { href: "/instagram-reels-agency", label: "Reels strategy and production", copy: "See how a video system differs from isolated editing." },
+    ],
+  },
+  {
+    slug: "how-to-choose-an-instagram-agency",
+    seoTitle: "How to Choose an Instagram Agency: Hiring Checklist | Project Monet",
+    title: "How to choose an Instagram agency before you sign",
+    description: "A practical Instagram agency hiring checklist: verify proof, define scope, agree approvals, compare reporting and write a brief providers can answer.",
+    eyebrow: "Instagram Agency Hiring Checklist",
+    intro: "Ask an agency to show how it will make decisions, what your team must supply and what its evidence actually proves. A portfolio and a post count are only part of the decision.",
+    readTime: "5 min read",
+    publishedAt: "2026-10-07",
+    sections: [
+      { heading: "Define the job before making a shortlist", paragraphs: ["Start with the business problem: the wrong audience, an unclear profile, inconsistent production, weak founder visibility or no useful next action after discovery. Choose one primary objective and explain why it matters. ‘Grow Instagram’ leaves too much room for two parties to mean different things.", "Then decide whether you need organic Instagram management, content production, paid advertising or several platforms. Project Monet specialises in Instagram management and content. If your requirement is broader, confirm that a provider genuinely covers it rather than assuming that every agency does." ] },
+      { heading: "Ask what the proof actually proves", paragraphs: ["For each example, ask who owned the account, who produced the work, when the result occurred and whether distribution was organic or paid. Ask for the starting point and measurement window. A lifetime view total does not by itself show the change caused by an engagement.", "Creator experience can demonstrate an understanding of attention. It does not establish results for a client business. A client logo does not establish revenue or leads. Project Monet labels its founder/team creator proof separately and does not present it as Project Monet client outcomes.", "A provider may need to protect confidential client data. Redacted evidence or a clear explanation of its limits is more useful than an unsupported claim. Never ask the provider to share a client's private data without permission." ] },
+      { heading: "Use these questions in the call", table: { caption: "Questions that reveal the working arrangement", columns: ["Ask", "Look for in the answer"], rows: [
+        ["What would you inspect before proposing content?", "A review of the audience, offer, current account, available inputs and next action."],
+        ["Who supplies the ideas, facts, footage and approvals?", "Named responsibilities and a realistic production route."],
+        ["How does a topic get approved and produced?", "Written stages, one final approver and a distinction between minor corrections and a new direction."],
+        ["What happens when a Reel performs poorly?", "A hypothesis tied to audience, hook, watch behaviour or profile response; no automatic demand for more posts."],
+        ["What will you report besides views?", "Available profile visits, follows, engagement and business actions, with attribution limits stated."],
+        ["What is excluded from the price?", "Clear treatment of shoots, talent, tools, extra revisions and source files."],
+        ["What happens if we stop working together?", "Written notice, access removal, paid-deliverable ownership and a clear handover scope."],
+      ] } },
+      { heading: "Ask for one decision, not a free strategy", paragraphs: ["A useful evaluation question is: ‘What would you investigate first on this account, and why?’ The answer should connect an observation to a next check. For example, if views are healthy but profile visits are weak, the provider might inspect audience relevance and the reason to visit before changing the posting schedule.", "This is an illustrative diagnostic path, not a finding about your account. A provider should state what it cannot know from a public profile. Do not expect a complete unpaid content calendar, scripts or production plan. Project Monet's free audit is a diagnosis; detailed strategy belongs in paid work." ] },
+      { heading: "Check the written scope against the sales conversation", bullets: ["The account and primary business objective are named.", "Strategy, scripts, footage, editing, publishing and community responsibilities are explicit.", "Production formats, cadence and capacity are defined without assuming unlimited work.", "Approvals, included revisions and client-caused delays have clear treatment.", "Reports have a baseline, a cadence and someone responsible for the next decision.", "Fees, separate costs, cancellation, ownership and any performance remedy match the agreement."], paragraphs: ["If you discussed managing both a founder and company account, make sure both appear in the scope. If founder filming is unavailable, record the alternative inputs. If an avatar or synthetic voice is proposed, establish authorization and disclosure before production."] },
+      { heading: "Treat these as questions to resolve before signing", paragraphs: ["Be cautious when someone sells a guaranteed follower number without explaining acquisition, presents creator results as client outcomes, or claims private audience knowledge from a public handle alone. Ask for the basis of the claim and stop if the explanation remains unclear.", "An offer can include a specific contractual performance commitment, but its definition matters. Project Monet's Viral Mandate requires qualification and a signed account-specific target, measurement terms, eligibility conditions and creative guardrails. It is not a sales guarantee. Standard Management has no virality guarantee.", "High views with no reporting path, unlimited production for an undefined fee, and approvals described only as ‘we will figure it out’ are unresolved scope risks. Clarify them before money or production time is committed."] },
+      { heading: "Copy this brief when requesting a proposal", bullets: ["Account(s): [profile links; founder, company or both]", "Business and intended buyer: [what we sell and who can buy]", "Primary Instagram objective: [the useful action or change we want]", "Current problem and evidence: [what we observe; what remains unknown]", "Available inputs: [expert time, footage, demos, permissions and assets]", "Work we already own: [strategy, creation, publishing or reporting]", "Approver and availability: [one person; realistic review window]", "Budget and timing: [range and constraints]", "Proposal requested: [responsibilities, deliverables, exclusions, measurement and terms]"], paragraphs: ["Send the same brief to each shortlisted provider so the answers can be compared. Do not choose by post count alone. Choose the arrangement your team can actually support, with evidence and responsibilities both clear."] },
+    ],
+    related: [
+      { href: "/resources/instagram-manager-vs-agency", label: "Freelancer, agency or in-house?", copy: "Choose the operating model before comparing providers." },
+      { href: "/resources/instagram-marketing-cost", label: "Compare pricing and scope", copy: "Put quotes on the same basis." },
+      { href: "/about", label: "About Project Monet", copy: "Understand our creator experience and proof boundaries." },
+      { href: "/instagram-marketing-for-founders", label: "Founder Instagram support", copy: "Turn expertise into an account people can recognise." },
+      { href: "/instagram-audit", label: "Request a human Instagram audit", copy: "Identify the clearest account problem before buying." },
+    ],
+  },
+
+  {
     slug: "instagram-marketing-cost",
-    seoTitle: "Instagram Marketing Cost: Pricing & Budget Guide | Project Monet",
-    title: "What does Instagram marketing cost?",
+    seoTitle: "Instagram Management Cost & Agency Pricing | Project Monet",
+    title: "What does Instagram management cost?",
     description: "Understand what changes Instagram marketing and management costs, and how Project Monet’s $1,000 and $2,500 offers differ.",
-    modifiedAt: "2026-09-02",
+    modifiedAt: "2026-10-07",
     eyebrow: "Instagram Marketing Cost",
     intro: "The honest answer is that price depends on the work. A plan, six simple posts, and a full strategy-production-management system are not the same service.",
     readTime: "8 min read",
     sections: [
+      { heading: "Project Monet starting prices at a glance", paragraphs: ["Instagram manager cost depends on the responsibilities and production involved. These are our current starting prices, not a survey of what every freelancer or agency charges."], table: { caption: "Project Monet offers in USD", columns: ["Offer", "Starting fee and term", "Performance terms"], rows: [
+        ["Standard Management", "$1,000/month. Planned three-month initial period, then month-to-month; 14-day notice before the next billing period. A paid one-month pilot is discretionary.", "Agreed work and structured approvals. No guaranteed virality, reach, followers, leads or revenue."],
+        ["Viral Mandate", "$2,500/month. Qualified six-month engagement with monthly payment in advance.", "Account-specific target and eligibility under signed terms. Conditional 50% refund of collected management fees if the qualifying result is not delivered."],
+      ] } },
+      { heading: "What a $500, $1,000 or $2,500 budget tells you", paragraphs: ["A $500 quote does not establish what a provider includes. It could cover a narrow task, but ask for the actual scope rather than assuming a complete management service. $500 is below Project Monet's published Standard starting price.", "At Project Monet, $1,000 is the Standard Management starting fee, not an unlimited asset allowance. $2,500 is the Viral Mandate starting fee for qualified accounts, not automatic eligibility or a promise of sales. A complex Standard scope can also cost more than its starting price.", "Compare responsibility, production and terms at each budget. Do not assume that paying more always buys more posts or that another provider uses the same pricing model."] },
       { heading: "Start with the scope, not the post count", paragraphs: ["A monthly price means little until you know who is responsible for strategy, ideas, production, approvals, publishing, and improvement. Two proposals can promise the same number of posts while containing very different levels of thinking and work.", "Ask what problem the engagement is meant to solve. An account that needs a positioning reset, founder filming, regular Reels, editing, profile work, publishing, and reporting needs more support than an account with an in-house team and a clear plan."], callout: "The number of assets matters. The system around those assets matters more." },
       { heading: "What usually changes the price", bullets: ["Strategy depth and account research", "Number and type of Reels, carousels, stories, or static assets", "Scriptwriting, hooks, captions, and creative direction", "Filming, remote production support, travel, locations, or talent", "Editing complexity, graphics, sound, and versioning", "Profile optimization, publishing, community work, and reporting", "Approval speed, stakeholder count, and account complexity", "Testing cadence and the amount of ongoing improvement required"], paragraphs: ["A responsible proposal should show which of these are included. It should also show client responsibilities. Delayed footage or approvals can reduce what any team can publish and learn."] },
       { heading: "Strategy changes the value of production", paragraphs: ["Production can make weak content look polished. It cannot make the wrong topic useful. Strategy decides who the content is for, why that person should care, what the account should become known for, and what should happen after a view.", "This is why Project Monet uses a Funnel-First approach. We improve the account path before treating output as the goal."], callout: "Good production helps a good idea travel. It does not replace the idea." },
@@ -39,6 +117,8 @@ export const resourceArticles: ResourceArticle[] = [
       { heading: "Choose the next useful step", paragraphs: ["If you are unsure what level of support the account needs, start with the account itself. A Free Instagram Audit can show whether the clearest problem is positioning, profile, content, production, management, or the path to an enquiry."] },
     ],
     related: [
+      { href: "/resources/instagram-manager-vs-agency", label: "Compare provider models", copy: "See which responsibilities stay with your own team." },
+      { href: "/resources/how-to-choose-an-instagram-agency", label: "Agency hiring checklist", copy: "Use the same brief and scope questions for each quote." },
       { href: "/instagram-management-services", label: "Instagram Management", copy: "See what the $1,000+ standard offer may include." },
       { href: "/viral-mandate", label: "Viral Mandate", copy: "Understand the qualified $2,500+ six-month offer." },
       { href: "/instagram-audit", label: "Free Instagram Audit", copy: "Find the account’s clearest needs before buying." },

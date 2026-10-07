@@ -13,9 +13,13 @@ const data: ServicePageData = {
   eyebrow: "Instagram SEO Services",
   h1: "Help the right people find and understand your Instagram.",
   intro: "Instagram SEO improves how clearly your profile and content communicate their subject inside Instagram. It supports discovery, but it is not the same system as Google SEO.",
+  answerTitle: "Make your subject clear inside Instagram.",
+  problemTitle: "Being active does not make your topic clear.",
+  featureTitle: "Profile language, topics and discovery paths.",
+  processTitle: "Map the language. Improve the profile. Review the response.",
   directAnswer: [
     "People use Instagram search, suggested content, Explore, audio pages, hashtags, and recommendations to discover accounts. Clear profile language and consistent topics can help Instagram and potential followers understand where an account belongs.",
-    "We improve that clarity across the profile and content. Then we make sure discovery leads to a page that explains the offer, shows proof, and gives people a useful next step.",
+    "We improve that clarity across the profile and content. This is a supporting capability within the Instagram account system, not a Google SEO service or a guaranteed ranking package. The scope can cover profile wording, topic mapping, pinned-post orientation and a clearer next step.",
   ],
   problems: [
     "The profile name and bio use clever language but do not clearly say what the account is about.",
