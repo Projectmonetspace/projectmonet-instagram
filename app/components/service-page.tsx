@@ -7,6 +7,10 @@ export type ServicePageData = {
   eyebrow: string;
   h1: string;
   intro: string;
+  answerTitle: string;
+  problemTitle: string;
+  featureTitle: string;
+  processTitle: string;
   directAnswer: string[];
   problems: string[];
   features: Array<{ title: string; copy: string }>;
@@ -42,7 +46,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
 
         <section className="editorial-section warm-section">
           <div className="page-shell editorial-split">
-            <div><p className="eyebrow">The simple answer</p><h2>One account. One connected system.</h2></div>
+            <div><p className="eyebrow">The simple answer</p><h2>{data.answerTitle}</h2></div>
             <div className="prose-large">{data.directAnswer.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
           </div>
         </section>
@@ -50,7 +54,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <section className="problem-list dark-section">
           <div className="page-shell">
             <p className="eyebrow">Problems this solves</p>
-            <h2>More activity is not the same as more progress.</h2>
+            <h2>{data.problemTitle}</h2>
             <div className="line-list">{data.problems.map((problem, index) => <div key={problem}><span>{String(index + 1).padStart(2, "0")}</span><p>{problem}</p></div>)}</div>
           </div>
         </section>
@@ -58,7 +62,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <section className="feature-section warm-section">
           <div className="page-shell">
             <p className="eyebrow">What the work covers</p>
-            <h2>Every part has a reason to exist.</h2>
+            <h2>{data.featureTitle}</h2>
             <div className="feature-grid">{data.features.map((feature, index) => <article key={feature.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{feature.title}</h3><p>{feature.copy}</p></article>)}</div>
           </div>
         </section>
@@ -66,7 +70,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <section className="process-section orange-section">
           <div className="page-shell">
             <p className="eyebrow">Funnel-First process</p>
-            <h2>Build the machine before pouring traffic into it.</h2>
+            <h2>{data.processTitle}</h2>
             <div className="process-list">{data.process.map((step, index) => <article key={step.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{step.title}</h3><p>{step.copy}</p></div></article>)}</div>
           </div>
         </section>

@@ -14,6 +14,7 @@ const services = [
 ];
 
 const faq = [
+  ["Who is Project Monet not a fit for?", "We are not a fit for purchased followers, management across every social network, or a fixed sales guarantee. The work also needs agreed inputs, one accountable approver and a real business goal. If you only need scheduling or isolated edits, narrower support may be a better fit."],
   ["How much does Instagram management cost?", "Project Monet Standard Management starts at $1,000 per month. The final price depends on the strategy, content, production, and management required."],
   ["How much does Viral Mandate cost?", "Viral Mandate starts at $2,500 per month and uses a six-month contract. It is available only to qualified accounts."],
   ["What happens if Viral Mandate does not deliver the agreed result?", "The qualifying Instagram performance result is defined for the eligible account in the signed engagement. If it is not delivered and eligibility remains intact through the completed six-month engagement, the client is eligible for a 50% refund of collected Viral Mandate management fees under the signed terms."],
@@ -95,7 +96,7 @@ export default function Home() {
         ]} />
 
         <section className="measurement-section dark-section" aria-labelledby="measurement-title">
-          <div className="page-shell"><p className="eyebrow">Measure what matters</p><h2 id="measurement-title">A viral Reel is useful only if something happens after the view.</h2><div className="measurement-path" aria-label="Measurement path">{["Reach", "Profile visits", "Follows", "Engagement", "DMs", "Leads", "Business actions"].map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}</div><p className="measurement-note">A Reel with fewer views can be more valuable if the right people see it.</p></div>
+          <div className="page-shell"><p className="eyebrow">Measure what matters</p><h2 id="measurement-title">A viral Reel is useful only if something happens after the view.</h2><div className="measurement-path" aria-label="Measurement path">{["Reach", "Profile visits", "Follows", "Engagement", "DMs", "Leads", "Business actions"].map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}</div><p className="measurement-note">A Reel with fewer views can be more valuable if the right people see it. For us, Instagram growth means relevant reach and a clearer path to trust and action. We do not sell followers or promise sales from a view count.</p></div>
         </section>
 
         <section id="offers" className="offers-section warm-section" aria-labelledby="offers-title">
@@ -118,6 +119,12 @@ export default function Home() {
         <section id="faq" className="faq-section dark-section" aria-labelledby="faq-title">
           <div className="page-shell"><div className="section-heading split"><div><p className="eyebrow">Questions, answered</p><h2 id="faq-title">Before you choose a path.</h2></div><p>Clear terms. No blanket promises.</p></div><div className="faq-list">{faq.map(([question, answer], index) => <details key={question}><summary><span>{String(index + 1).padStart(2, "0")}</span>{question}<i aria-hidden="true">+</i></summary><p>{answer}</p></details>)}</div></div>
         </section>
+
+        <RelatedLinks title="Before you hire Instagram support" links={[
+          { href: "/resources/instagram-marketing-cost", label: "What should it cost?", copy: "Compare scope, responsibilities and the two Project Monet offers." },
+          { href: "/resources/instagram-manager-vs-agency", label: "Who should manage it?", copy: "Compare a freelancer, agency and in-house team." },
+          { href: "/resources/how-to-choose-an-instagram-agency", label: "What should you ask?", copy: "Check proof, production inputs, approvals and reporting." },
+        ]} />
 
         <section className="final-cta orange-section"><div className="page-shell"><p className="eyebrow">One clear next step</p><h2>Your Instagram should have a job.</h2><p className="final-kicker">Not just a feed.</p><p>We can show you what is working, what is weak, and what we would fix first.</p><div className="hero-actions"><LeadFormTrigger kind="audit" location="final_cta" className="button button-ink">Get a Free Instagram Audit</LeadFormTrigger><LeadFormTrigger kind="viral" location="final_cta" className="button button-orange-outline">See if You Qualify for Viral Mandate</LeadFormTrigger></div></div></section>
       </main>

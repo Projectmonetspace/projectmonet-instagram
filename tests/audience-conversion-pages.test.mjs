@@ -5,9 +5,9 @@ import test from "node:test";
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
 const routes = [
-  ["instagram-marketing-for-founders", "Instagram Marketing for Founders | Project Monet"],
+  ["instagram-marketing-for-founders", "Founder Instagram Marketing & Personal Branding | Project Monet"],
   ["instagram-marketing-for-small-business", "Instagram Marketing for Small Business | Project Monet"],
-  ["instagram-audit", "Free Instagram Audit | Project Monet"],
+  ["instagram-audit", "Free Instagram Audit Service: Human Review | Project Monet"],
   ["viral-mandate", "Viral Mandate Instagram Growth Offer | Project Monet"],
   ["about", "About Project Monet | Creator-Led Instagram Agency"],
 ];

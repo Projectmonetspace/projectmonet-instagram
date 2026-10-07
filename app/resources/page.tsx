@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <>
       <main>
-        <PageHero eyebrow="Instagram Marketing Resources" title="Useful Instagram guidance without the filler." intro="Clear guides for founders and businesses that want to understand content, Reels, profile growth, Instagram SEO, leads, and what the work should cost." path={path} currentLabel="Resources" />
+        <PageHero eyebrow="Instagram Marketing Resources" title="Useful Instagram guidance without the filler." intro="Compare costs, choose who should manage your Instagram, and ask better questions before hiring. Then use the practical guides to understand content and the account path." path={path} currentLabel="Resources" />
 
         <section className="resource-index-intro warm-section"><div className="page-shell editorial-split"><div><p className="eyebrow">Start with the real question</p><h2>What are you trying to fix?</h2></div><div className="prose-large"><p>These resources explain the decisions behind a useful Instagram presence. They are written for people who do not want to learn marketing jargon before they can improve the account.</p><p>Read one guide. Use what fits. If the account still feels unclear, request a Free Instagram Audit.</p></div></div></section>
 

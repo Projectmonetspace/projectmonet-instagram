@@ -4,25 +4,25 @@ export const indexableRoutes = [
   { path: "/", lastModified: "2026-10-07", changeFrequency: "weekly" as const, priority: 1 },
   {
     path: "/instagram-management-services",
-    lastModified: "2026-09-02",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.9,
   },
   {
     path: "/instagram-content-creation-services",
-    lastModified: "2026-08-29",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
   {
     path: "/instagram-reels-agency",
-    lastModified: "2026-08-29",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
   {
     path: "/instagram-seo-services",
-    lastModified: "2026-08-29",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
@@ -46,7 +46,7 @@ export const indexableRoutes = [
   },
   {
     path: "/instagram-audit",
-    lastModified: "2026-08-29",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.9,
   },
@@ -64,7 +64,7 @@ export const indexableRoutes = [
   },
   {
     path: "/resources",
-    lastModified: "2026-09-02",
+    lastModified: "2026-10-07",
     changeFrequency: "weekly" as const,
     priority: 0.8,
   },

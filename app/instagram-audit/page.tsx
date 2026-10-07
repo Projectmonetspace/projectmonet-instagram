@@ -6,8 +6,8 @@ import { absoluteUrl, pageMetadata } from "@/app/lib/site";
 
 const path = "/instagram-audit";
 export const metadata = pageMetadata({
-  title: "Free Instagram Audit | Project Monet",
-  description: "Request a free Instagram audit covering positioning, profile, recent content, growth problems, conversion gaps, and the clearest next opportunities.",
+  title: "Free Instagram Audit Service: Human Review | Project Monet",
+  description: "Request a free human Instagram audit of your profile, content and enquiry path. Get clear priorities before choosing ongoing management.",
   path,
 });
 
@@ -21,6 +21,7 @@ const reviewItems = [
 ];
 const faqs: Array<[string, string]> = [
   ["Is this an automated Instagram score?", "No. Project Monet reviews the account and the context you provide. We do not turn a generic number into a sales pitch."],
+  ["Will you need my Instagram password?", "Do not send a password. The free audit starts with your profile and the context in the form. Any later management access is agreed separately through the appropriate account-access process."],
   ["What will I receive?", "We will send the clearest account problems and opportunities we see, with a practical recommendation for what to do next."],
   ["Does the audit include a complete content strategy?", "No. The free audit is a diagnosis. A full strategy, production plan, scripts, and implementation belong inside a paid engagement."],
   ["Do I have to buy Instagram management?", "No. We review the account before asking you to buy anything. If there is a fit, we may explain the relevant paid option."],
@@ -39,7 +40,7 @@ export default function Page() {
         <section className="editorial-section warm-section">
           <div className="page-shell editorial-split">
             <div><p className="eyebrow">What this is</p><h2>A useful diagnosis. Not a generic score.</h2></div>
-            <div className="prose-large"><p>An account can look active and still have a weak path from discovery to action. We review the page as a connected system, using the information you share in the form.</p><p>The audit is for founders, creators, and businesses that want a clearer view of what is working, what is confusing, and what deserves attention first.</p></div>
+            <div className="prose-large"><p>An account can look active and still have a weak path from discovery to action. We review the page as a connected system, using the information you share in the form.</p><p>The audit is for founders, creators, and businesses that want a clearer view of what is working, what is confusing, and what deserves attention first.</p><p>This human Instagram audit service reviews the visible account and your business context. It does not claim access to private Insights you have not supplied, certify follower authenticity, or return an instant score.</p></div>
           </div>
         </section>
 
