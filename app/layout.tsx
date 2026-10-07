@@ -46,7 +46,7 @@ const organizationSchema = {
   logo: `${SITE_ORIGIN}/android-chrome-512x512.png`,
   description,
   areaServed: "Worldwide",
-  knowsAbout: ["Instagram marketing", "Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO"],
+  knowsAbout: ["Instagram marketing", "Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO", "B2B SaaS Instagram marketing"],
   sameAs: ["https://www.instagram.com/projectmonet/"],
 };
 

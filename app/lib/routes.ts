@@ -1,7 +1,7 @@
 import { resourceArticles } from "./resources";
 
 export const indexableRoutes = [
-  { path: "/", lastModified: "2026-09-02", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/", lastModified: "2026-10-07", changeFrequency: "weekly" as const, priority: 1 },
   {
     path: "/instagram-management-services",
     lastModified: "2026-09-02",
@@ -28,7 +28,13 @@ export const indexableRoutes = [
   },
   {
     path: "/instagram-marketing-for-founders",
-    lastModified: "2026-08-29",
+    lastModified: "2026-10-07",
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  },
+  {
+    path: "/instagram-marketing-for-b2b-saas",
+    lastModified: "2026-10-07",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
