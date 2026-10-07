@@ -17,6 +17,7 @@ const serviceLinks = [
 const audienceLinks = [
   { label: "Founders", href: "/instagram-marketing-for-founders" },
   { label: "Small Businesses", href: "/instagram-marketing-for-small-business" },
+  { label: "B2B SaaS & AI SaaS", href: "/instagram-marketing-for-b2b-saas" },
 ];
 
 export default function SiteHeader() {

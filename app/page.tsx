@@ -2,7 +2,7 @@ import { ArrowDownRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Hero from "./components/hero";
 import { LeadFormTrigger } from "./components/lead-form-modal";
-import { SiteFooter } from "./components/page-framework";
+import { RelatedLinks, SiteFooter } from "./components/page-framework";
 import ReelRail from "./components/reel-rail";
 import { absoluteUrl } from "./lib/site";
 
@@ -87,6 +87,12 @@ export default function Home() {
           <div className="page-shell section-heading split"><div><p className="eyebrow">Services</p><h2 id="services-title">Built around Instagram. Nothing else.</h2></div><p>Four parts of one clear account system.</p></div>
           <div className="service-viewport page-shell"><div className="service-track">{services.map((service) => <Link key={service.title} href={service.href} className="service-card"><span>{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><ArrowRight aria-hidden="true" /></Link>)}</div></div>
         </section>
+
+        <RelatedLinks title="Instagram for the business you are building" links={[
+          { href: "/instagram-marketing-for-founders", label: "Founders", copy: "Build a recognisable point of view around your work." },
+          { href: "/instagram-marketing-for-small-business", label: "Small Businesses", copy: "Help the right customers understand and act." },
+          { href: "/instagram-marketing-for-b2b-saas", label: "B2B SaaS & AI SaaS", copy: "Grow the company account, founder account, or both." },
+        ]} />
 
         <section className="measurement-section dark-section" aria-labelledby="measurement-title">
           <div className="page-shell"><p className="eyebrow">Measure what matters</p><h2 id="measurement-title">A viral Reel is useful only if something happens after the view.</h2><div className="measurement-path" aria-label="Measurement path">{["Reach", "Profile visits", "Follows", "Engagement", "DMs", "Leads", "Business actions"].map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}</div><p className="measurement-note">A Reel with fewer views can be more valuable if the right people see it.</p></div>

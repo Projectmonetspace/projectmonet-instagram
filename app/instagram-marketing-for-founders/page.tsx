@@ -42,6 +42,7 @@ const data: AudiencePageData = {
   related: [
     { href: "/instagram-management-services", label: "Instagram Management", copy: "See how strategy, profile, publishing, and review work together." },
     { href: "/instagram-content-creation-services", label: "Content Creation", copy: "Turn expertise into repeatable Reels, scripts, carousels, and captions." },
+    { href: "/instagram-marketing-for-b2b-saas", label: "B2B SaaS & AI SaaS", copy: "Choose a company account, founder account, or both for a SaaS product." },
     { href: "/viral-mandate", label: "Viral Mandate", copy: "Understand the qualified six-month performance-led offer." },
   ],
 };

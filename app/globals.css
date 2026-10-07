@@ -592,3 +592,40 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
   .hero { background: linear-gradient(135deg, #15100f, #080808 70%); }
   .reel-track { animation: none; transform: none; }
 }
+
+
+/* B2B SaaS audience page */
+.saas-models, .saas-offers { padding: 130px 0; }
+.saas-models h2, .saas-offers h2 { max-width: 1050px; margin: 0; font-size: clamp(46px, 5.7vw, 86px); line-height: .94; font-weight: 430; letter-spacing: -.055em; text-wrap: balance; }
+.saas-models-grid { margin-top: 72px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.18); }
+.saas-models-grid article { min-height: 350px; padding: 28px; border-right: 1px solid rgba(255,255,255,.18); }
+.saas-models-grid article:first-child { padding-left: 0; }
+.saas-models-grid article:last-child { border-right: 0; }
+.saas-models-grid span { color: var(--orange); font-size: 11px; font-weight: 700; }
+.saas-models-grid h3 { margin: 120px 0 18px; font-size: 32px; font-weight: 480; letter-spacing: -.045em; }
+.saas-models-grid p, .saas-offers-intro { max-width: 620px; color: rgba(255,255,255,.58); line-height: 1.65; }
+.saas-format-list { margin: 30px 0 0; padding-left: 22px; columns: 2; column-gap: 35px; font-size: 16px; line-height: 1.8; }
+.saas-format-list li { break-inside: avoid; }
+.saas-offers-intro { font-size: 19px; }
+.saas-offer-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.saas-offer-grid article { padding: 42px; border: 1px solid rgba(255,255,255,.18); border-radius: 24px; background: rgba(255,255,255,.035); }
+.saas-offer-grid h3 { margin: 0 0 24px; font-size: 34px; font-weight: 480; letter-spacing: -.04em; }
+.saas-offer-grid strong { color: var(--orange); font-size: 18px; }
+.saas-offer-grid p { min-height: 130px; max-width: 600px; color: rgba(255,255,255,.62); line-height: 1.7; }
+.saas-offer-grid a { display: inline-flex; align-items: center; gap: 10px; color: var(--paper); font-weight: 650; }
+.saas-offer-grid a svg { width: 18px; color: var(--orange); }
+@media (max-width: 900px) {
+  .saas-models, .saas-offers { padding: 90px 0; }
+  .saas-models-grid { grid-template-columns: 1fr; margin-top: 45px; }
+  .saas-models-grid article, .saas-models-grid article:first-child { min-height: 0; padding: 28px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+  .saas-models-grid article:last-child { border-bottom: 0; }
+  .saas-models-grid h3 { margin-top: 45px; }
+  .saas-offer-grid { grid-template-columns: 1fr; }
+  .saas-offer-grid p { min-height: 0; }
+}
+@media (max-width: 600px) {
+  .saas-models h2, .saas-offers h2 { font-size: clamp(42px, 12vw, 61px); }
+  .saas-format-list { columns: 1; }
+  .saas-offer-grid article { padding: 26px; }
+  .saas-offer-grid h3 { font-size: 28px; }
+}
