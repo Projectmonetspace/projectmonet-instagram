@@ -1,3 +1,4 @@
+import { serializeJsonLd } from "@/app/lib/json-ld";
 import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { BreadcrumbSchema, PageCta, PageHero, RelatedLinks, SiteFooter } from "@/app/components/page-framework";
@@ -138,7 +139,7 @@ export default function Page() {
       </main>
       <SiteFooter />
       <BreadcrumbSchema items={crumbs} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }} />
     </>
   );
 }

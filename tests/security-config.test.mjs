@@ -9,4 +9,7 @@ test("security headers retain the approved hardening baseline", () => {
   assert.match(source, /connect-src 'self' https:\/\/api\.web3forms\.com/);
   assert.match(source, /media-src 'self' https:\/\/d8j0ntlcm91z4\.cloudfront\.net/);
   assert.doesNotMatch(source, /unsafe-eval|X-Powered-By/);
+  for (const directive of ["base-uri 'none'", "frame-src 'none'", "script-src-attr 'none'"]) {
+    assert.ok(source.includes(directive));
+  }
 });

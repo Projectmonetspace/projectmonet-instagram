@@ -1,3 +1,4 @@
+import { serializeJsonLd } from "@/app/lib/json-ld";
 import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { absoluteUrl } from "@/app/lib/site";
@@ -78,8 +79,8 @@ export default function AudiencePage({ data }: { data: AudiencePageData }) {
       </main>
       <SiteFooter />
       <BreadcrumbSchema items={crumbs} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
     </>
   );
 }
