@@ -1,3 +1,4 @@
+import { serializeJsonLd } from "@/app/lib/json-ld";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -66,7 +67,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       </main>
       <SiteFooter />
       <BreadcrumbSchema items={crumbs} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }} />
     </>
   );
 }

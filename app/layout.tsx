@@ -1,3 +1,4 @@
+import { serializeJsonLd } from "@/app/lib/json-ld";
 import type { Metadata } from "next";
 import AttributionCapture from "./components/attribution-capture";
 import GoogleAnalytics from "./components/google-analytics";
@@ -28,11 +29,12 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, description, images: ["/media/hero-poster.webp"] },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "16x16 32x32 48x48" },
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
     ],
     apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
@@ -43,7 +45,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Project Monet",
   url: SITE_ORIGIN,
-  logo: `${SITE_ORIGIN}/android-chrome-512x512.png`,
+  logo: `${SITE_ORIGIN}/brand/project-monet-logo.png`,
   description,
   areaServed: "Worldwide",
   knowsAbout: ["Instagram marketing", "Instagram management", "Instagram content creation", "Instagram Reels", "Instagram SEO", "B2B SaaS Instagram marketing"],
@@ -56,8 +58,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteSchema) }} />
       </head>
       <body>
         <AttributionCapture />

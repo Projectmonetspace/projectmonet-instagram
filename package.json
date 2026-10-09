@@ -14,7 +14,8 @@
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "audit:production": "npm audit --omit=dev --audit-level=high",
     "build:cloudflare": "node scripts/build-cloudflare.mjs",
-    "verify:export": "node scripts/verify-export.mjs"
+    "verify:export": "node scripts/verify-export.mjs",
+    "assets:brand": "node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
     "lucide-react": "0.468.0",
@@ -27,7 +28,7 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.4.0",
     "typescript": "5.9.3"
   },
   "overrides": {

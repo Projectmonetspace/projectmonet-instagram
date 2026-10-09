@@ -18,6 +18,10 @@ for (const url of urls) {
   assert.ok(/<title>[^<]+<\/title>/.test(html), "Title: " + route);
   assert.ok(html.includes('name="description"'), "Description: " + route);
   assert.ok(html.includes('application/ld+json'), "Schema: " + route);
+  for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    JSON.parse(match[1]);
+    assert.ok(!match[1].includes("<"), "Unsafe JSON-LD serialization: " + route);
+  }
   assert.ok(!/name="robots"[^>]*noindex/.test(html), "Unexpected noindex: " + route);
   assert.ok(!html.includes("/_next/image?"), "Runtime image optimizer: " + route);
   assert.ok(!html.includes("/cdn-cgi/l/email-protection"), "Cloudflare email protection link: " + route);
@@ -51,6 +55,28 @@ async function allFiles(dir) {
   return result;
 }
 const files = await allFiles("out");
+const manifest = JSON.parse(await readFile("out/site.webmanifest", "utf8"));
+const iconSizes = new Map([
+  ["/brand/project-monet-logo.png", 512],
+  ["/favicon-16x16.png", 16], ["/favicon-32x32.png", 32],
+  ["/favicon-48x48.png", 48], ["/favicon-96x96.png", 96],
+  ["/apple-touch-icon.png", 180],
+  ["/android-chrome-192x192.png", 192], ["/android-chrome-512x512.png", 512],
+]);
+for (const [url, size] of iconSizes) {
+  const data = await readFile("out" + url);
+  assert.equal(data.subarray(1, 4).toString(), "PNG", "PNG signature: " + url);
+  assert.equal(data.readUInt32BE(16), size, "Icon width: " + url);
+  assert.equal(data.readUInt32BE(20), size, "Icon height: " + url);
+  assert.deepEqual(data, await readFile("public" + url), "Exported icon differs: " + url);
+}
+for (const icon of manifest.icons) {
+  assert.equal(icon.sizes, `${iconSizes.get(icon.src)}x${iconSizes.get(icon.src)}`, "Manifest icon dimensions");
+  assert.equal(icon.type, "image/png");
+}
+for (const file of ["favicon.ico", "favicon.svg", "site.webmanifest"]) {
+  assert.deepEqual(await readFile("out/" + file), await readFile("public/" + file));
+}
 assert.ok(files.length <= 20000, "Pages Free file limit exceeded");
 for (const file of files) assert.ok((await stat(file)).size <= 25 * 1024 * 1024, "Pages asset too large: " + file);
 for (const file of await allFiles("public/media")) {

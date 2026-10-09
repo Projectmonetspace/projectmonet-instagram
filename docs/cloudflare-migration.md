@@ -1,6 +1,14 @@
-# Cloudflare migration — preparation
+# Cloudflare deployment and migration history
 
-Status: static build passed GitHub CI; Pages Git integration is connected and preview verification is pending. Custom production remains on Vercel.
+Current status: ProjectMonet.com has served production through Cloudflare Pages
+native Git integration since September 2026. The canonical host is
+https://www.projectmonet.com, production branch is `main`, and Pages project is
+`projectmonet-instagram` in the Project Monet account documented below.
+Vercel is retained for rollback; it is not the production release authority.
+
+Release workflow: focused branch/PR → CI (including both builds) → verified Pages
+preview → merge → verify the production deployment commit and public site.
+The historical preparation checkpoints below are not current outstanding gates.
 
 ## Deployment authority
 
@@ -9,7 +17,8 @@ No GitHub Actions/Wrangler deployment workflow. Existing GitHub CI remains a val
 Account: Project Monet (`6c6b7d434bca0158dff06cc5c3478a02`), confirmed by owner.
 Node: 22.16.0 via .node-version.
 Build: `npm run build:cloudflare`; output: `out`; repository root: root.
-Validate migration/cloudflare-pages before merging to main or onboarding a domain.
+Validate the release branch before merging to main. This maintenance workflow does
+not require domain onboarding, DNS or nameserver changes.
 
 The Pages build generates lossless responsive variants from unchanged public originals,
 exports Next.js pages with production canonicals, and writes Pages redirects/security headers.
@@ -30,7 +39,7 @@ Do not delete the Vercel project. Before any nameserver change, copy and compare
 including the extra hostingermail1._domainkey TXT, three DKIM CNAMEs, MX, SPF, DMARC,
 Google verification and autodiscover/autoconfig. Nameserver and DNSSEC changes require their checkpoints.
 
-## Remaining gates
+## Historical migration gates (September 2026)
 
 Pages preview; rendered preview/navigation/forms/headers/404 tests;
 zone onboarding; fresh DNS comparison; DNSSEC/DS inspection; manual nameserver checkpoint;

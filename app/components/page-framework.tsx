@@ -1,3 +1,4 @@
+import { serializeJsonLd } from "@/app/lib/json-ld";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnalyticsLink from "./analytics-link";
@@ -22,7 +23,7 @@ export function BreadcrumbSchema({ items }: { items: Crumb[] }) {
     "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.label, item: absoluteUrl(item.href) })),
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />;
 }
 
 export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKind = "audit", primaryLabel = "Get a Free Instagram Audit", showPrimary = true, children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; primaryKind?: "audit" | "viral"; primaryLabel?: string; showPrimary?: boolean; children?: React.ReactNode }) {

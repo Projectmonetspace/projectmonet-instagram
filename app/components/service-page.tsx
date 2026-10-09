@@ -1,3 +1,4 @@
+import { serializeJsonLd } from "@/app/lib/json-ld";
 import { Check, Minus } from "lucide-react";
 import { BreadcrumbSchema, PageCta, PageHero, RelatedLinks, SiteFooter } from "./page-framework";
 import { absoluteUrl } from "@/app/lib/site";
@@ -102,8 +103,8 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
       </main>
       <SiteFooter />
       <BreadcrumbSchema items={breadcrumbs} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
     </>
   );
 }

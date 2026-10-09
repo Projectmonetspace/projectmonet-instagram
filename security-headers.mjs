@@ -1,10 +1,12 @@
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "base-uri 'self'",
+  "base-uri 'none'",
   "object-src 'none'",
   "frame-ancestors 'none'",
+  "frame-src 'none'",
   "form-action 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://www.google-analytics.com",
   "font-src 'self' data:",
