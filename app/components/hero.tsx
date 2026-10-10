@@ -25,8 +25,8 @@ export default function Hero() {
           </div>
           <aside className="hero-proof" aria-label="Founder and creator track record">
             <p className="hero-proof-label">Founder / Creator Track Record</p>
-            <div className="proof-primary"><strong>35M+</strong><span>Organic views</span></div>
-            <div className="proof-people"><span>Sl6Dl7 · 102K</span><span>Poetrynyx · 200K</span></div>
+            <div className="proof-primary"><strong>300M+</strong><span>Creator-account views</span></div>
+            <div className="proof-people"><span>Sl6Dl7 · 100M+ (top 20 posts)</span><span>Poetrynyx · 200M+ views</span></div>
             <p className="proof-note">5+ original trend formats</p>
             <div className="proof-bars" aria-hidden="true">{bars.map((height, index) => <i key={`${height}-${index}`} style={{ height: `${height}%` }} />)}</div>
             <p className="proof-disclaimer">Founder/team creator experience. Not client results.</p>
