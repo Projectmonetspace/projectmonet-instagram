@@ -57,9 +57,9 @@ export default function Home() {
             <p>The people behind Project Monet built audiences before they started managing brands.</p>
           </div>
           <div className="page-shell creator-grid">
-            <a href="https://instagram.com/sl6dl7/" target="_blank" rel="noreferrer" className="creator-card"><span>Founder / Creative Director</span><strong>Sl6Dl7</strong><p>102K followers</p><ArrowDownRight aria-hidden="true" /></a>
-            <a href="https://instagram.com/poetrynyx/" target="_blank" rel="noreferrer" className="creator-card"><span>Co-founder / manages the managers</span><strong>Poetrynyx</strong><p>200K followers</p><ArrowDownRight aria-hidden="true" /></a>
-            <article className="creator-card aggregate-card"><span>Creator / team experience</span><strong>35M+</strong><p>Organic views · 5+ original trend formats</p></article>
+            <a href="https://instagram.com/sl6dl7/" target="_blank" rel="noreferrer" className="creator-card"><span>Founder / Creative Director</span><strong>Sl6Dl7</strong><p>102K followers · 100M+ views from the top 20 posts</p><ArrowDownRight aria-hidden="true" /></a>
+            <a href="https://instagram.com/poetrynyx/" target="_blank" rel="noreferrer" className="creator-card"><span>Co-founder / manages the managers</span><strong>Poetrynyx</strong><p>200K followers · 200M+ views</p><ArrowDownRight aria-hidden="true" /></a>
+            <article className="creator-card aggregate-card"><span>Creator / team experience</span><strong>300M+</strong><p>Combined creator-account views · 5+ original trend formats</p></article>
           </div>
           <ReelRail />
           <p className="proof-disclosure page-shell">Founder and team results are shown as creator experience. They are not Project Monet client results.</p>
