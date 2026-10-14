@@ -25,7 +25,12 @@ for (const url of urls) {
   assert.ok(!/name="robots"[^>]*noindex/.test(html), "Unexpected noindex: " + route);
   assert.ok(!html.includes("/_next/image?"), "Runtime image optimizer: " + route);
   assert.ok(!html.includes("/cdn-cgi/l/email-protection"), "Cloudflare email protection link: " + route);
-  assert.ok(!html.includes("contact@projectmonet.com"), "Exposed contact address: " + route);
+  if (route === "/contact") {
+    assert.ok(html.includes('href="mailto:contact@projectmonet.com"'), "Contact email missing");
+    assert.ok(html.includes('href="tel:+918290096163"'), "Contact phone missing");
+  } else {
+    assert.ok(!html.includes("contact@projectmonet.com"), "Exposed contact address: " + route);
+  }
   for (const match of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
     const asset = match[1].replaceAll("&amp;", "&");
     if (asset.startsWith("/__images/") || asset.startsWith("/_next/static/")) {

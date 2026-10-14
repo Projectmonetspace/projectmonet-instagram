@@ -63,6 +63,12 @@ export const indexableRoutes = [
     priority: 0.7,
   },
   {
+    path: "/contact",
+    lastModified: "2026-10-14",
+    changeFrequency: "yearly" as const,
+    priority: 0.5,
+  },
+  {
     path: "/resources",
     lastModified: "2026-10-07",
     changeFrequency: "weekly" as const,
