@@ -4,7 +4,7 @@ import { buildWeb3FormsPayload, getLeadRoute, normalizeInstagram, normalizePhone
 import { parseFirstTouchAttribution } from "../app/lib/attribution.ts";
 
 const audit = {
-  name: "Mayank", email: "mayank@example.com", phone: "+91 9876543210", businessName: "Example Studio",
+  name: "Mayank", email: "mayank@example.com", phoneCountry: "India", phoneCountryCode: "+91", phone: "+91 9876543210", businessName: "Example Studio",
   instagram: "@example.studio", niche: "Interior design", goal: "Get more DMs / leads", resources: "Founder footage",
   decisionMaker: "Yes", managementBudget: "Maybe", message: "", consent: true, botcheck: "",
 };
@@ -29,6 +29,8 @@ test("validates both complete flows and rejects required, consent, Instagram, an
   assert.deepEqual(validateSubmission("viral", viral), {});
   const invalid = validateSubmission("audit", { ...audit, email: "bad", instagram: "example.com/no", consent: false, botcheck: "spam" });
   for (const field of ["email", "instagram", "consent", "form"]) assert.ok(invalid[field]);
+  const missingCountry = validateSubmission("audit", { ...audit, phoneCountry: "", phoneCountryCode: "", phone: "" });
+  for (const field of ["phoneCountry", "phoneCountryCode", "phone"]) assert.ok(missingCountry[field]);
 });
 
 test("builds differentiated provider payloads with first touch, submission page, UTMs, and no private inbox", () => {
@@ -37,6 +39,9 @@ test("builds differentiated provider payloads with first touch, submission page,
   const viralPayload = buildWeb3FormsPayload("viral", viral, context);
   assert.equal(auditPayload.access_key, WEB3FORMS_ACCESS_KEY);
   assert.equal(auditPayload.form_type, "free_instagram_audit");
+  assert.equal(auditPayload["Phone / WhatsApp"], "+919876543210");
+  assert.equal(auditPayload.Country, "India");
+  assert.equal(auditPayload["Country calling code"], "+91");
   assert.equal(viralPayload.form_type, "viral_mandate_qualification");
   assert.equal(auditPayload.utm_source, "chatgpt.com");
   assert.equal(auditPayload.utm_content, "lead_004_t1");

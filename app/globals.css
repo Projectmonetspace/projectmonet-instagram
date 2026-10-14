@@ -397,6 +397,11 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
 .question-label textarea { min-height: 130px; font-size: 19px; }
 .question-label input:focus, .question-label textarea:focus { border-color: var(--orange); box-shadow: 0 2px 0 var(--orange); }
 .question-label input::placeholder, .question-label textarea::placeholder { color: rgba(255,255,255,.28); }
+.phone-fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-top: 34px; }
+.phone-fields label { display: block; margin-bottom: 12px; color: rgba(255,255,255,.7); font-size: 13px; }
+.phone-fields select, .phone-fields input { width: 100%; min-width: 0; height: 56px; margin: 0; padding: 12px; border: 1px solid rgba(255,255,255,.35); border-radius: 10px; outline: 0; background: #191614; color: white; font-size: 17px; }
+.phone-fields select:focus, .phone-fields input:focus { border-color: var(--orange); box-shadow: 0 0 0 2px rgba(240,74,29,.3); }
+.phone-fields input::placeholder { color: rgba(255,255,255,.4); }
 .choice-grid { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .choice-button { min-height: 58px; padding: 13px 17px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid rgba(255,255,255,.15); border-radius: 12px; background: rgba(255,255,255,.045); color: white; cursor: pointer; text-align: left; }
 .choice-button:hover { border-color: rgba(255,255,255,.35); }
@@ -510,6 +515,8 @@ a.creator-card:hover { background: rgba(255,255,255,.08); transform: translateY(
   .wizard-controls { padding: 14px 18px max(14px, env(safe-area-inset-bottom)); }
   .wizard-controls .button { min-width: 120px; }
   .question-label input { margin-top: 34px; font-size: 24px; }
+  .phone-fields { grid-template-columns: 1fr; gap: 18px; }
+  .phone-fields input { margin: 0; font-size: 18px; }
   .page-hero { min-height: 0; }
   .page-hero-inner { padding-top: 82px; padding-bottom: 88px; }
   .breadcrumbs { margin-bottom: 48px; }
