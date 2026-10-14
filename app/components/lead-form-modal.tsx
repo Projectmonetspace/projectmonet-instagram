@@ -13,6 +13,7 @@ import {
 } from "@/app/lib/forms";
 import { getSubmissionContext } from "@/app/lib/attribution";
 import { trackEvent } from "@/app/lib/analytics";
+import { phoneCountries } from "@/app/lib/phone-countries";
 
 type Step = {
   id: string;
@@ -29,7 +30,7 @@ type Step = {
 const auditSteps: Step[] = [
   { id: "name", question: "What should we call you?", type: "text", autoComplete: "name", maxLength: limits.name },
   { id: "email", question: "What is your email?", type: "email", autoComplete: "email", maxLength: limits.email },
-  { id: "phone", question: "What is your phone or WhatsApp number?", type: "tel", autoComplete: "tel", maxLength: limits.phone },
+  { id: "phone", question: "What is your phone or WhatsApp number?", help: "Select the country and enter the number without its calling code.", type: "tel", autoComplete: "tel-national", maxLength: limits.phone },
   { id: "businessName", question: "What is the business or creator name?", type: "text", autoComplete: "organization", maxLength: limits.businessName },
   { id: "instagram", question: "What is the Instagram account?", help: "Enter an @handle or profile URL.", type: "text", placeholder: "@yourhandle", maxLength: limits.instagram },
   { id: "niche", question: "What does the business do?", help: "A short niche or category is enough.", type: "text", maxLength: limits.niche },
@@ -85,7 +86,7 @@ export function LeadFormTrigger({ kind, location, className, children }: { kind:
   return <button type="button" className={className} onClick={(event) => openForm(kind, event.currentTarget, location)}>{children}</button>;
 }
 
-const focusableSelector = "button:not([disabled]), input:not([disabled]):not([type='hidden']), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])";
+const focusableSelector = "button:not([disabled]), input:not([disabled]):not([type='hidden']), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])";
 
 export default function LeadFormProvider({ children }: { children: ReactNode }) {
   const [kind, setKind] = useState<FormKind | null>(null);
@@ -159,7 +160,7 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
   const [error, setError] = useState("");
   const [status, setStatus] = useState<"editing" | "submitting" | "success">("editing");
   const [submitError, setSubmitError] = useState("");
-  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
+  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(null);
 
   const steps = useMemo(() => {
     if (kind === "audit") return auditSteps;
@@ -179,7 +180,37 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
     setError("");
   }
 
+  function updatePhoneCountry(selection: string) {
+    const country = phoneCountries.find(({ iso, dial }) => `${iso}:${dial}` === selection);
+    setValues((current) => ({
+      ...current,
+      phoneCountry: country?.name ?? "",
+      phoneCountryIso: country?.iso ?? "",
+      phoneCountryCode: country?.dial ?? "",
+      phone: country ? `${country.dial}${String(current.phoneLocal ?? "").replace(/\D/g, "")}` : "",
+    }));
+    setError("");
+  }
+
+  function updatePhoneLocal(value: string) {
+    const dial = String(values.phoneCountryCode ?? "");
+    const digits = value.replace(/\D/g, "");
+    const local = value.trim().startsWith("+") && digits.startsWith(dial.replace(/\D/g, ""))
+      ? digits.slice(dial.replace(/\D/g, "").length)
+      : value;
+    setValues((current) => ({ ...current, phoneLocal: local, phone: dial ? `${dial}${local.replace(/\D/g, "")}` : "" }));
+    setError("");
+  }
+
   async function next() {
+    if (step.id === "phone" && (!values.phoneCountry || !values.phoneCountryCode)) {
+      setError("Select your country and calling code.");
+      return;
+    }
+    if (step.id === "phone" && String(values.phoneLocal ?? "").trim().startsWith("+")) {
+      setError("Enter the number without a calling code, or choose its country above.");
+      return;
+    }
     const fieldError = step.optional ? "" : validateField(step.id, values[step.id] ?? "");
     if (fieldError) { setError(fieldError); return; }
     if (index < steps.length - 1) { setIndex((value) => value + 1); return; }
@@ -260,6 +291,43 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
               <span>I consent to Project Monet processing these details for this request.</span>
             </label>
           </fieldset>
+        ) : step.id === "phone" && kind === "audit" ? (
+          <div className="question-label">
+            <span id="lead-modal-title">{step.question}</span>
+            {step.help && <small>{step.help}</small>}
+            <div className="phone-fields">
+              <div>
+                <label htmlFor="field-phone-country">Country and calling code</label>
+                <select
+                  ref={inputRef as RefObject<HTMLSelectElement>}
+                  id="field-phone-country"
+                  value={values.phoneCountryIso && values.phoneCountryCode ? `${values.phoneCountryIso}:${values.phoneCountryCode}` : ""}
+                  onChange={(event) => updatePhoneCountry(event.target.value)}
+                  aria-invalid={Boolean(error)}
+                  aria-describedby={error ? "step-error" : undefined}
+                >
+                  <option value="">Select country</option>
+                  {phoneCountries.map(({ iso, name, dial }) => <option key={`${iso}:${dial}`} value={`${iso}:${dial}`}>{name} ({dial})</option>)}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="field-phone">Phone / WhatsApp number</label>
+                <input
+                  id="field-phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel-national"
+                  value={String(values.phoneLocal ?? "")}
+                  onChange={(event) => updatePhoneLocal(event.target.value)}
+                  maxLength={step.maxLength}
+                  placeholder="Phone number"
+                  aria-invalid={Boolean(error)}
+                  aria-describedby={error ? "step-error" : undefined}
+                  onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); void next(); } }}
+                />
+              </div>
+            </div>
+          </div>
         ) : (
           <label className="question-label" htmlFor={`field-${step.id}`}>
             <span id="lead-modal-title">{step.question}</span>

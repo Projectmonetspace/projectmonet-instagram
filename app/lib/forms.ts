@@ -56,7 +56,7 @@ export function validateField(name: string, value: string | boolean) {
 }
 
 const auditRequired = [
-  "name", "email", "phone", "businessName", "instagram", "niche", "goal", "resources",
+  "name", "email", "phoneCountry", "phoneCountryCode", "phone", "businessName", "instagram", "niche", "goal", "resources",
   "decisionMaker", "managementBudget", "consent",
 ];
 
@@ -121,6 +121,8 @@ export function buildWeb3FormsPayload(kind: FormKind, values: LeadValues, contex
       ...common,
       subject: `Free Instagram Audit — ${clean(values.businessName, limits.businessName)}`,
       "Phone / WhatsApp": normalizePhone(values.phone),
+      "Country": clean(values.phoneCountry, 80),
+      "Country calling code": clean(values.phoneCountryCode, 8),
       "Business / Creator": clean(values.businessName, limits.businessName),
       Instagram: normalizeInstagram(values.instagram),
       "Niche / Category": clean(values.niche, limits.niche),
