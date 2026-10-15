@@ -7,7 +7,7 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 test("homepage keeps the locked section order and one H1", () => {
   const page = read("app/page.tsx");
   const hero = read("app/components/hero.tsx");
-  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"services\"", "measurement-section", "id=\"offers\"", "why-section", "audit-section", "id=\"faq\"", "final-cta", "<SiteFooter"];
+  const order = ["<Hero", "id=\"results\"", "problem-section", "id=\"method\"", "id=\"offers\"", "id=\"services\"", "measurement-section", "why-section", "audit-section", "id=\"faq\"", "final-cta", "<SiteFooter"];
   let cursor = -1;
   for (const marker of order) { const next = page.indexOf(marker, cursor + 1); assert.ok(next > cursor, `${marker} is in order`); cursor = next; }
   assert.equal((`${page}\n${hero}`.match(/<h1/g) ?? []).length, 1);
