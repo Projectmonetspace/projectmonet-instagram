@@ -4,6 +4,7 @@ import test from "node:test";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 const slugs = [
+  "b2b-saas-instagram-content-strategy",
   "instagram-manager-vs-agency",
   "how-to-choose-an-instagram-agency",
   "instagram-marketing-cost",
@@ -18,19 +19,19 @@ const slugs = [
   "turn-instagram-reach-into-leads",
 ];
 
-test("resource registry contains the twelve live articles", () => {
+test("resource registry contains the declared live articles", () => {
   const data = read("app/lib/resources.ts");
-  assert.equal((data.match(/slug: "/g) ?? []).length, 12);
+  assert.equal((data.match(/slug: "/g) ?? []).length, slugs.length);
   for (const slug of slugs) assert.match(data, new RegExp(`slug: "${slug}"`));
   assert.doesNotMatch(data, /industry average|average agency charges|guaranteed results|AggregateRating/i);
 });
 
 test("resource articles have unique metadata, substantive sections, and human CTAs", () => {
   const data = read("app/lib/resources.ts");
-  assert.equal((data.match(/seoTitle: "/g) ?? []).length, 12);
-  assert.equal((data.match(/description: "/g) ?? []).length >= 12, true);
+  assert.equal((data.match(/seoTitle: "/g) ?? []).length, slugs.length);
+  assert.equal((data.match(/description: "/g) ?? []).length >= slugs.length, true);
   assert.equal((data.match(/heading: "/g) ?? []).length >= 78, true);
-  assert.equal((data.match(/related: \[/g) ?? []).length, 12);
+  assert.equal((data.match(/related: \[/g) ?? []).length, slugs.length);
   assert.match(read("app/resources/[slug]/page.tsx"), /<PageCta/);
 });
 
