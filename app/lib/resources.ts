@@ -21,6 +21,105 @@ export type ResourceArticle = {
 };
 
 export const resourceArticles: ResourceArticle[] = [
+
+  {
+    slug: "b2b-saas-instagram-content-strategy",
+    seoTitle: "B2B SaaS Instagram Content Strategy: 30-Day Test | Project Monet",
+    title: "A 30-day Instagram content strategy test for B2B SaaS",
+    description: "A practical 30-day B2B SaaS Instagram content test: check buyer fit, choose company or founder accounts, plan useful formats and measure the path to demos.",
+    eyebrow: "B2B SaaS Instagram Playbook",
+    intro: "You do not need to post every day to learn whether Instagram deserves a role in your SaaS marketing. Run a focused test that makes the audience, content, responsibilities and business action explicit.",
+    readTime: "8 min read",
+    publishedAt: "2026-10-16",
+    sections: [
+      {
+        heading: "Does Instagram make sense for your SaaS?",
+        paragraphs: [
+          "Instagram can help B2B SaaS teams make an unfamiliar problem, product or founder more understandable. It is not automatically the right channel for every SaaS company, and attention should not be confused with a sales pipeline. Start by identifying the people who buy, use, recommend or influence your software and whether they are likely to encounter relevant content here.",
+          "Decide what a useful next action would be before producing anything. Depending on the product, that might mean visiting a product explanation, starting a self-serve trial, saving a demo walkthrough, subscribing to an educational series, or requesting a demo. A relevant viewer who understands the product is more useful than unrelated reach.",
+        ],
+        callout: "A 30-day test is a learning plan, not a promise of growth, demos or new customers.",
+      },
+      {
+        heading: "Choose a company account, founder account or both",
+        paragraphs: [
+          "A company account explains what the product solves and lets prospective buyers inspect features, use cases, comparisons and proof. A founder account can explain decisions, industry lessons and the perspective behind the company. Running both is worthwhile only when each has a distinct editorial job and the team can supply material without duplicating the same posts.",
+        ],
+        table: {
+          caption: "Pick the smallest account setup that can answer the buyer's questions",
+          columns: ["Account approach", "Best content job", "Check before committing"],
+          rows: [
+            ["Company", "Product walkthroughs, buyer questions, category education and real evidence", "Can the team provide accurate demos and approve claims?"],
+            ["Founder", "Experience, judgment, industry observations and founder-led stories", "Can the founder contribute a genuine point of view in notes, interviews or recordings?"],
+            ["Both", "Connect founder perspective with product explanations without duplicate feeds", "Is there an owner for each account and a clear next action?"],
+          ],
+        },
+      },
+      {
+        heading: "Week 1: document the audience and establish a baseline",
+        paragraphs: [
+          "Write one buyer or user role, one recurring problem and one action your Instagram profile should make easier. Inspect questions from sales conversations, onboarding calls, support requests and product demos. These are stronger starting points than generic motivational posts or copied industry trends.",
+          "Record available baseline numbers without turning them into promises: recent reach, profile visits, content saves, link clicks, relevant messages, trial starts or demo enquiries, depending on what can actually be measured. Check whether the profile bio, pinned explanation and destination page make sense to somebody encountering the software for the first time.",
+        ],
+        bullets: [
+          "Define one audience and one decision you want to help them make.",
+          "List five real buyer questions and the evidence or screenshots needed to answer them.",
+          "Choose one primary next action and confirm that the destination works on mobile.",
+          "Assign content inputs, factual review and publishing responsibility to named owners.",
+        ],
+      },
+      {
+        heading: "Week 2: publish explanations, not feature announcements",
+        paragraphs: [
+          "Start with a small set of repeatable, useful formats. A software screen recording can show a workflow rather than a menu of features. A carousel can compare two ways to solve a buyer problem. A founder commentary post can explain a product trade-off with supporting context. A short Reel can answer a recurring implementation objection.",
+          "For example, imagine a hypothetical AI support tool. Instead of saying 'our automation is powerful,' show an anonymized, permissioned example of a ticket being classified, explain what still requires human review and link to a fuller product walkthrough. This is an illustrative brief, not a Project Monet client case study or performance claim.",
+        ],
+        bullets: [
+          "Problem-to-workflow demo: what changed between the starting problem and the product-assisted process?",
+          "Buyer objection: where does the tool fit, and where does it not fit?",
+          "Founder decision: why was one design trade-off made, and who benefits?",
+          "Comparison: which approach fits which situation, without invented benchmarks?",
+        ],
+      },
+      {
+        heading: "Week 3: test the journey from content to a useful action",
+        paragraphs: [
+          "For each post, make the relationship between the hook, substance, profile and next step clear. A Reel about a workflow might invite viewers to a longer demo; a founder observation might lead to a category explainer; a decision checklist might lead to a transparent sales conversation. The next step must fit the viewer's stage of interest.",
+          "Use source tags or UTMs where your analytics stack permits, and distinguish website enquiries from activity that stays inside Instagram. A click does not prove a sale, and attribution can be incomplete when privacy choices or platform handoffs prevent tracking. Keep a simple manual note of relevant inbound conversations alongside reported metrics.",
+        ],
+      },
+      {
+        heading: "Week 4: review quality, not just reach",
+        paragraphs: [
+          "Compare posts against the original buyer question. Did the right people engage, save, ask useful questions or visit the product path? Separate strong content signals from actual business actions; one highly viewed Reel may be less useful than a modest demo that attracts relevant buyers. Do not infer campaign ROI where revenue attribution is unavailable.",
+        ],
+        table: {
+          caption: "A simple review scorecard for a SaaS Instagram test",
+          columns: ["Signal", "Question to ask", "Possible next decision"],
+          rows: [
+            ["Reach and retention", "Did people stay for the explanation?", "Improve the hook or shorten the setup."],
+            ["Saves and shares", "Was the information worth keeping or passing on?", "Develop a deeper example of the useful topic."],
+            ["Profile visits", "Did the post create enough curiosity to inspect the brand?", "Align the post promise with the bio and pinned proof."],
+            ["Qualified messages", "Were questions relevant to the product and buyer role?", "Repeat topics that attract the right questions."],
+            ["Trials or demos", "Are there attributable actions and a reliable baseline?", "Improve the destination and handoff before increasing volume."],
+          ],
+        },
+      },
+      {
+        heading: "When should you stop, adjust or expand?",
+        paragraphs: [
+          "If you cannot identify a plausible audience or business role for Instagram, do not force an expensive program. If the right people see the content but cannot tell what the software does, fix clarity. If viewers understand the offer but take no useful action, inspect the profile and destination. If content repeatedly attracts unrelated viewers, change the topic choices before posting more.",
+          "One month may be too short to judge a long B2B buying cycle; it is enough to review process quality and early signals. Make the next decision based on what was learned, not an arbitrary follower target. For broader SaaS account support, see the dedicated Instagram marketing for B2B SaaS service page and our guide to evaluating agency responsibilities.",
+        ],
+      },
+    ],
+    related: [
+      { href: "/instagram-marketing-for-b2b-saas", label: "Instagram marketing for B2B SaaS", copy: "Review the service, company-versus-founder setup and qualification questions." },
+      { href: "/resources/how-to-get-leads-from-instagram", label: "How to get leads from Instagram", copy: "Connect useful attention to the profile and the next business action." },
+      { href: "/resources/instagram-content-strategy-for-business", label: "Instagram content strategy for businesses", copy: "Build content pillars and production responsibilities beyond a single test." },
+      { href: "/resources/how-to-choose-an-instagram-agency", label: "How to evaluate an Instagram agency", copy: "Check proof, scope, approvals and reporting before signing." },
+    ],
+  },
   {
     slug: "instagram-manager-vs-agency",
     seoTitle: "Instagram Manager vs Agency vs In-House | Project Monet",
