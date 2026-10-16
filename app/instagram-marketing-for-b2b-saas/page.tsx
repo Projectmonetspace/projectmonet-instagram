@@ -84,7 +84,7 @@ export default function Page() {
 
         <section className="content-source warm-section">
           <div className="page-shell scope-grid">
-            <div><p className="eyebrow">The content system</p><h2>Give people something to watch before the pitch.</h2><p>We use customer questions and real product knowledge to make content useful even when a viewer is not ready to buy. The company and founder can speak to the same market from different angles.</p></div>
+            <div><p className="eyebrow">The content system</p><h2>Give people something to watch before the pitch.</h2><p>We use customer questions and real product knowledge to make content useful even when a viewer is not ready to buy. The company and founder can speak to the same market from different angles.</p><p><Link className="text-link" href="/resources/b2b-saas-instagram-content-strategy">Use the 30-day SaaS content strategy test <ArrowRight aria-hidden="true" /></Link></p></div>
             <ul>
               {["Category and customer-problem stories", "Product demonstrations and real workflows", "Founder decisions and informed opinions", "Use cases, objections, and comparisons", "Permissioned customer proof and factual claims", "Clear routes to the next business action"].map((idea) => <li key={idea}><Check aria-hidden="true" />{idea}</li>)}
             </ul>
