@@ -9,7 +9,7 @@ const phone = "+91 82900 96163";
 
 export const metadata = pageMetadata({
   title: "Contact Project Monet | Instagram Services & Support",
-  description: "Contact Project Monet about Instagram services, an active project, a payment, cancellation, privacy, or website policy question. Email contact@projectmonet.com or call +91 82900 96163.",
+  description: "Contact Project Monet about Instagram services, current projects, payments or privacy. Email contact@projectmonet.com or call +91 82900 96163.",
   path,
 });
 
