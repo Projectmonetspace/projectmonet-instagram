@@ -18,9 +18,13 @@ for (const url of urls) {
   assert.ok(/<title>[^<]+<\/title>/.test(html), "Title: " + route);
   assert.ok(html.includes('name="description"'), "Description: " + route);
   assert.ok(html.includes('application/ld+json'), "Schema: " + route);
+  const schemas = [];
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-    JSON.parse(match[1]);
+    schemas.push(JSON.parse(match[1]));
     assert.ok(!match[1].includes("<"), "Unsafe JSON-LD serialization: " + route);
+  }
+  if (route.startsWith("/resources/")) {
+    assert.ok(schemas.some((schema) => schema["@type"] === "Article" && schema.mainEntityOfPage === url), "Article schema: " + route);
   }
   assert.ok(!/name="robots"[^>]*noindex/.test(html), "Unexpected noindex: " + route);
   assert.ok(!html.includes("/_next/image?"), "Runtime image optimizer: " + route);
@@ -28,6 +32,8 @@ for (const url of urls) {
   if (route === "/contact") {
     assert.ok(html.includes('href="mailto:contact@projectmonet.com"'), "Contact email missing");
     assert.ok(html.includes('href="tel:+918290096163"'), "Contact phone missing");
+    const description = html.match(/<meta name="description" content="([^"]+)"/);
+    assert.ok(description && description[1].length <= 160, "Contact meta description too long");
   } else {
     assert.ok(!html.includes("contact@projectmonet.com"), "Exposed contact address: " + route);
   }
@@ -84,6 +90,9 @@ for (const file of ["favicon.ico", "favicon.svg", "site.webmanifest"]) {
 }
 assert.ok(files.length <= 20000, "Pages Free file limit exceeded");
 for (const file of files) assert.ok((await stat(file)).size <= 25 * 1024 * 1024, "Pages asset too large: " + file);
+for (const file of files.filter((file) => file.startsWith("out/__images/media/reel-proof/"))) {
+  assert.ok((await stat(file)).size <= 250 * 1024, "Reel thumbnail variant too large: " + file);
+}
 for (const file of await allFiles("public/media")) {
   const exported = path.join("out", path.relative("public", file));
   assert.deepEqual(await readFile(exported), await readFile(file), "Original media changed: " + file);
