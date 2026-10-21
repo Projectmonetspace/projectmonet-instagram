@@ -30,11 +30,11 @@ for (const source of await images(path.join(root, "public", "media", "reel-proof
   await mkdir(destination, { recursive: true });
   for (const width of widths) {
     await sharp(source).rotate().resize({ width, withoutEnlargement: true })
-      .webp({ lossless: true, effort: 4 }).toFile(path.join(destination, "w" + width + ".webp"));
+      .webp({ quality: 78, effort: 4 }).toFile(path.join(destination, "w" + width + ".webp"));
     variants++;
   }
 }
-console.log("Generated", variants, "lossless responsive image variants; originals are unchanged.");
+console.log("Generated", variants, "responsive WebP image variants; originals are unchanged.");
 const build = spawnSync(process.execPath, [require.resolve("next/dist/bin/next"), "build"], {
   stdio: "inherit", env: { ...process.env, PM_STATIC_EXPORT: "1" },
 });
