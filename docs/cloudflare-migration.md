@@ -20,7 +20,7 @@ Build: `npm run build:cloudflare`; output: `out`; repository root: root.
 Validate the release branch before merging to main. This maintenance workflow does
 not require domain onboarding, DNS or nameserver changes.
 
-The Pages build generates lossless responsive variants from unchanged public originals,
+The Pages build generates compressed responsive WebP variants from unchanged public originals,
 exports Next.js pages with production canonicals, and writes Pages redirects/security headers.
 The normal npm run build remains the original Vercel runtime build for rollback.
 Existing tests are preserved. CI also validates the static export.
