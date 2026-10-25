@@ -30,11 +30,13 @@ test("privacy and cookies copy match current provider and analytics configuratio
   const privacy = read("app/privacy/page.tsx");
   const cookies = read("app/cookies/page.tsx");
   assert.match(privacy, /Web3Forms/);
-  assert.match(privacy, /retains submission records for up to 3 years/);
-  assert.match(privacy, /form answers or other personal information will not be sent as analytics event data/i);
+  assert.match(privacy, /maximum of three years/);
+  assert.match(privacy, /has not independently confirmed the retention setting/);
+  assert.match(privacy, /excludes form answers/);
   assert.match(cookies, /Google Analytics tag loads only after you select Accept analytics/);
   assert.match(cookies, /generate_lead event/);
   assert.match(cookies, /local storage/);
+  assert.match(cookies, /Cookie preferences in the footer/);
   assert.match(privacy, /Cloudflare Pages hosts the website/);
   assert.match(cookies, /Cloudflare Pages hosts the website/);
   assert.doesNotMatch(`${privacy}\n${cookies}`, /Vercel/);

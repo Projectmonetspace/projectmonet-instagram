@@ -5,6 +5,7 @@ import AnalyticsLink from "./analytics-link";
 import { LeadFormTrigger } from "./lead-form-modal";
 import SiteHeader from "./site-header";
 import SafeEmailLink from "./safe-email-link";
+import CookiePreferencesButton from "./cookie-preferences-button";
 import { absoluteUrl } from "@/app/lib/site";
 
 export type Crumb = { label: string; href: string };
@@ -74,7 +75,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="page-shell">
         <div><strong>Project Monet</strong><SafeEmailLink location="footer">Email Project Monet</SafeEmailLink></div>
-        <div className="footer-links"><AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink><nav aria-label="Company and legal"><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/audit-terms">Audit Terms</Link></nav></div>
+        <div className="footer-links"><AnalyticsLink href="https://www.projectmonet.space" target="_blank" rel="noreferrer" event="websites_link_click" location="footer">Websites ↗</AnalyticsLink><nav aria-label="Company and legal"><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/audit-terms">Audit Terms</Link><CookiePreferencesButton /></nav></div>
       </div>
     </footer>
   );
