@@ -51,7 +51,7 @@ export default function GoogleAnalytics() {
       if (!detail?.name || !window.gtag) return;
       const { name, ...parameters } = detail;
       window.gtag("event", name, parameters);
-      if (name === "audit_submit_success" || name === "viral_application_submit_success") {
+      if (name === "audit_submit_success" || name === "viral_application_submit_success" || (name === "meeting_qualification_submit_success" && parameters.route === "qualified")) {
         window.gtag("event", "generate_lead", parameters);
       }
     }

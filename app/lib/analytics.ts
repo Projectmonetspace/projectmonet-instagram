@@ -1,8 +1,10 @@
 export type AnalyticsEvent =
   | "audit_request_click"
   | "viral_mandate_qualification_click"
+  | "meeting_qualification_click"
   | "audit_submit_success"
   | "viral_application_submit_success"
+  | "meeting_qualification_submit_success"
   | "websites_link_click"
   | "click_to_email";
 
