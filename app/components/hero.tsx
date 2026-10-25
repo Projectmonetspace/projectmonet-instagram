@@ -19,6 +19,7 @@ export default function Hero() {
             <p className="hero-detail">We build the profile, content, and system that turns attention into growth, trust, DMs, leads, and demand. Remote. Working with founders and businesses worldwide.</p>
             <div className="hero-actions">
               <LeadFormTrigger kind="audit" location="hero" className="button button-light">Get a Free Instagram Audit</LeadFormTrigger>
+              <LeadFormTrigger kind="meeting" location="hero" className="button button-outline">Book Meeting</LeadFormTrigger>
               <a className="button button-outline" href="#results">See Results</a>
             </div>
             <p className="trust-line">Instagram only. Creator-led. Strategy before posting.</p>

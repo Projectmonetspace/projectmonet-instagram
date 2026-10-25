@@ -7,6 +7,7 @@ import {
   FormKind,
   LeadValues,
   limits,
+  getMeetingRoute,
   validateField,
   validateSubmission,
   WEB3FORMS_ENDPOINT,
@@ -40,6 +41,25 @@ const auditSteps: Step[] = [
   { id: "managementBudget", question: "If the audit shows a strong fit, are you open to ongoing Instagram management from $1,000/month?", type: "choice", options: ["Yes", "Maybe", "No"] },
   { id: "message", question: "Anything else we should know?", type: "textarea", optional: true, maxLength: limits.message },
   { id: "consent", question: "Can we use these details to review and respond to your request?", help: "We use your answers only to assess the account and contact you about this request.", type: "consent" },
+];
+
+const meetingSteps: Step[] = [
+  { id: "name", question: "What should we call you?", type: "text", autoComplete: "name", maxLength: limits.name },
+  { id: "email", question: "What is your work email?", type: "email", autoComplete: "email", maxLength: limits.email },
+  { id: "role", question: "Which best describes you?", type: "choice", options: ["Founder or owner", "Creator or author", "Marketing lead or team member", "Agency representing a client", "Other"] },
+  { id: "businessName", question: "What is your business, brand, or project called?", type: "text", autoComplete: "organization", maxLength: limits.businessName },
+  { id: "accountStatus", question: "Is your Instagram account live?", type: "choice", options: ["We have an Instagram account", "We haven't launched yet"] },
+  { id: "instagram", question: "What is your Instagram account?", help: "Enter an @handle or profile URL.", type: "text", placeholder: "@yourhandle", maxLength: limits.instagram },
+  { id: "website", question: "Do you have a website?", help: "Optional. Leave this blank if you don't have one.", type: "text", optional: true, autoComplete: "url", maxLength: limits.short },
+  { id: "offer", question: "What do you offer, and who do you want to reach?", help: "A short description of your business, book, or project is enough.", type: "textarea", maxLength: limits.medium },
+  { id: "service", question: "What are you looking for?", type: "choice", options: ["Ongoing Instagram management", "Viral Mandate", "Help choosing between those", "One-off work", "Help with other platforms"] },
+  { id: "goal", question: "What would you most like Instagram to achieve?", type: "choice", options: ["Relevant audience growth", "Recognition or authority", "DMs or leads", "Sales or bookings", "Audience for an upcoming launch", "Other"] },
+  { id: "budget", question: "What monthly service budget can you commit to?", help: "Standard Management starts at $1,000/month. Viral Mandate starts at $2,500/month.", type: "choice", options: ["Under $1,000", "$1,000–$2,499", "$2,500+", "Unsure"] },
+  { id: "timeline", question: "When are you looking to choose someone and begin?", type: "choice", options: ["Now or within 30 days", "Within 1–3 months and choosing now", "Later", "Just researching"] },
+  { id: "decisionMaker", question: "Can you approve the engagement?", type: "choice", options: ["Yes", "I'm part of the decision and can bring the approver", "No"] },
+  { id: "resourcesReady", question: "Can you provide business information, content inputs, and timely approvals?", type: "choice", options: ["Yes", "Yes, with a little planning", "No"] },
+  { id: "message", question: "Anything we should know before a call?", type: "textarea", optional: true, maxLength: limits.message },
+  { id: "consent", question: "May we use these details to assess and respond to your enquiry?", type: "consent" },
 ];
 
 const viralSteps: Step[] = [
@@ -100,7 +120,7 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
     returnFocusRef.current = trigger ?? (document.activeElement as HTMLElement | null);
     setSession((value) => value + 1);
     setKind(nextKind);
-    trackEvent(nextKind === "audit" ? "audit_request_click" : "viral_mandate_qualification_click", { location });
+    trackEvent(nextKind === "audit" ? "audit_request_click" : nextKind === "viral" ? "viral_mandate_qualification_click" : "meeting_qualification_click", { location });
   }
 
   function closeForm() { setKind(null); }
@@ -154,6 +174,7 @@ export default function LeadFormProvider({ children }: { children: ReactNode }) 
 }
 
 function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) {
+  const { openForm } = useLeadForm();
   const [started, setStarted] = useState(false);
   const [index, setIndex] = useState(0);
   const [values, setValues] = useState<LeadValues>({ consent: false, botcheck: "" });
@@ -164,10 +185,11 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
 
   const steps = useMemo(() => {
     if (kind === "audit") return auditSteps;
+    if (kind === "meeting") return meetingSteps.filter((item) => item.id !== "instagram" || values.accountStatus === "We have an Instagram account");
     const list = [...viralSteps];
     if (values.artificialGrowth === "Yes") list.splice(11, 0, artificialGrowthDetails);
     return list;
-  }, [kind, values.artificialGrowth]);
+  }, [kind, values.artificialGrowth, values.accountStatus]);
 
   const step = steps[index];
 
@@ -234,7 +256,7 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
       const result = await response.json() as { success?: boolean };
       if (!response.ok || !result.success) throw new Error("Provider rejected submission");
       setStatus("success");
-      trackEvent(kind === "audit" ? "audit_submit_success" : "viral_application_submit_success", { form_type: kind });
+      trackEvent(kind === "audit" ? "audit_submit_success" : kind === "viral" ? "viral_application_submit_success" : "meeting_qualification_submit_success", { form_type: kind, ...(kind === "meeting" ? { route: getMeetingRoute(values) } : {}) });
     } catch {
       setStatus("editing");
       setSubmitError("We could not send this right now. Please try again or use the Email Project Monet link in the footer.");
@@ -242,6 +264,32 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
   }
 
   if (status === "success") {
+    if (kind === "meeting") {
+      const route = getMeetingRoute(values);
+      const hasAccount = values.accountStatus === "We have an Instagram account";
+      const content = route === "qualified"
+        ? { eyebrow: "Meeting qualified", title: "Let's talk about your Instagram plans.", body: "Based on your answers, a meeting looks like a useful next step. We'll review your account and goals together. This screen does not confirm Viral Mandate eligibility or promise an engagement." }
+        : route === "audit"
+          ? { eyebrow: "Start with an audit", title: "Start with a clearer view of your account.", body: "A meeting may be premature for where you are today. Request a Free Instagram Audit and we'll review the account, identify the clearest opportunities, and recommend a sensible next step." }
+          : !hasAccount
+            ? { eyebrow: "Tell us what you're building", title: "Let's start by email.", body: "The free audit reviews an existing Instagram presence. Tell us about your project and launch plans and we'll suggest a next step." }
+            : { eyebrow: "Have a question before booking?", title: "Let's start by email.", body: "Tell us about your project, budget or timing, and what you need help deciding. We'll respond by email and suggest the right next step." };
+      return (
+        <div className="wizard-success" role="status" aria-live="polite">
+          <span className="success-mark" aria-hidden="true"><Check /></span>
+          <p className="eyebrow">{content.eyebrow}</p>
+          <h2 id="lead-modal-title">{content.title}</h2>
+          <p>{content.body}</p>
+          {route === "qualified" ? (
+            <a className="button button-orange" href="https://cal.com/projectmonet/30min" target="_blank" rel="noopener noreferrer">Book a 30-minute meeting <ArrowRight aria-hidden="true" /></a>
+          ) : route === "audit" ? (
+            <button className="button button-orange" type="button" onClick={() => openForm("audit", null, "meeting_not_qualified")}>Get a Free Instagram Audit <ArrowRight aria-hidden="true" /></button>
+          ) : (
+            <a className="button button-orange" href="mailto:contact@projectmonet.com?subject=Instagram%20enquiry">Email Project Monet <ArrowRight aria-hidden="true" /></a>
+          )}
+        </div>
+      );
+    }
     return (
       <div className="wizard-success" role="status" aria-live="polite">
         <span className="success-mark" aria-hidden="true"><Check /></span>
@@ -256,10 +304,10 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
   if (!started) {
     return (
       <div className="wizard-intro">
-        <p className="eyebrow">{kind === "audit" ? "Free Instagram Audit" : "Qualification required"}</p>
-        <h2 id="lead-modal-title">{kind === "audit" ? "Free Instagram Audit" : "See if Viral Mandate fits your account."}</h2>
-        <p>{kind === "audit" ? "Answer a few questions so we can understand the account before we review it." : "Viral Mandate is a six-month performance-led engagement. It starts at $2,500/month and requires more creative freedom than Standard Management."}</p>
-        <button className="button button-orange" type="button" onClick={() => setStarted(true)}>Start <ArrowRight aria-hidden="true" /></button>
+        <p className="eyebrow">{kind === "audit" ? "Free Instagram Audit" : kind === "viral" ? "Qualification required" : "Book a conversation"}</p>
+        <h2 id="lead-modal-title">{kind === "audit" ? "Free Instagram Audit" : kind === "viral" ? "See if Viral Mandate fits your account." : "Book a conversation with Project Monet."}</h2>
+        <p>{kind === "audit" ? "Answer a few questions so we can understand the account before we review it." : kind === "viral" ? "Viral Mandate is a six-month performance-led engagement. It starts at $2,500/month and requires more creative freedom than Standard Management." : "Tell us a little about your project first. If ongoing Instagram work looks like a fit, you can choose a 30-minute meeting. Standard Management starts at $1,000/month; Viral Mandate starts at $2,500/month and has separate qualification requirements."}</p>
+        <button className="button button-orange" type="button" onClick={() => setStarted(true)}>{kind === "meeting" ? "Check meeting fit" : "Start"} <ArrowRight aria-hidden="true" /></button>
       </div>
     );
   }
