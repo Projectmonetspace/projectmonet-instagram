@@ -26,7 +26,7 @@ export function BreadcrumbSchema({ items }: { items: Crumb[] }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />;
 }
 
-export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKind = "audit", primaryLabel = "Get a Free Instagram Audit", showPrimary = true, children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; primaryKind?: "audit" | "viral"; primaryLabel?: string; showPrimary?: boolean; children?: React.ReactNode }) {
+export function PageHero({ eyebrow, title, intro, path, currentLabel, primaryKind = "audit", primaryLabel = "Get a Free Instagram Audit", showPrimary = true, children }: { eyebrow: string; title: string; intro: string; path: string; currentLabel: string; primaryKind?: "audit" | "viral" | "meeting"; primaryLabel?: string; showPrimary?: boolean; children?: React.ReactNode }) {
   return (
     <header className="page-hero dark-section">
       <SiteHeader />
