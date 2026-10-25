@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { safeAnalyticsEvent } from "../app/lib/analytics.ts";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
@@ -16,7 +17,7 @@ test("loads the approved GA4 stream only after explicit consent", () => {
 
 test("exposes the non-modal consent banner without an incompatible dialog role", () => {
   const component = read("app/components/google-analytics.tsx");
-  assert.match(component, /<aside className="analytics-consent" aria-label="Analytics choice"/);
+  assert.match(component, /<aside className="analytics-consent" aria-label="Analytics preferences"/);
   assert.doesNotMatch(component, /<aside[^>]+role="dialog"/);
 });
 
@@ -25,7 +26,24 @@ test("maps successful forms to the recommended lead event without form answers",
   assert.match(component, /audit_submit_success/);
   assert.match(component, /viral_application_submit_success/);
   assert.match(component, /"generate_lead"/);
-  assert.doesNotMatch(component, /email|phone|instagram|businessName/);
+  assert.match(component, /safeAnalyticsEvent/);
+});
+
+test("analytics event gate rejects arbitrary fields and unapproved values", () => {
+  assert.deepEqual(safeAnalyticsEvent({ name: "audit_submit_success", form_type: "audit", email: "person@example.com", phone: "+123", message: "private" }), { name: "audit_submit_success", parameters: { form_type: "audit" } });
+  assert.deepEqual(safeAnalyticsEvent({ name: "click_to_email", location: "footer", instagram: "@private" }), { name: "click_to_email", parameters: { location: "footer" } });
+  assert.deepEqual(safeAnalyticsEvent({ name: "click_to_email", location: "person@example.com" }), { name: "click_to_email", parameters: {} });
+  assert.equal(safeAnalyticsEvent({ name: "personal_information", email: "person@example.com" }), null);
+});
+
+test("withdrawal reloads without GA and page views omit query strings", () => {
+  const component = read("app/components/google-analytics.tsx");
+  const footer = read("app/components/page-framework.tsx");
+  assert.match(component, /window\.location\.reload\(\)/);
+  assert.match(component, /ga-disable-/);
+  assert.match(component, /send_page_view: false/);
+  assert.match(component, /location\.origin.*location\.pathname/);
+  assert.match(footer, /CookiePreferencesButton/);
 });
 
 test("allows the Google tag and collection endpoints in the production CSP", () => {

@@ -5,6 +5,10 @@
 .analytics-consent-actions { display: flex; gap: 8px; }
 .analytics-consent-actions .button { min-height: 46px; padding-inline: 17px; white-space: nowrap; }
 .analytics-decline { border-color: rgba(255,255,255,.22); background: transparent; color: var(--paper); }
+.analytics-consent .analytics-current-choice { margin-top: 8px; color: var(--paper); }
+.analytics-close { grid-column: 1 / -1; align-self: center; border: 0; background: none; color: var(--paper); font: inherit; font-size: 12px; text-decoration: underline; cursor: pointer; }
+.cookie-preferences-link { border: 0; padding: 0; background: none; color: inherit; font: inherit; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.cookie-preferences-link:focus-visible, .analytics-close:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
 
 @media (max-width: 640px) {
   .analytics-consent { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); left: 12px; width: calc(100% - 24px); padding: 19px; grid-template-columns: 1fr; gap: 17px; }

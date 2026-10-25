@@ -5,9 +5,9 @@ import { absoluteUrl } from "@/app/lib/site";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[] };
 
-export default function LegalPage({ path, title, intro, updated, sections, related }: { path: string; title: string; intro: string; updated: string; sections: LegalSection[]; related: Array<{ href: string; label: string }> }) {
+export default function LegalPage({ path, title, intro, updated, updatedISO = "2026-08-29", sections, related }: { path: string; title: string; intro: string; updated: string; updatedISO?: string; sections: LegalSection[]; related: Array<{ href: string; label: string }> }) {
   const crumbs = [{ label: "Home", href: "/" }, { label: title, href: path }];
-  const schema = { "@context": "https://schema.org", "@type": "WebPage", name: title, url: absoluteUrl(path), dateModified: "2026-08-29", isPartOf: { "@type": "WebSite", name: "Project Monet", url: absoluteUrl("/") } };
+  const schema = { "@context": "https://schema.org", "@type": "WebPage", name: title, url: absoluteUrl(path), dateModified: updatedISO, isPartOf: { "@type": "WebSite", name: "Project Monet", url: absoluteUrl("/") } };
   return (
     <>
       <main>
