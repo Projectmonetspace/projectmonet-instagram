@@ -60,7 +60,7 @@ export default function Page() {
             </section>
             <section>
               <div><span>03</span><h2>New enquiries</h2></div>
-              <div><p>For an account review, start with the <Link href="/instagram-audit">Free Instagram Audit</Link>. Include your business name, Instagram account, contact details, and goals so we can assess your request.</p></div>
+              <div><p>For an account review, start with the <Link href="/instagram-audit">Free Instagram Audit</Link>. If you are considering ongoing Instagram work, read <Link href="/book-instagram-meeting">who can book a meeting</Link> before completing the qualification form. Include your business name, Instagram account if available, contact details, and goals so we can assess your request.</p></div>
             </section>
             <section>
               <div><span>04</span><h2>Project, payment, or policy support</h2></div>

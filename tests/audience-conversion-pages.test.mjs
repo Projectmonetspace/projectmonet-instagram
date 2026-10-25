@@ -8,6 +8,7 @@ const routes = [
   ["instagram-marketing-for-founders", "Founder Instagram Marketing & Personal Branding | Project Monet"],
   ["instagram-marketing-for-small-business", "Instagram Marketing for Small Business | Project Monet"],
   ["instagram-audit", "Free Instagram Audit Service: Human Review | Project Monet"],
+  ["book-instagram-meeting", "Book an Instagram Management Meeting | Project Monet"],
   ["viral-mandate", "Viral Mandate Instagram Growth Offer | Project Monet"],
   ["about", "About Project Monet | Creator-Led Instagram Agency"],
 ];
@@ -25,6 +26,15 @@ test("audience and conversion routes have unique metadata and are indexable", ()
     assert.equal(titles.has(title), false);
     titles.add(title);
   }
+});
+
+test("meeting eligibility page explains routing while the homepage hero keeps its direct form", () => {
+  const page = read("app/book-instagram-meeting/page.tsx");
+  const hero = read("app/components/hero.tsx");
+  assert.match(page, /primaryKind="meeting"/);
+  for (const phrase of ["$1,000", "$2,500", "budget is undecided", "Free Instagram Audit", "existing Instagram account", "Viral Mandate requires a separate review"]) assert.ok(page.includes(phrase));
+  assert.match(hero, /LeadFormTrigger kind="meeting"/);
+  assert.doesNotMatch(hero, /book-instagram-meeting/);
 });
 
 test("founder and small-business pages answer their audience intent without jargon", () => {

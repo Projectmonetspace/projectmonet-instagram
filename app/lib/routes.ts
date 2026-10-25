@@ -51,6 +51,12 @@ export const indexableRoutes = [
     priority: 0.9,
   },
   {
+    path: "/book-instagram-meeting",
+    lastModified: "2026-10-25",
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  },
+  {
     path: "/viral-mandate",
     lastModified: "2026-09-02",
     changeFrequency: "monthly" as const,
