@@ -267,13 +267,16 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
     if (kind === "meeting") {
       const route = getMeetingRoute(values);
       const hasAccount = values.accountStatus === "We have an Instagram account";
+      const budgetUndecided = values.budget === "Unsure";
       const content = route === "qualified"
         ? { eyebrow: "Meeting qualified", title: "Let's talk about your Instagram plans.", body: "Based on your answers, a meeting looks like a useful next step. We'll review your account and goals together. This screen does not confirm Viral Mandate eligibility or promise an engagement." }
         : route === "audit"
-          ? { eyebrow: "Start with an audit", title: "Start with a clearer view of your account.", body: "A meeting may be premature for where you are today. Request a Free Instagram Audit and we'll review the account, identify the clearest opportunities, and recommend a sensible next step." }
+          ? { eyebrow: "Meeting eligibility", title: "A meeting isn't available right now.", body: "We've received your details. Based on your answers, a Free Instagram Audit is the best next step. We'll review your account and recommend what to do next." }
           : !hasAccount
-            ? { eyebrow: "Tell us what you're building", title: "Let's start by email.", body: "The free audit reviews an existing Instagram presence. Tell us about your project and launch plans and we'll suggest a next step." }
-            : { eyebrow: "Have a question before booking?", title: "Let's start by email.", body: "Tell us about your project, budget or timing, and what you need help deciding. We'll respond by email and suggest the right next step." };
+            ? { eyebrow: "Meeting eligibility", title: "A meeting isn't available right now.", body: "We've received your details. The free audit reviews an existing Instagram account, so email us about your project and launch plans. We'll suggest a next step." }
+            : budgetUndecided
+              ? { eyebrow: "Meeting eligibility", title: "A meeting isn't available right now.", body: "We've received your details. Because your monthly service budget is still undecided, please email us with any questions about scope or starting prices. We'll help you decide whether a meeting makes sense." }
+              : { eyebrow: "Meeting eligibility", title: "A meeting isn't available right now.", body: "We've received your details. Based on your answers, we can't offer a booking at this stage. Email us about your project and what you need help deciding; we'll recommend the right next step." };
       return (
         <div className="wizard-success" role="status" aria-live="polite">
           <span className="success-mark" aria-hidden="true"><Check /></span>
