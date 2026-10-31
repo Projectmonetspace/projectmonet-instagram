@@ -7,7 +7,7 @@ import { pageMetadata } from "@/app/lib/site";
 const path = "/book-instagram-meeting";
 export const metadata = pageMetadata({
   title: "Book an Instagram Management Meeting | Project Monet",
-  description: "See who can book a 30-minute Instagram management meeting with Project Monet. Check budget, timing and decision criteria, or choose a free audit or email instead.",
+  description: "See who qualifies for a 30-minute Instagram management meeting with Project Monet. Check budget and timing, or choose a free audit or email.",
   path,
 });
 

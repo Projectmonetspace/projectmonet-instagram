@@ -55,7 +55,7 @@ export const indexableRoutes = [
   },
   {
     path: "/book-instagram-meeting",
-    lastModified: "2026-10-25",
+    lastModified: "2026-10-31",
     changeFrequency: "monthly" as const,
     priority: 0.75,
   },
