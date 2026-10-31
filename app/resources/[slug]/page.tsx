@@ -62,7 +62,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
         </article>
 
-        <RelatedLinks title="Continue with a useful next step" links={article.related} />
+        <RelatedLinks title="Continue with a useful next step" links={[
+          ...(["instagram-content-strategy-for-business", "when-instagram-virality-helps-a-business"].includes(slug) ? [{ href: "/results/rune-gibril", label: "Rune Gibril: the launch case study", copy: "See the strategy in practice, with dated account results and native Instagram evidence." }] : []),
+          ...article.related,
+        ]} />
         <PageCta title="Want a second pair of eyes on the account?" copy="We will review the current Instagram presence and show you the clearest opportunities we see." />
       </main>
       <SiteFooter />

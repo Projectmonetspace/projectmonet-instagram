@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { reelProof, type ReelProof } from "@/app/lib/reel-proof";
 
-function ReelCard({ reel, duplicate = false }: { reel: ReelProof; duplicate?: boolean }) {
+export type ReelCardData = Omit<ReelProof, "account" | "handle" | "label"> & { handle: string; label: string };
+
+export function ReelCard({ reel, duplicate = false }: { reel: ReelCardData; duplicate?: boolean }) {
   const metrics = `${reel.views} views${reel.likes ? ` · ${reel.likes} likes` : ""}`;
   const accessibleLabel = `Open ${reel.handle} Instagram Reel with ${reel.views} views${reel.likes ? ` and ${reel.likes} likes` : ""} in a new tab`;
 
