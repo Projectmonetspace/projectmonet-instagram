@@ -5,6 +5,7 @@ import Hero from "./components/hero";
 import { LeadFormTrigger } from "./components/lead-form-modal";
 import { RelatedLinks, SiteFooter } from "./components/page-framework";
 import ReelRail from "./components/reel-rail";
+import ClientResults from "./components/client-results";
 import { absoluteUrl } from "./lib/site";
 
 const services = [
@@ -64,6 +65,8 @@ export default function Home() {
           <ReelRail />
           <p className="proof-disclosure page-shell">Founder and team results are shown as creator experience. They are not Project Monet client results.</p>
         </section>
+
+        <ClientResults />
 
         <section className="problem-section warm-section">
           <div className="page-shell statement-grid">

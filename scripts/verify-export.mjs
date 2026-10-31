@@ -23,12 +23,20 @@ for (const url of urls) {
     schemas.push(JSON.parse(match[1]));
     assert.ok(!match[1].includes("<"), "Unsafe JSON-LD serialization: " + route);
   }
-  if (route.startsWith("/resources/")) {
+  if (route.startsWith("/resources/") || route.startsWith("/results/rune-gibril")) {
     assert.ok(schemas.some((schema) => schema["@type"] === "Article" && schema.mainEntityOfPage === url), "Article schema: " + route);
   }
   assert.ok(!/name="robots"[^>]*noindex/.test(html), "Unexpected noindex: " + route);
   assert.ok(!html.includes("/_next/image?"), "Runtime image optimizer: " + route);
   assert.ok(!html.includes("/cdn-cgi/l/email-protection"), "Cloudflare email protection link: " + route);
+  if (route.startsWith("/results") || route === "/") {
+    assert.ok(!/DfIC62Lhg9l|DfH5tz_hFWJ|DfIMSW4BE2J/.test(html), "Unapproved client Reel: " + route);
+  }
+  if (route.startsWith("/results/rune-gibril")) {
+    assert.ok(html.includes('aria-label="On this page"'), "Case-study navigation: " + route);
+    assert.ok(/<time\s+datetime="2026-10-31"/i.test(html), "Visible publication date: " + route);
+    assert.ok(schemas.some(schema => schema["@type"] === "BreadcrumbList"), "Case-study breadcrumb: " + route);
+  }
   if (route === "/contact") {
     assert.ok(html.includes('href="mailto:contact@projectmonet.com"'), "Contact email missing");
     assert.ok(html.includes('href="tel:+918290096163"'), "Contact phone missing");
@@ -41,6 +49,10 @@ for (const url of urls) {
     const asset = match[1].replaceAll("&amp;", "&");
     if (asset.startsWith("/__images/") || asset.startsWith("/_next/static/")) {
       await stat(path.join("out", decodeURIComponent(asset.split("?")[0])));
+    }
+    if (asset.startsWith("/media/client-results/")) {
+      const metadata = await stat(path.join("out", asset));
+      assert.ok(metadata.size > 1000, "Missing or empty client proof image: " + asset);
     }
   }
 }

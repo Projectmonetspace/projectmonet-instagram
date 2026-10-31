@@ -1,7 +1,10 @@
 import { resourceArticles } from "./resources";
+import { resultArticles, resultPath } from "./client-results";
 
 export const indexableRoutes = [
-  { path: "/", lastModified: "2026-10-07", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/", lastModified: "2026-10-31", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/results", lastModified: "2026-10-31", changeFrequency: "monthly" as const, priority: 0.85 },
+  ...resultArticles.map(article => ({ path: resultPath(article.slug), lastModified: "2026-10-31", changeFrequency: "monthly" as const, priority: article.slug ? 0.7 : 0.85 })),
   {
     path: "/instagram-management-services",
     lastModified: "2026-10-07",

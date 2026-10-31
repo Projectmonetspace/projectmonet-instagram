@@ -48,7 +48,7 @@ export default function SiteHeader() {
           </details>
           <Link href="/viral-mandate">Viral Mandate</Link>
           <Link href="/resources">Resources</Link>
-          <Link href="/#results">Results</Link>
+          <Link href="/results">Results</Link>
         </div>
         <div className="desktop-actions glass-surface">
           <a href="https://www.projectmonet.space" target="_blank" rel="noreferrer" onClick={() => trackEvent("websites_link_click", { location: "header" })}>Websites ↗</a>
@@ -67,7 +67,7 @@ export default function SiteHeader() {
           {audienceLinks.map((link) => <Link key={link.href} href={link.href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>{link.label}<span>↘</span></Link>)}
           <Link href="/viral-mandate" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>Viral Mandate<span>↘</span></Link>
           <Link href="/resources" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>Resources<span>↘</span></Link>
-          <Link href="/#results" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>Results<span>↘</span></Link>
+          <Link href="/results" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>Results<span>↘</span></Link>
           <button className="button button-light" type="button" tabIndex={open ? 0 : -1} onClick={(event) => { setOpen(false); openForm("audit", event.currentTarget, "mobile_menu"); }}>Get a Free Instagram Audit</button>
           <a className="button button-outline" href="https://www.projectmonet.space" target="_blank" rel="noreferrer" tabIndex={open ? 0 : -1}>Websites ↗</a>
         </div>

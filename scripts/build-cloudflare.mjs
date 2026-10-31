@@ -25,7 +25,10 @@ async function images(dir) {
 let variants = 0;
 // Only the Reel rail uses the responsive loader. Hero and brand assets are
 // served directly; generating every favicon at every width wastes build output.
-for (const source of await images(path.join(root, "public", "media", "reel-proof"))) {
+const reelSources = await images(path.join(root, "public", "media", "reel-proof"));
+const clientSources = (await images(path.join(root, "public", "media", "client-results")))
+  .filter(source => /\/(DewkGkKvNKt|De65sWRBWzw|De7BukKhZMN|DfALggkOcVl)\.webp$/.test(source));
+for (const source of [...reelSources, ...clientSources]) {
   const destination = path.join(generated, path.relative(path.join(root, "public"), source));
   await mkdir(destination, { recursive: true });
   for (const width of widths) {
