@@ -7,19 +7,19 @@ export const indexableRoutes = [
   ...resultArticles.map(article => ({ path: resultPath(article.slug), lastModified: "2026-10-31", changeFrequency: "monthly" as const, priority: article.slug ? 0.7 : 0.85 })),
   {
     path: "/instagram-management-services",
-    lastModified: "2026-10-07",
+    lastModified: "2026-11-04",
     changeFrequency: "monthly" as const,
     priority: 0.9,
   },
   {
     path: "/instagram-content-creation-services",
-    lastModified: "2026-10-07",
+    lastModified: "2026-11-04",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
   {
     path: "/instagram-reels-agency",
-    lastModified: "2026-10-07",
+    lastModified: "2026-11-04",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
@@ -31,7 +31,7 @@ export const indexableRoutes = [
   },
   {
     path: "/instagram-marketing-for-founders",
-    lastModified: "2026-10-07",
+    lastModified: "2026-11-04",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
@@ -43,7 +43,7 @@ export const indexableRoutes = [
   },
   {
     path: "/instagram-marketing-for-small-business",
-    lastModified: "2026-08-29",
+    lastModified: "2026-11-04",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
@@ -61,7 +61,7 @@ export const indexableRoutes = [
   },
   {
     path: "/viral-mandate",
-    lastModified: "2026-09-02",
+    lastModified: "2026-11-04",
     changeFrequency: "monthly" as const,
     priority: 0.85,
   },
@@ -89,9 +89,13 @@ export const indexableRoutes = [
     changeFrequency: "monthly" as const,
     priority: 0.72,
   })),
-  ...["/privacy", "/cookies", "/terms", "/audit-terms"].map((path) => ({
-    path,
-    lastModified: "2026-08-29",
+  ...([
+    { path: "/privacy", lastModified: "2026-10-25" },
+    { path: "/cookies", lastModified: "2026-10-25" },
+    { path: "/terms", lastModified: "2026-08-29" },
+    { path: "/audit-terms", lastModified: "2026-10-25" },
+  ]).map((route) => ({
+    ...route,
     changeFrequency: "yearly" as const,
     priority: 0.25,
   })),

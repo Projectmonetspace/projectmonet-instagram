@@ -54,6 +54,7 @@ const data: ServicePageData = {
     ["Why are views alone not enough?", "A Reel can reach many irrelevant viewers and still produce few profile visits, follows, DMs, or business actions. Audience quality and the account path matter."],
   ],
   related: [
+    { href: "/results/rune-gibril/first-reel", label: "Rune Gibril’s first Reel", copy: "Explore the dated organic reach and follower results from a literary account. Future results will vary." },
     { href: "/resources/instagram-manager-vs-agency", label: "Editor or Reels agency?", copy: "Choose support based on the work your team already owns." },
     { href: "/instagram-content-creation-services", label: "Instagram Content Creation", copy: "See how Reels work alongside scripts, carousels, captions, and creative direction." },
     { href: "/instagram-management-services", label: "Instagram Management", copy: "Connect Reels to profile work, publishing, reporting, and ongoing improvement." },

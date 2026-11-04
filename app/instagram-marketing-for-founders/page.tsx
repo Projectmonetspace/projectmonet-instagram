@@ -41,6 +41,7 @@ const data: AudiencePageData = {
     ["How much does ongoing Instagram management cost?", "Project Monet Standard Management starts at $1,000 per month. Final pricing depends on the work required."],
   ],
   related: [
+    { href: "/results/rune-gibril/strategy-before-posting", label: "Building an audience before launch", copy: "A literary account preparing for a future book: an audience-development example, not evidence of founder sales." },
     { href: "/resources/how-to-choose-an-instagram-agency", label: "Choosing founder-content support", copy: "Check voice, production inputs and evidence before hiring." },
     { href: "/instagram-management-services", label: "Instagram Management", copy: "See how strategy, profile, publishing, and review work together." },
     { href: "/instagram-content-creation-services", label: "Content Creation", copy: "Turn expertise into repeatable Reels, scripts, carousels, and captions." },
