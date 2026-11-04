@@ -52,6 +52,7 @@ const data: ServicePageData = {
     ["How much does ongoing work start from?", "Project Monet Standard Management starts at $1,000 per month. Content and production requirements affect the final price."],
   ],
   related: [
+    { href: "/results/rune-gibril/strategy-before-posting", label: "Content preparation in practice", copy: "See how audience, tone and profile preparation shaped a literary account before its first post." },
     { href: "/resources/instagram-manager-vs-agency", label: "Creator or account manager?", copy: "Decide whether you need assets, account ownership or both." },
     { href: "/instagram-reels-agency", label: "Instagram Reels Agency", copy: "Go deeper into hooks, production, editing, packaging, and testing." },
     { href: "/instagram-management-services", label: "Instagram Management", copy: "See how content fits publishing, profile work, reporting, and optimization." },

@@ -55,6 +55,7 @@ const data: ServicePageData = {
     ["Do you manage other social platforms?", "Not currently. Project Monet specialises in Instagram."],
   ],
   related: [
+    { href: "/results/rune-gibril", label: "Rune Gibril client case study", copy: "See the strategy and organic audience growth for a literary account. Reach is not evidence of sales." },
     { href: "/resources/instagram-manager-vs-agency", label: "Manager, agency or in-house?", copy: "Compare who owns the decisions and day-to-day work." },
     { href: "/resources/how-to-choose-an-instagram-agency", label: "Before you hire", copy: "Use a practical checklist to assess scope, proof and approvals." },
     { href: "/instagram-content-creation-services", label: "Instagram Content Creation", copy: "See how Reels, scripts, carousels, and captions fit the account system." },
