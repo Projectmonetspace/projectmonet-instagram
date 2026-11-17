@@ -114,3 +114,19 @@ test("meeting email clearly highlights qualified status and includes screening a
   assert.match(uncertain.subject, /^\[MEETING NOT QUALIFIED\]/);
   assert.equal(uncertain["Internal meeting route"], "email");
 });
+
+
+test("optional US audit SMS consent stays separate from enquiry consent and records its wording", () => {
+  const context = { sourcePage: "https://www.projectmonet.com/instagram-audit", submittedAt: "2026-11-17T12:00:00.000Z" };
+  const us = { ...audit, phoneCountry: "United States", phoneCountryIso: "US", phoneCountryCode: "+1", phone: "+15863277022" };
+  assert.deepEqual(validateSubmission("audit", { ...us, smsConsent: false }), {});
+  const no = buildWeb3FormsPayload("audit", { ...us, smsConsent: false }, context);
+  const yes = buildWeb3FormsPayload("audit", { ...us, smsConsent: true }, context);
+  assert.equal(no["SMS opt-in"], "No");
+  assert.equal(no["SMS consent mobile number"], "Not given");
+  assert.equal(yes["SMS opt-in"], "Yes — optional informational SMS");
+  assert.equal(yes["SMS consent mobile number"], "+15863277022");
+  assert.equal(yes["SMS consent timestamp"], context.submittedAt);
+  assert.match(yes["SMS consent wording"], /STOP.*HELP.*projectmonet\.com\/privacy/);
+  assert.ok(validateSubmission("audit", { ...audit, smsConsent: true }).smsConsent);
+});
