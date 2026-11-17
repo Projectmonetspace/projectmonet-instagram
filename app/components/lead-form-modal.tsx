@@ -6,6 +6,7 @@ import {
   buildWeb3FormsPayload,
   FormKind,
   LeadValues,
+  SMS_CONSENT_TEXT,
   limits,
   getMeetingRoute,
   validateField,
@@ -20,7 +21,7 @@ type Step = {
   id: string;
   question: string;
   help?: string;
-  type: "text" | "email" | "tel" | "textarea" | "choice" | "consent";
+  type: "text" | "email" | "tel" | "textarea" | "choice" | "consent" | "sms";
   options?: string[];
   optional?: boolean;
   autoComplete?: string;
@@ -41,6 +42,7 @@ const auditSteps: Step[] = [
   { id: "managementBudget", question: "If the audit shows a strong fit, are you open to ongoing Instagram management from $1,000/month?", type: "choice", options: ["Yes", "Maybe", "No"] },
   { id: "message", question: "Anything else we should know?", type: "textarea", optional: true, maxLength: limits.message },
   { id: "consent", question: "Can we use these details to review and respond to your request?", help: "We use your answers only to assess the account and contact you about this request.", type: "consent" },
+  { id: "smsConsent", question: "Would you like informational texts about your audit request?", help: "Optional. We will not text you unless the US SMS programme is available.", type: "sms", optional: true },
 ];
 
 const meetingSteps: Step[] = [
@@ -177,19 +179,19 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
   const { openForm } = useLeadForm();
   const [started, setStarted] = useState(false);
   const [index, setIndex] = useState(0);
-  const [values, setValues] = useState<LeadValues>({ consent: false, botcheck: "" });
+  const [values, setValues] = useState<LeadValues>({ consent: false, smsConsent: false, botcheck: "" });
   const [error, setError] = useState("");
   const [status, setStatus] = useState<"editing" | "submitting" | "success">("editing");
   const [submitError, setSubmitError] = useState("");
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(null);
 
   const steps = useMemo(() => {
-    if (kind === "audit") return auditSteps;
+    if (kind === "audit") return values.phoneCountryIso === "US" ? auditSteps : auditSteps.filter((item) => item.id !== "smsConsent");
     if (kind === "meeting") return meetingSteps.filter((item) => item.id !== "instagram" || values.accountStatus === "We have an Instagram account");
     const list = [...viralSteps];
     if (values.artificialGrowth === "Yes") list.splice(11, 0, artificialGrowthDetails);
     return list;
-  }, [kind, values.artificialGrowth, values.accountStatus]);
+  }, [kind, values.artificialGrowth, values.accountStatus, values.phoneCountryIso]);
 
   const step = steps[index];
 
@@ -332,6 +334,15 @@ function FormWizard({ kind, onClose }: { kind: FormKind; onClose: () => void }) 
                 </button>
               ))}
             </div>
+          </fieldset>
+        ) : step.type === "sms" ? (
+          <fieldset>
+            <legend id="lead-modal-title">{step.question}</legend>
+            {step.help && <p className="step-help">{step.help}</p>}
+            <label className="consent-choice">
+              <input ref={inputRef as RefObject<HTMLInputElement>} type="checkbox" checked={values.smsConsent === true} onChange={(event) => update(event.target.checked)} />
+              <span>{SMS_CONSENT_TEXT}</span>
+            </label>
           </fieldset>
         ) : step.type === "consent" ? (
           <fieldset>
