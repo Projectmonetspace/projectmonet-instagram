@@ -2,6 +2,7 @@ export const WEB3FORMS_ACCESS_KEY = "68c5446a-5663-4fb3-b70a-968ad99e0360";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 export type FormKind = "audit" | "viral" | "meeting";
+export const SMS_CONSENT_TEXT = "I agree to receive informational SMS from Project Monet about my audit request and information I ask for at the mobile number provided. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is optional and is not a condition of service. Privacy Policy: https://www.projectmonet.com/privacy. Terms: https://www.projectmonet.com/terms.";
 export type LeadValues = Record<string, string | boolean>;
 
 export const limits = {
@@ -101,6 +102,7 @@ export function validateSubmission(kind: FormKind, values: LeadValues) {
     const error = validateField("instagram", values.instagram ?? "");
     if (error) errors.instagram = error;
   }
+  if (kind === "audit" && values.smsConsent === true && values.phoneCountryIso !== "US") errors.smsConsent = "SMS opt-in is available only for US mobile numbers.";
   if (values.botcheck) errors.form = "Unable to process this request.";
   return errors;
 }
@@ -160,6 +162,10 @@ export function buildWeb3FormsPayload(kind: FormKind, values: LeadValues, contex
       "Open to management from $1,000/month": clean(values.managementBudget, limits.short),
       "Additional context": clean(values.message, limits.message) || "Not provided",
       "Privacy consent": "Yes",
+      "SMS opt-in": values.smsConsent === true ? "Yes — optional informational SMS" : "No",
+      "SMS consent wording": values.smsConsent === true ? SMS_CONSENT_TEXT : "Not given",
+      "SMS consent timestamp": values.smsConsent === true ? context.submittedAt : "Not given",
+      "SMS consent mobile number": values.smsConsent === true ? normalizePhone(values.phone) : "Not given",
     };
   }
 
